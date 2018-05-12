@@ -1,9 +1,15 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GBK">
-<title>::::: Éç¿ÆÔºµç×ÓËùÎñ :::::</title>
+<title>::::: ç¤¾ç§‘é™¢ç”µå­æ‰€åŠ¡ :::::</title>
 
 <link rel="stylesheet" href="../../style-menu.css">
 <link href="../../css/style.css" rel="stylesheet" type="text/css" />
@@ -31,7 +37,7 @@ dd{
 <body>
 
 <script>
-//Collection¶ÔÏó
+//Collectionå¯¹è±¡
 function Item(pvThing) {
       this.Value = pvThing;
       this.Index = -1;
@@ -44,11 +50,11 @@ function Collection() {
 
 
       this.Add = function (poItem, pvKey) {
-            //¼ì²éÊÇ·ñ´æÔÚ
+            //æ£€æŸ¥æ˜¯å¦å­˜åœ¨
 			if(this.Item(pvKey))return;
 
 			if (typeof(poItem) == "object" && poItem.constructor == Item) {
-                  var idx = this.all.push(poItem) - 1; // IE 5.5ĞÂÌí¼ÓÁË¡®push¡¯
+                  var idx = this.all.push(poItem) - 1; // IE 5.5æ–°æ·»åŠ äº†â€˜pushâ€™
                   if (this.all[idx].Index = -1) {
                         this.all[idx].Index = idx;
                   }
@@ -74,7 +80,7 @@ function Collection() {
                         }
                   }
             } else if (typeof(this.aall[pvItem]) != "undefined") {
-                  this.all.splice(this.aall[pvItem].Index, 1); // IE 5.5Ìí¼ÓÁË¡®splice¡¯·½·¨
+                  this.all.splice(this.aall[pvItem].Index, 1); // IE 5.5æ·»åŠ äº†â€˜spliceâ€™æ–¹æ³•
  
                   delete this.aall[pvItem];
             } else if (typeof(this.all[pvItem]) != "undefined") {
@@ -105,8 +111,8 @@ function Collection() {
       }
 
 }
-//ÔÚIE5.5ÒÔÏÂ°æ±¾ÖĞ£¬pushºÍsplice²»Æğ×÷ÓÃ
-//Äã¿ÉÒÔ´´½¨Ò»¸öĞÂº¯ÊıÀ´ÊµÏÖÕâ¸ö¹¦ÄÜ£¬ĞÂº¯Êı¿ÉÒÔÁªºÏÊ¹ÓÃconcatºÍslice
+//åœ¨IE5.5ä»¥ä¸‹ç‰ˆæœ¬ä¸­ï¼Œpushå’Œspliceä¸èµ·ä½œç”¨
+//ä½ å¯ä»¥åˆ›å»ºä¸€ä¸ªæ–°å‡½æ•°æ¥å®ç°è¿™ä¸ªåŠŸèƒ½ï¼Œæ–°å‡½æ•°å¯ä»¥è”åˆä½¿ç”¨concatå’Œslice
 
 
 </script>
@@ -129,10 +135,10 @@ function Collection() {
 	}
 </script>
 
-<!--ÆµµÀÊ÷JS BEIGIN-->
+<!--é¢‘é“æ ‘JS BEIGIN-->
 <script src="../../js/tree-relate.js"></script>
 <script>
-//ÏàÓ¦ÆµµÀÁ´½ÓÉÏµã»÷µÄ²Ù×÷£¬¿ÉÒÔÖØÔØ
+//ç›¸åº”é¢‘é“é“¾æ¥ä¸Šç‚¹å‡»çš„æ“ä½œï¼Œå¯ä»¥é‡è½½
 function onClickChnlCheck(_nChnlId){
 	selectChannel();
 }
@@ -142,116 +148,116 @@ function onClickChnlCheck(_nChnlId){
     <td height="25" align="center" valign="bottom" class="td06"><table width="98%" border="0" cellspacing="3" cellpadding="0">
       <tr>
         <td width="15"><img src="../../images/index_32.gif" width="9" height="9"></td>
-        <td valign="bottom" class="title">¶¨ÖÆ¿ìËÙÍ¨µÀ</td>
+        <td valign="bottom" class="title">å®šåˆ¶å¿«é€Ÿé€šé“</td>
       </tr>
     </table></td>
   </tr>
 </table>
 <form action="" method="post" name="">
-<!--ÆµµÀÊ÷JS END-->
+<!--é¢‘é“æ ‘JS END-->
 <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td NOWRAP class="td_page" id=TreeTable>
-<!-- ×éÁĞ±í¿ªÊ¼ -->
+<!-- ç»„åˆ—è¡¨å¼€å§‹ -->
 <dl>
-  <dd class=FirstDd><img src="fo.gif" width="34" height="15" align="absmiddle"> Éç¿ÆÔºµç×ÓËùÎñ
+  <dd class=FirstDd><img src="fo.gif" width="34" height="15" align="absmiddle"> ç¤¾ç§‘é™¢ç”µå­æ‰€åŠ¡
     <dl SiteId="91">
 	<dd><img src="f.gif" width="34" height="15" align="absmiddle">
-	  <input type=checkbox id="652">ËùÄÚÂÛÌ³
+	  <input type=checkbox id="652">æ‰€å†…è®ºå›
 <dl style="display:none">
-<dd><img src="../../images/e.gif"><input type="checkbox" id="689">¿ÎÌâÉçÇø
-<dd><img src="../../images/e.gif"><input type="checkbox" id="689">ĞİÏĞÊ±¹â
+<dd><img src="../../images/e.gif"><input type="checkbox" id="689">è¯¾é¢˜ç¤¾åŒº
+<dd><img src="../../images/e.gif"><input type="checkbox" id="689">ä¼‘é—²æ—¶å…‰
 </dl>
 <dd><img src="f.gif" width="34" height="15" align="absmiddle">
-  <input type="checkbox" id="765">ĞÂÎÅÉê±¨
+  <input type="checkbox" id="765">æ–°é—»ç”³æŠ¥
 <dl style="display:none">
-<dd><img src="../../images/e.gif"><input type="checkbox" id="766">ÎÒÒªÉê±¨
-<dd><img src="../../images/e.gif"><input type="checkbox" id="767">Éê±¨²é¿´
-<dd><img src="../../images/e.gif"><input type="checkbox" id="782">Éê±¨²éÑ¯
-<dd><img src="../../images/e.gif"><input type="checkbox" id="783">Éê±¨Í³¼Æ
+<dd><img src="../../images/e.gif"><input type="checkbox" id="766">æˆ‘è¦ç”³æŠ¥
+<dd><img src="../../images/e.gif"><input type="checkbox" id="767">ç”³æŠ¥æŸ¥çœ‹
+<dd><img src="../../images/e.gif"><input type="checkbox" id="782">ç”³æŠ¥æŸ¥è¯¢
+<dd><img src="../../images/e.gif"><input type="checkbox" id="783">ç”³æŠ¥ç»Ÿè®¡
 </dl>
 <dd><img src="f.gif" width="34" height="15" align="absmiddle">
-  <input type="checkbox" id="768">¿¼ÇÚ¹ÜÀí
+  <input type="checkbox" id="768">è€ƒå‹¤ç®¡ç†
 <dl style="display:none">
-<dd><img src="../../images/e.gif"><input type="checkbox" id="769">ÎÒÒªÇë¼Ù
-<dd><img src="../../images/e.gif"><input type="checkbox" id="770">Çë¼Ù²é¿´
-<dd><img src="../../images/e.gif"><input type="checkbox" id="771">Çë¼Ù²éÑ¯
-<dd><img src="../../images/e.gif"><input type="checkbox" id="772">¿¼ÇÚÍ³¼Æ
+<dd><img src="../../images/e.gif"><input type="checkbox" id="769">æˆ‘è¦è¯·å‡
+<dd><img src="../../images/e.gif"><input type="checkbox" id="770">è¯·å‡æŸ¥çœ‹
+<dd><img src="../../images/e.gif"><input type="checkbox" id="771">è¯·å‡æŸ¥è¯¢
+<dd><img src="../../images/e.gif"><input type="checkbox" id="772">è€ƒå‹¤ç»Ÿè®¡
 </dl>
 <dd><img src="f.gif" width="34" height="15" align="absmiddle">
-  <input type="checkbox" id="787">¹¤×Ê²éÑ¯
+  <input type="checkbox" id="787">å·¥èµ„æŸ¥è¯¢
 <dl style="display:none">
-<dd><img src="../../images/e.gif"><input type="checkbox" id="788">¹¤×ÊĞÅÏ¢Î¬»¤
-<dd><img src="../../images/e.gif"><input type="checkbox" id="789">¹¤×Ê²éÑ¯
+<dd><img src="../../images/e.gif"><input type="checkbox" id="788">å·¥èµ„ä¿¡æ¯ç»´æŠ¤
+<dd><img src="../../images/e.gif"><input type="checkbox" id="789">å·¥èµ„æŸ¥è¯¢
 </dl>
 <dd><img src="f.gif" width="34" height="15" align="absmiddle">
-  <input type="checkbox" id="846">³É¹û¹ÜÀí
+  <input type="checkbox" id="846">æˆæœç®¡ç†
 <dl style="display:none">
-<dd><img src="../../images/e.gif"><input type="checkbox" id="847">³É¹û²é¿´
-<dd><img src="../../images/e.gif"><input type="checkbox" id="848">³É¹û²éÑ¯
-<dd><img src="../../images/e.gif"><input type="checkbox" id="849">³É¹ûÍ³¼Æ
-<dd><img src="../../images/e.gif"><input type="checkbox" id="849">¸öĞÔ»¯³É¹ûÍ³¼Æ
+<dd><img src="../../images/e.gif"><input type="checkbox" id="847">æˆæœæŸ¥çœ‹
+<dd><img src="../../images/e.gif"><input type="checkbox" id="848">æˆæœæŸ¥è¯¢
+<dd><img src="../../images/e.gif"><input type="checkbox" id="849">æˆæœç»Ÿè®¡
+<dd><img src="../../images/e.gif"><input type="checkbox" id="849">ä¸ªæ€§åŒ–æˆæœç»Ÿè®¡
 </dl>
 <dd><img src="f.gif" width="34" height="15" align="absmiddle">
-  <input type="checkbox" id="794">¿ÎÌâ¾­·Ñ¹ÜÀí
+  <input type="checkbox" id="794">è¯¾é¢˜ç»è´¹ç®¡ç†
 <dl style="display:none">
-<dd><img src="../../images/e.gif"><input type="checkbox" id="800">¿ÎÌâ¹ÜÀí
-<dd><img src="../../images/e.gif"><input type="checkbox" id="801">¿ÎÌâ½è¿î²é¿´
-<dd><img src="../../images/e.gif"><input type="checkbox" id="802">¿ÎÌâ½è¿î²éÑ¯
-<dd><img src="../../images/e.gif"><input type="checkbox" id="803">¿ÎÌâ½è¿îÍ³¼Æ
-<dd><img src="../../images/e.gif"><input type="checkbox" id="804">¿ÎÌâ±¨Ïú²é¿´
-<dd><img src="../../images/e.gif"><input type="checkbox" id="805">¿ÎÌâ±¨Ïú²éÑ¯
-<dd><img src="../../images/e.gif"><input type="checkbox" id="805">¿ÎÌâ±¨ÏúÍ³¼Æ
+<dd><img src="../../images/e.gif"><input type="checkbox" id="800">è¯¾é¢˜ç®¡ç†
+<dd><img src="../../images/e.gif"><input type="checkbox" id="801">è¯¾é¢˜å€Ÿæ¬¾æŸ¥çœ‹
+<dd><img src="../../images/e.gif"><input type="checkbox" id="802">è¯¾é¢˜å€Ÿæ¬¾æŸ¥è¯¢
+<dd><img src="../../images/e.gif"><input type="checkbox" id="803">è¯¾é¢˜å€Ÿæ¬¾ç»Ÿè®¡
+<dd><img src="../../images/e.gif"><input type="checkbox" id="804">è¯¾é¢˜æŠ¥é”€æŸ¥çœ‹
+<dd><img src="../../images/e.gif"><input type="checkbox" id="805">è¯¾é¢˜æŠ¥é”€æŸ¥è¯¢
+<dd><img src="../../images/e.gif"><input type="checkbox" id="805">è¯¾é¢˜æŠ¥é”€ç»Ÿè®¡
 </dl>
 <dd><img src="f.gif" width="34" height="15" align="absmiddle">
-  <input type=checkbox id="850">Ò½ÁÆ¾­·Ñ¹ÜÀí
+  <input type=checkbox id="850">åŒ»ç–—ç»è´¹ç®¡ç†
 <dl style="display:none">
-<dd><img src="../../images/e.gif"><input type="checkbox" id="851">Ò½ÁÆ±¨Ïú²é¿´
-<dd><img src="../../images/e.gif"><input type="checkbox" id="852">Ò½ÁÆ±¨Ïú²éÑ¯
-<dd><img src="../../images/e.gif"><input type="checkbox" id="853">Ò½ÁÆ±¨ÏúÍ³¼Æ
-<dd><img src="../../images/e.gif"><input type="checkbox" id="851">Ò½ÁÆ±¨Ïú²é¿´
-<dd><img src="../../images/e.gif"><input type="checkbox" id="852">Ò½ÁÆ±¨Ïú²éÑ¯
-<dd><img src="../../images/e.gif"><input type="checkbox" id="853">Ò½ÁÆ±¨ÏúÍ³¼Æ
+<dd><img src="../../images/e.gif"><input type="checkbox" id="851">åŒ»ç–—æŠ¥é”€æŸ¥çœ‹
+<dd><img src="../../images/e.gif"><input type="checkbox" id="852">åŒ»ç–—æŠ¥é”€æŸ¥è¯¢
+<dd><img src="../../images/e.gif"><input type="checkbox" id="853">åŒ»ç–—æŠ¥é”€ç»Ÿè®¡
+<dd><img src="../../images/e.gif"><input type="checkbox" id="851">åŒ»ç–—æŠ¥é”€æŸ¥çœ‹
+<dd><img src="../../images/e.gif"><input type="checkbox" id="852">åŒ»ç–—æŠ¥é”€æŸ¥è¯¢
+<dd><img src="../../images/e.gif"><input type="checkbox" id="853">åŒ»ç–—æŠ¥é”€ç»Ÿè®¡
 </dl>
 <dd><img src="f.gif" width="34" height="15" align="absmiddle">
-  <input type="checkbox" id="795">¹¤×÷Á÷³Ì
+  <input type="checkbox" id="795">å·¥ä½œæµç¨‹
 <dl style="display:none">
-<dd><img src="../../images/e.gif"><input type="checkbox" id="806">Æô¶¯Á÷³Ì
-<dd><img src="../../images/e.gif"><input type="checkbox" id="807">´ı°ìÊÂÒË
-<dd><img src="../../images/e.gif"><input type="checkbox" id="808">Á÷³Ì¼à¿Ø
+<dd><img src="../../images/e.gif"><input type="checkbox" id="806">å¯åŠ¨æµç¨‹
+<dd><img src="../../images/e.gif"><input type="checkbox" id="807">å¾…åŠäº‹å®œ
+<dd><img src="../../images/e.gif"><input type="checkbox" id="808">æµç¨‹ç›‘æ§
 </dl>
 <dd><img src="f.gif" width="34" height="15" align="absmiddle">
-  <input type="checkbox" id="812">È¨ÏŞ¹ÜÀí
+  <input type="checkbox" id="812">æƒé™ç®¡ç†
 <dl style="display:none">
-<dd><img src="../../images/e.gif"><input type="checkbox" id="813">½ÇÉ«¹ÜÀí
-<dd><img src="../../images/e.gif"><input type="checkbox" id="814">ÓÃ»§¹ÜÀí
+<dd><img src="../../images/e.gif"><input type="checkbox" id="813">è§’è‰²ç®¡ç†
+<dd><img src="../../images/e.gif"><input type="checkbox" id="814">ç”¨æˆ·ç®¡ç†
 </dl>
 <dd><img src="f.gif" width="34" height="15" align="absmiddle">
-  <input type="checkbox" id="815">ÏµÍ³¹ÜÀí
+  <input type="checkbox" id="815">ç³»ç»Ÿç®¡ç†
 <dl style="display:none">
-<dd><img src="../../images/e.gif"><input type="checkbox" id="816">»ú¹¹¹ÜÀí
-<dd><img src="../../images/e.gif"><input type="checkbox" id="817">²éÑ¯¹ÜÀí
-<dd><img src="../../images/e.gif"><input type="checkbox" id="818">Ö¸±ê¹ÜÀí
-<dd><img src="../../images/f.gif"><input type="checkbox" id="819">´úÂë¹ÜÀí
+<dd><img src="../../images/e.gif"><input type="checkbox" id="816">æœºæ„ç®¡ç†
+<dd><img src="../../images/e.gif"><input type="checkbox" id="817">æŸ¥è¯¢ç®¡ç†
+<dd><img src="../../images/e.gif"><input type="checkbox" id="818">æŒ‡æ ‡ç®¡ç†
+<dd><img src="../../images/f.gif"><input type="checkbox" id="819">ä»£ç ç®¡ç†
 	<dl style="display:none">
-		<dd><img src="../../images/e.gif"><input type="checkbox" id="822">´úÂë¹ÜÀí
+		<dd><img src="../../images/e.gif"><input type="checkbox" id="822">ä»£ç ç®¡ç†
 	</dl>
-<dd><img src="../../images/e.gif"><input type="checkbox" id="820">²ÎÊı¹ÜÀí
-<dd><img src="../../images/e.gif"><input type="checkbox" id="821">ÈÕÖ¾¹ÜÀí
-<dd><img src="../../images/f.gif"><input type="checkbox" id="796">Á÷³Ì¶¨Òå
+<dd><img src="../../images/e.gif"><input type="checkbox" id="820">å‚æ•°ç®¡ç†
+<dd><img src="../../images/e.gif"><input type="checkbox" id="821">æ—¥å¿—ç®¡ç†
+<dd><img src="../../images/f.gif"><input type="checkbox" id="796">æµç¨‹å®šä¹‰
 	<dl style="display:none">
-		<dd><img src="../../images/e.gif"><input type="checkbox" id="823">Á÷³ÌÁĞ±í
+		<dd><img src="../../images/e.gif"><input type="checkbox" id="823">æµç¨‹åˆ—è¡¨
 	</dl>
 </dl>
 </dl>
   </td></tr>
-   <!-- ×éÁĞ±í½áÊø -->
+   <!-- ç»„åˆ—è¡¨ç»“æŸ -->
 </table>
 <br>
 <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td><input name="Input" type="submit" class="buttonface" value="  È·¶¨  ">
-      <input name="Input2" type="reset" class="buttonface" value="  È¡Ïû  "></td>
+    <td><input name="Input" type="submit" class="buttonface" value="  ç¡®å®š  ">
+      <input name="Input2" type="reset" class="buttonface" value="  å–æ¶ˆ  "></td>
   </tr>
 </table>
 </form>
@@ -269,7 +275,7 @@ function onClickChnlCheck(_nChnlId){
 		}
 	}
 
-	//»ñµÃTermId¼¯ºÏ
+	//è·å¾—TermIdé›†åˆ
 function getIdArray(){
 	var dictTemp = window.parent.document.dictSelectChannel;
 	var arItem	= dictTemp.all;
@@ -320,13 +326,13 @@ function onInit(){
 	if(!window.parent.document.dictSelectChannel){
 		window.parent.document.dictSelectChannel = new Collection();		
 	}
-	window.parent.document.dictSelectChannel.Add(new Item( "ÖĞĞÄÂÛÌ³"), "689");
-window.parent.document.dictSelectChannel.Add(new Item( "³É¹ûÉê±¨ÈËÔ±¹ÜÀí1"), "769");
-window.parent.document.dictSelectChannel.Add(new Item( "¿ÎÌâÀàĞÍ1"), "770");
-window.parent.document.dictSelectChannel.Add(new Item( "ÑĞ¾¿ÊôĞÔ1"), "771");
-window.parent.document.dictSelectChannel.Add(new Item( "ÎÒÒªÉê±¨1"), "788");
-window.parent.document.dictSelectChannel.Add(new Item( "³É¹û¹ÜÀí1"), "765");
-window.parent.document.dictSelectChannel.Add(new Item( "´úÂë¹ÜÀí1"), "768");
+	window.parent.document.dictSelectChannel.Add(new Item( "ä¸­å¿ƒè®ºå›"), "689");
+window.parent.document.dictSelectChannel.Add(new Item( "æˆæœç”³æŠ¥äººå‘˜ç®¡ç†1"), "769");
+window.parent.document.dictSelectChannel.Add(new Item( "è¯¾é¢˜ç±»å‹1"), "770");
+window.parent.document.dictSelectChannel.Add(new Item( "ç ”ç©¶å±æ€§1"), "771");
+window.parent.document.dictSelectChannel.Add(new Item( "æˆ‘è¦ç”³æŠ¥1"), "788");
+window.parent.document.dictSelectChannel.Add(new Item( "æˆæœç®¡ç†1"), "765");
+window.parent.document.dictSelectChannel.Add(new Item( "ä»£ç ç®¡ç†1"), "768");
 
 
 	var dictTemp = window.parent.document.dictSelectChannel;
@@ -355,7 +361,7 @@ function selectChannel(){
 	}
 
 	var dictTemp = window.parent.document.dictSelectChannel;
-	if(_objChk.checked){//Ìí¼ÓÒ»¸öÆµµÀ
+	if(_objChk.checked){//æ·»åŠ ä¸€ä¸ªé¢‘é“
 		dictTemp.Add(new Item(sName), new String(sId));
 	}else{
 		var sKey = new String(sId);
@@ -363,7 +369,7 @@ function selectChannel(){
 		dictTemp.Remove(objItem);
 	}
 }	
-//alert("µ÷ÊÔÖĞ£¡Çë¼ûÁÂ£¡");
+//alert("è°ƒè¯•ä¸­ï¼è¯·è§è°…ï¼");
 
 window.onload = onInit;
 

@@ -1,3 +1,10 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
@@ -11,7 +18,7 @@
     <td height="25" align="center" valign="bottom" class="td06"><table width="98%" border="0" cellspacing="3" cellpadding="0">
         <tr>
           <td width="15"><img src="../../images/index_32.gif" width="9" height="9"></td>
-          <td valign="bottom" class="title">ÖÐÐÄÂÛÌ³</td>
+          <td valign="bottom" class="title">ä¸­å¿ƒè®ºå›</td>
         </tr>
       </table>
     </td>
@@ -20,27 +27,27 @@
 <br>
 <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td class="td_page">¹Ø¼ü×Ö£º
+    <td class="td_page">å…³é”®å­—ï¼š
       <input name="textfield" type="text" class="input">
-      <input name="Submit" type="submit" class="buttonface" value="  ²éÑ¯  "></td>
+      <input name="Submit" type="submit" class="buttonface" value="  æŸ¥è¯¢  "></td>
   </tr>
 </table>
 <br>
 <table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0" class="table01">
   <tr>
-    <td width="40" align="center" class="td_top">ÐòºÅ</td>
-    <td width="30" align="center" class="td_top">»Ø¸´</td>
-    <td width="40" align="center" class="td_top">µã»÷</td>
-    <td class="td_top">±êÌâ</td>
-    <td width="80" align="center" class="td_top">·¢¸åÈË</td>
-    <td width="90" align="center" class="td_top">·¢¸åÊ±¼ä</td>
-    <td width="90" align="center" class="td_top">×îºó¸üÐÂ</td>
+    <td width="40" align="center" class="td_top">åºå·</td>
+    <td width="30" align="center" class="td_top">å›žå¤</td>
+    <td width="40" align="center" class="td_top">ç‚¹å‡»</td>
+    <td class="td_top">æ ‡é¢˜</td>
+    <td width="80" align="center" class="td_top">å‘ç¨¿äºº</td>
+    <td width="90" align="center" class="td_top">å‘ç¨¿æ—¶é—´</td>
+    <td width="90" align="center" class="td_top">æœ€åŽæ›´æ–°</td>
   </tr>
   <tr>
     <td align="center" class="td07">001</td>
     <td align="center" class="td07">0</td>
     <td align="center" class="td07">11</td>
-    <td class="td07"><a href="#">ÒÔÉ«ÁÐÔÝÍ£¾üÊÂÐÐ¶¯¸øÍâ½»ÎÓÐýÁôÊ±¼ä</a></td>
+    <td class="td07"><a href="#">ä»¥è‰²åˆ—æš‚åœå†›äº‹è¡ŒåŠ¨ç»™å¤–äº¤æ–¡æ—‹ç•™æ—¶é—´</a></td>
     <td align="center" class="td07">admin</td>
     <td align="center" class="td07">06-03-07 09:54</td>
     <td align="center" class="td07">06-03-07 09:54</td>
@@ -49,7 +56,7 @@
     <td align="center" class="td07">002</td>
     <td align="center" class="td07">0</td>
     <td align="center" class="td07">11</td>
-    <td class="td07"><a href="#">Î÷°àÑÀÊ×ÏàÐû²¼½«Óë°£Ëþ¾ÙÐÐºÍÌ¸</a></td>
+    <td class="td07"><a href="#">è¥¿ç­ç‰™é¦–ç›¸å®£å¸ƒå°†ä¸ŽåŸƒå¡”ä¸¾è¡Œå’Œè°ˆ</a></td>
     <td align="center" class="td07">admin</td>
     <td align="center" class="td07">06-03-07 09:54</td>
     <td align="center" class="td07">06-03-07 09:54</td>
@@ -58,7 +65,7 @@
     <td align="center" class="td07">003</td>
     <td align="center" class="td07">0</td>
     <td align="center" class="td07">11</td>
-    <td class="td07"><a href="#">²¨À¼¿ÉÄÜ¾Ü¾øÃÀ¹úÔÚÆä¾³ÄÚ½¨µ¼µ¯·ÀÓù»ùµØ</a></td>
+    <td class="td07"><a href="#">æ³¢å…°å¯èƒ½æ‹’ç»ç¾Žå›½åœ¨å…¶å¢ƒå†…å»ºå¯¼å¼¹é˜²å¾¡åŸºåœ°</a></td>
     <td align="center" class="td07">admin</td>
     <td align="center" class="td07">06-03-07 09:54</td>
     <td align="center" class="td07">06-03-07 09:54</td>
@@ -67,7 +74,7 @@
     <td align="center" class="td07">004</td>
     <td align="center" class="td07">0</td>
     <td align="center" class="td07">11</td>
-    <td class="td07"><a href="#">ÒÁÀÊ³ÆÕýÑÐ¾¿Áù¹ú¼¤Àø·½°¸½«ÓÚ8ÔÂ»ØÓ¦</a></td>
+    <td class="td07"><a href="#">ä¼Šæœ—ç§°æ­£ç ”ç©¶å…­å›½æ¿€åŠ±æ–¹æ¡ˆå°†äºŽ8æœˆå›žåº”</a></td>
     <td align="center" class="td07">admin</td>
     <td align="center" class="td07">06-03-07 09:54</td>
     <td align="center" class="td07">06-03-07 09:54</td>
@@ -76,7 +83,7 @@
     <td align="center" class="td07">005</td>
     <td align="center" class="td07">0</td>
     <td align="center" class="td07">11</td>
-    <td class="td07"><a href="#">ÒÔÉ«ÁÐÔÝÍ£¾üÊÂÐÐ¶¯¸øÍâ½»ÎÓÐýÁôÊ±¼ä</a></td>
+    <td class="td07"><a href="#">ä»¥è‰²åˆ—æš‚åœå†›äº‹è¡ŒåŠ¨ç»™å¤–äº¤æ–¡æ—‹ç•™æ—¶é—´</a></td>
     <td align="center" class="td07">admin</td>
     <td align="center" class="td07">06-03-07 09:54</td>
     <td align="center" class="td07">06-03-07 09:54</td>
@@ -85,7 +92,7 @@
     <td align="center" class="td07">006</td>
     <td align="center" class="td07">0</td>
     <td align="center" class="td07">11</td>
-    <td class="td07"><a href="#">Î÷°àÑÀÊ×ÏàÐû²¼½«Óë°£Ëþ¾ÙÐÐºÍÌ¸</a></td>
+    <td class="td07"><a href="#">è¥¿ç­ç‰™é¦–ç›¸å®£å¸ƒå°†ä¸ŽåŸƒå¡”ä¸¾è¡Œå’Œè°ˆ</a></td>
     <td align="center" class="td07">admin</td>
     <td align="center" class="td07">06-03-07 09:54</td>
     <td align="center" class="td07">06-03-07 09:54</td>
@@ -94,7 +101,7 @@
     <td align="center" class="td07">007</td>
     <td align="center" class="td07">0</td>
     <td align="center" class="td07">11</td>
-    <td class="td07"><a href="#">²¨À¼¿ÉÄÜ¾Ü¾øÃÀ¹úÔÚÆä¾³ÄÚ½¨µ¼µ¯·ÀÓù»ùµØ</a></td>
+    <td class="td07"><a href="#">æ³¢å…°å¯èƒ½æ‹’ç»ç¾Žå›½åœ¨å…¶å¢ƒå†…å»ºå¯¼å¼¹é˜²å¾¡åŸºåœ°</a></td>
     <td align="center" class="td07">admin</td>
     <td align="center" class="td07">06-03-07 09:54</td>
     <td align="center" class="td07">06-03-07 09:54</td>
@@ -103,7 +110,7 @@
     <td align="center" class="td07">008</td>
     <td align="center" class="td07">0</td>
     <td align="center" class="td07">11</td>
-    <td class="td07"><a href="#">ÒÁÀÊ³ÆÕýÑÐ¾¿Áù¹ú¼¤Àø·½°¸½«ÓÚ8ÔÂ»ØÓ¦</a></td>
+    <td class="td07"><a href="#">ä¼Šæœ—ç§°æ­£ç ”ç©¶å…­å›½æ¿€åŠ±æ–¹æ¡ˆå°†äºŽ8æœˆå›žåº”</a></td>
     <td align="center" class="td07">admin</td>
     <td align="center" class="td07">06-03-07 09:54</td>
     <td align="center" class="td07">06-03-07 09:54</td>
@@ -111,8 +118,8 @@
 </table>
 <table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td height="30"><input name="Button" type="button" class="buttonface" value="·¢±íÐÂÌû" onClick="location.href='post.html'"></td>
-    <td align="right"><img src="../../images/1.gif" width="4" height="5" align="absmiddle"> Ê×Ò³¡¡ <img src="../../images/2.gif" width="3" height="5" align="absmiddle"> ÉÏÒ»Ò³¡¡ <img src="../../images/2-2.gif" width="3" height="5" align="absmiddle"> ÏÂÒ»Ò³¡¡ <img src="../../images/3.gif" width="4" height="5" align="absmiddle"> Ä©Ò³¡¡¡¡¹² 1 Ò³ 1 Ìõ¼ÇÂ¼</td>
+    <td height="30"><input name="Button" type="button" class="buttonface" value="å‘è¡¨æ–°å¸–" onClick="location.href='post.html'"></td>
+    <td align="right"><img src="../../images/1.gif" width="4" height="5" align="absmiddle"> é¦–é¡µã€€ <img src="../../images/2.gif" width="3" height="5" align="absmiddle"> ä¸Šä¸€é¡µã€€ <img src="../../images/2-2.gif" width="3" height="5" align="absmiddle"> ä¸‹ä¸€é¡µã€€ <img src="../../images/3.gif" width="4" height="5" align="absmiddle"> æœ«é¡µã€€ã€€å…± 1 é¡µ 1 æ¡è®°å½•</td>
   </tr>
 </table>
 </body>
