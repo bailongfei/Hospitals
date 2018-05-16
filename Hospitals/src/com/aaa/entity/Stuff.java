@@ -12,31 +12,36 @@ public class Stuff implements java.io.Serializable {
 
 	// Fields
 
-	private Integer stuffid;
+	private Integer stuffid2;
 	private Jobtitle jobtitle;
-	private Doctorwork doctorwork;
 	private Position position;
+	private Scheduleitem scheduleitem;
+	private Chuku chuku;
+	private Office office;
 	private Stufftype stufftype;
-	private Department department;
-	private NurseWatch nurseWatch;
+	private Clinicregister clinicregister;
+	private Drugstorage drugstorage;
+	private Pharmacy pharmacy;
+	private Usertable usertable;
 	private String stuffname;
-	private String sex;
+	private String sex3;
 	private String idcard;
-	private String address;
-	private String phone;
+	private String address3;
+	private String phone3;
 	private Date hiredate;
-	private Date pbirthday;
-	private String nation;
+	private Date pbirthday3;
+	private String nation3;
 	private String cardNo;
 	private String nativePlace;
 	private String politics;
 	private String photo;
 	private Integer roomstate;
-	private String stuffaccount;
-	private String stuffpwd;
-	private Set beds = new HashSet(0);
-	private Set advices = new HashSet(0);
 	private Set outhospitals = new HashSet(0);
+	private Set scheduleitems = new HashSet(0);
+	private Set advices = new HashSet(0);
+	private Set usertables = new HashSet(0);
+	private Set beds = new HashSet(0);
+	private Set patients = new HashSet(0);
 
 	// Constructors
 
@@ -45,45 +50,51 @@ public class Stuff implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Stuff(Jobtitle jobtitle, Doctorwork doctorwork, Position position, Stufftype stufftype,
-			Department department, NurseWatch nurseWatch, String stuffname, String sex, String idcard, String address,
-			String phone, Date hiredate, Date pbirthday, String nation, String cardNo, String nativePlace,
-			String politics, String photo, Integer roomstate, String stuffaccount, String stuffpwd, Set beds,
-			Set advices, Set outhospitals) {
+	public Stuff(Jobtitle jobtitle, Position position, Scheduleitem scheduleitem, Chuku chuku, Office office,
+			Stufftype stufftype, Clinicregister clinicregister, Drugstorage drugstorage, Pharmacy pharmacy,
+			Usertable usertable, String stuffname, String sex3, String idcard, String address3, String phone3,
+			Date hiredate, Date pbirthday3, String nation3, String cardNo, String nativePlace, String politics,
+			String photo, Integer roomstate, Set outhospitals, Set scheduleitems, Set advices, Set usertables, Set beds,
+			Set patients) {
 		this.jobtitle = jobtitle;
-		this.doctorwork = doctorwork;
 		this.position = position;
+		this.scheduleitem = scheduleitem;
+		this.chuku = chuku;
+		this.office = office;
 		this.stufftype = stufftype;
-		this.department = department;
-		this.nurseWatch = nurseWatch;
+		this.clinicregister = clinicregister;
+		this.drugstorage = drugstorage;
+		this.pharmacy = pharmacy;
+		this.usertable = usertable;
 		this.stuffname = stuffname;
-		this.sex = sex;
+		this.sex3 = sex3;
 		this.idcard = idcard;
-		this.address = address;
-		this.phone = phone;
+		this.address3 = address3;
+		this.phone3 = phone3;
 		this.hiredate = hiredate;
-		this.pbirthday = pbirthday;
-		this.nation = nation;
+		this.pbirthday3 = pbirthday3;
+		this.nation3 = nation3;
 		this.cardNo = cardNo;
 		this.nativePlace = nativePlace;
 		this.politics = politics;
 		this.photo = photo;
 		this.roomstate = roomstate;
-		this.stuffaccount = stuffaccount;
-		this.stuffpwd = stuffpwd;
-		this.beds = beds;
-		this.advices = advices;
 		this.outhospitals = outhospitals;
+		this.scheduleitems = scheduleitems;
+		this.advices = advices;
+		this.usertables = usertables;
+		this.beds = beds;
+		this.patients = patients;
 	}
 
 	// Property accessors
 
-	public Integer getStuffid() {
-		return this.stuffid;
+	public Integer getStuffid2() {
+		return this.stuffid2;
 	}
 
-	public void setStuffid(Integer stuffid) {
-		this.stuffid = stuffid;
+	public void setStuffid2(Integer stuffid2) {
+		this.stuffid2 = stuffid2;
 	}
 
 	public Jobtitle getJobtitle() {
@@ -94,20 +105,36 @@ public class Stuff implements java.io.Serializable {
 		this.jobtitle = jobtitle;
 	}
 
-	public Doctorwork getDoctorwork() {
-		return this.doctorwork;
-	}
-
-	public void setDoctorwork(Doctorwork doctorwork) {
-		this.doctorwork = doctorwork;
-	}
-
 	public Position getPosition() {
 		return this.position;
 	}
 
 	public void setPosition(Position position) {
 		this.position = position;
+	}
+
+	public Scheduleitem getScheduleitem() {
+		return this.scheduleitem;
+	}
+
+	public void setScheduleitem(Scheduleitem scheduleitem) {
+		this.scheduleitem = scheduleitem;
+	}
+
+	public Chuku getChuku() {
+		return this.chuku;
+	}
+
+	public void setChuku(Chuku chuku) {
+		this.chuku = chuku;
+	}
+
+	public Office getOffice() {
+		return this.office;
+	}
+
+	public void setOffice(Office office) {
+		this.office = office;
 	}
 
 	public Stufftype getStufftype() {
@@ -118,20 +145,36 @@ public class Stuff implements java.io.Serializable {
 		this.stufftype = stufftype;
 	}
 
-	public Department getDepartment() {
-		return this.department;
+	public Clinicregister getClinicregister() {
+		return this.clinicregister;
 	}
 
-	public void setDepartment(Department department) {
-		this.department = department;
+	public void setClinicregister(Clinicregister clinicregister) {
+		this.clinicregister = clinicregister;
 	}
 
-	public NurseWatch getNurseWatch() {
-		return this.nurseWatch;
+	public Drugstorage getDrugstorage() {
+		return this.drugstorage;
 	}
 
-	public void setNurseWatch(NurseWatch nurseWatch) {
-		this.nurseWatch = nurseWatch;
+	public void setDrugstorage(Drugstorage drugstorage) {
+		this.drugstorage = drugstorage;
+	}
+
+	public Pharmacy getPharmacy() {
+		return this.pharmacy;
+	}
+
+	public void setPharmacy(Pharmacy pharmacy) {
+		this.pharmacy = pharmacy;
+	}
+
+	public Usertable getUsertable() {
+		return this.usertable;
+	}
+
+	public void setUsertable(Usertable usertable) {
+		this.usertable = usertable;
 	}
 
 	public String getStuffname() {
@@ -142,12 +185,12 @@ public class Stuff implements java.io.Serializable {
 		this.stuffname = stuffname;
 	}
 
-	public String getSex() {
-		return this.sex;
+	public String getSex3() {
+		return this.sex3;
 	}
 
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setSex3(String sex3) {
+		this.sex3 = sex3;
 	}
 
 	public String getIdcard() {
@@ -158,20 +201,20 @@ public class Stuff implements java.io.Serializable {
 		this.idcard = idcard;
 	}
 
-	public String getAddress() {
-		return this.address;
+	public String getAddress3() {
+		return this.address3;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddress3(String address3) {
+		this.address3 = address3;
 	}
 
-	public String getPhone() {
-		return this.phone;
+	public String getPhone3() {
+		return this.phone3;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setPhone3(String phone3) {
+		this.phone3 = phone3;
 	}
 
 	public Date getHiredate() {
@@ -182,20 +225,20 @@ public class Stuff implements java.io.Serializable {
 		this.hiredate = hiredate;
 	}
 
-	public Date getPbirthday() {
-		return this.pbirthday;
+	public Date getPbirthday3() {
+		return this.pbirthday3;
 	}
 
-	public void setPbirthday(Date pbirthday) {
-		this.pbirthday = pbirthday;
+	public void setPbirthday3(Date pbirthday3) {
+		this.pbirthday3 = pbirthday3;
 	}
 
-	public String getNation() {
-		return this.nation;
+	public String getNation3() {
+		return this.nation3;
 	}
 
-	public void setNation(String nation) {
-		this.nation = nation;
+	public void setNation3(String nation3) {
+		this.nation3 = nation3;
 	}
 
 	public String getCardNo() {
@@ -238,28 +281,20 @@ public class Stuff implements java.io.Serializable {
 		this.roomstate = roomstate;
 	}
 
-	public String getStuffaccount() {
-		return this.stuffaccount;
+	public Set getOuthospitals() {
+		return this.outhospitals;
 	}
 
-	public void setStuffaccount(String stuffaccount) {
-		this.stuffaccount = stuffaccount;
+	public void setOuthospitals(Set outhospitals) {
+		this.outhospitals = outhospitals;
 	}
 
-	public String getStuffpwd() {
-		return this.stuffpwd;
+	public Set getScheduleitems() {
+		return this.scheduleitems;
 	}
 
-	public void setStuffpwd(String stuffpwd) {
-		this.stuffpwd = stuffpwd;
-	}
-
-	public Set getBeds() {
-		return this.beds;
-	}
-
-	public void setBeds(Set beds) {
-		this.beds = beds;
+	public void setScheduleitems(Set scheduleitems) {
+		this.scheduleitems = scheduleitems;
 	}
 
 	public Set getAdvices() {
@@ -270,12 +305,28 @@ public class Stuff implements java.io.Serializable {
 		this.advices = advices;
 	}
 
-	public Set getOuthospitals() {
-		return this.outhospitals;
+	public Set getUsertables() {
+		return this.usertables;
 	}
 
-	public void setOuthospitals(Set outhospitals) {
-		this.outhospitals = outhospitals;
+	public void setUsertables(Set usertables) {
+		this.usertables = usertables;
+	}
+
+	public Set getBeds() {
+		return this.beds;
+	}
+
+	public void setBeds(Set beds) {
+		this.beds = beds;
+	}
+
+	public Set getPatients() {
+		return this.patients;
+	}
+
+	public void setPatients(Set patients) {
+		this.patients = patients;
 	}
 
 }

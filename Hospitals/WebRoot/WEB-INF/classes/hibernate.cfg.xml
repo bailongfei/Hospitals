@@ -13,13 +13,12 @@
 		<property name="connection.password">root</property>
 		<property name="connection.username">root</property>
 		<property name="connection.url">
-			jdbc:mysql://localhost:3306/ops
+			jdbc:mysql://localhost:3306/hospital
 		</property>
 		<property name="connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>
 		<property name="connection.autocommit">true</property>
-		<mapping resource="com/aaa/entity/Sort.hbm.xml" />
 		<mapping resource="com/aaa/entity/Westerndetails.hbm.xml" />
 		<mapping resource="com/aaa/entity/Room.hbm.xml" />
 		<mapping resource="com/aaa/entity/Chinesedetails.hbm.xml" />
@@ -64,6 +63,48 @@
 		<mapping resource="com/aaa/entity/Inpatientarea.hbm.xml" />
 		<mapping resource="com/aaa/entity/Triage.hbm.xml" />
 		<mapping resource="com/aaa/entity/Nurworklog.hbm.xml" />
+		<mapping resource="com/aaa/entity/Bookinginfo.hbm.xml" />
+		<mapping resource="com/aaa/entity/Kubreakage.hbm.xml" />
+		<mapping resource="com/aaa/entity/Chuku.hbm.xml" />
+		<mapping resource="com/aaa/entity/Pharmacology.hbm.xml" />
+		<mapping resource="com/aaa/entity/Schedule.hbm.xml" />
+		<mapping resource="com/aaa/entity/Usertable.hbm.xml" />
+		<mapping resource="com/aaa/entity/Pharmacy.hbm.xml" />
+		<mapping resource="com/aaa/entity/Scheduletype.hbm.xml" />
+		<mapping resource="com/aaa/entity/Ruku.hbm.xml" />
+		<mapping resource="com/aaa/entity/Adjustprice.hbm.xml" />
+		<mapping resource="com/aaa/entity/Drugtype2.hbm.xml" />
+		<mapping resource="com/aaa/entity/Audit.hbm.xml" />
+		<mapping resource="com/aaa/entity/Applicationitem.hbm.xml" />
+		<mapping resource="com/aaa/entity/Chargetype.hbm.xml" />
+		<mapping resource="com/aaa/entity/Fanginventory.hbm.xml" />
+		<mapping resource="com/aaa/entity/Prescribe.hbm.xml" />
+		<mapping resource="com/aaa/entity/Registeredtype.hbm.xml" />
+		<mapping resource="com/aaa/entity/Breakage.hbm.xml" />
+		<mapping resource="com/aaa/entity/Drugstorage.hbm.xml" />
+		<mapping resource="com/aaa/entity/Inspection.hbm.xml" />
+		<mapping resource="com/aaa/entity/Patients.hbm.xml" />
+		<mapping resource="com/aaa/entity/Chukuming.hbm.xml" />
+		<mapping resource="com/aaa/entity/Rolesmodule.hbm.xml" />
+		<mapping resource="com/aaa/entity/Patientdetail.hbm.xml" />
+		<mapping resource="com/aaa/entity/Modules.hbm.xml" />
+		<mapping resource="com/aaa/entity/Supplier.hbm.xml" />
+		<mapping resource="com/aaa/entity/Address.hbm.xml" />
+		<mapping resource="com/aaa/entity/Rolestable.hbm.xml" />
+		<mapping resource="com/aaa/entity/Dosageform.hbm.xml" />
+		<mapping resource="com/aaa/entity/Office.hbm.xml" />
+		<mapping resource="com/aaa/entity/Applicationresult.hbm.xml" />
+		<mapping resource="com/aaa/entity/Drug.hbm.xml" />
+		<mapping resource="com/aaa/entity/Treatment.hbm.xml" />
+		<mapping resource="com/aaa/entity/Kuinventory.hbm.xml" />
+		<mapping resource="com/aaa/entity/Scheduleitem.hbm.xml" />
+		<mapping resource="com/aaa/entity/Iccard.hbm.xml" />
+		<mapping resource="com/aaa/entity/Rukuming.hbm.xml" />
+		<mapping resource="com/aaa/entity/Drugtype.hbm.xml" />
+		<mapping resource="com/aaa/entity/Applicationform.hbm.xml" />
+		<mapping resource="com/aaa/entity/Inspectionitem.hbm.xml" />
+		<mapping resource="com/aaa/entity/Paymensstatus.hbm.xml" />
+		<mapping resource="com/aaa/entity/Doseunit.hbm.xml" />
 
 	</session-factory>
 

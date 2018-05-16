@@ -1,5 +1,8 @@
 package com.aaa.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Charge entity. @author MyEclipse Persistence Tools
  */
@@ -8,14 +11,15 @@ public class Charge implements java.io.Serializable {
 
 	// Fields
 
-	private Integer tollId;
-	private Cure cure;
-	private Integer patientId;
-	private String registrationToll;
-	private String pillToll;
-	private String checkToll;
-	private String checkoutToll;
-	private String opstoll;
+	private Integer sfId;
+	private Patients patients;
+	private Chargetype chargetype;
+	private String fessName;
+	private Integer charge;
+	private Integer chargeable;
+	private Integer realCharge;
+	private Integer changes;
+	private Set particularses = new HashSet(0);
 
 	// Constructors
 
@@ -24,81 +28,90 @@ public class Charge implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Charge(Cure cure, Integer patientId, String registrationToll, String pillToll, String checkToll,
-			String checkoutToll, String opstoll) {
-		this.cure = cure;
-		this.patientId = patientId;
-		this.registrationToll = registrationToll;
-		this.pillToll = pillToll;
-		this.checkToll = checkToll;
-		this.checkoutToll = checkoutToll;
-		this.opstoll = opstoll;
+	public Charge(Patients patients, Chargetype chargetype, String fessName, Integer charge, Integer chargeable,
+			Integer realCharge, Integer changes, Set particularses) {
+		this.patients = patients;
+		this.chargetype = chargetype;
+		this.fessName = fessName;
+		this.charge = charge;
+		this.chargeable = chargeable;
+		this.realCharge = realCharge;
+		this.changes = changes;
+		this.particularses = particularses;
 	}
 
 	// Property accessors
 
-	public Integer getTollId() {
-		return this.tollId;
+	public Integer getSfId() {
+		return this.sfId;
 	}
 
-	public void setTollId(Integer tollId) {
-		this.tollId = tollId;
+	public void setSfId(Integer sfId) {
+		this.sfId = sfId;
 	}
 
-	public Cure getCure() {
-		return this.cure;
+	public Patients getPatients() {
+		return this.patients;
 	}
 
-	public void setCure(Cure cure) {
-		this.cure = cure;
+	public void setPatients(Patients patients) {
+		this.patients = patients;
 	}
 
-	public Integer getPatientId() {
-		return this.patientId;
+	public Chargetype getChargetype() {
+		return this.chargetype;
 	}
 
-	public void setPatientId(Integer patientId) {
-		this.patientId = patientId;
+	public void setChargetype(Chargetype chargetype) {
+		this.chargetype = chargetype;
 	}
 
-	public String getRegistrationToll() {
-		return this.registrationToll;
+	public String getFessName() {
+		return this.fessName;
 	}
 
-	public void setRegistrationToll(String registrationToll) {
-		this.registrationToll = registrationToll;
+	public void setFessName(String fessName) {
+		this.fessName = fessName;
 	}
 
-	public String getPillToll() {
-		return this.pillToll;
+	public Integer getCharge() {
+		return this.charge;
 	}
 
-	public void setPillToll(String pillToll) {
-		this.pillToll = pillToll;
+	public void setCharge(Integer charge) {
+		this.charge = charge;
 	}
 
-	public String getCheckToll() {
-		return this.checkToll;
+	public Integer getChargeable() {
+		return this.chargeable;
 	}
 
-	public void setCheckToll(String checkToll) {
-		this.checkToll = checkToll;
+	public void setChargeable(Integer chargeable) {
+		this.chargeable = chargeable;
 	}
 
-	public String getCheckoutToll() {
-		return this.checkoutToll;
+	public Integer getRealCharge() {
+		return this.realCharge;
 	}
 
-	public void setCheckoutToll(String checkoutToll) {
-		this.checkoutToll = checkoutToll;
+	public void setRealCharge(Integer realCharge) {
+		this.realCharge = realCharge;
 	}
 
-	public String getOpstoll() {
-		return this.opstoll;
+	public Integer getChanges() {
+		return this.changes;
 	}
 
-	public void setOpstoll(String opstoll) {
-		this.opstoll = opstoll;
+	public void setChanges(Integer changes) {
+		this.changes = changes;
+	}
+
+	public Set getParticularses() {
+		return this.particularses;
+	}
+
+	public void setParticularses(Set particularses) {
+		this.particularses = particularses;
 	}
 
 }

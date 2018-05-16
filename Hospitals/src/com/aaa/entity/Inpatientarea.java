@@ -12,12 +12,13 @@ public class Inpatientarea implements java.io.Serializable {
 	// Fields
 
 	private Integer bqid;
-	private Integer bqtypeid;
+	private Bqtype bqtype;
 	private String bqname;
 	private String bqaddress;
 	private String bqstate;
 	private String bqremark;
 	private Set beds = new HashSet(0);
+	private Set patients = new HashSet(0);
 
 	// Constructors
 
@@ -26,13 +27,15 @@ public class Inpatientarea implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Inpatientarea(Integer bqtypeid, String bqname, String bqaddress, String bqstate, String bqremark, Set beds) {
-		this.bqtypeid = bqtypeid;
+	public Inpatientarea(Bqtype bqtype, String bqname, String bqaddress, String bqstate, String bqremark, Set beds,
+			Set patients) {
+		this.bqtype = bqtype;
 		this.bqname = bqname;
 		this.bqaddress = bqaddress;
 		this.bqstate = bqstate;
 		this.bqremark = bqremark;
 		this.beds = beds;
+		this.patients = patients;
 	}
 
 	// Property accessors
@@ -45,12 +48,12 @@ public class Inpatientarea implements java.io.Serializable {
 		this.bqid = bqid;
 	}
 
-	public Integer getBqtypeid() {
-		return this.bqtypeid;
+	public Bqtype getBqtype() {
+		return this.bqtype;
 	}
 
-	public void setBqtypeid(Integer bqtypeid) {
-		this.bqtypeid = bqtypeid;
+	public void setBqtype(Bqtype bqtype) {
+		this.bqtype = bqtype;
 	}
 
 	public String getBqname() {
@@ -91,6 +94,14 @@ public class Inpatientarea implements java.io.Serializable {
 
 	public void setBeds(Set beds) {
 		this.beds = beds;
+	}
+
+	public Set getPatients() {
+		return this.patients;
+	}
+
+	public void setPatients(Set patients) {
+		this.patients = patients;
 	}
 
 }

@@ -16,9 +16,9 @@ public class Adviceinfo implements java.io.Serializable {
 	private Double dosage;
 	private Double daysNum;
 	private String usages;
-	private String frequency;
+	private String frequency2;
 	private Double unitprice;
-	private Double totalprice;
+	private Double totalprice3;
 	private String paystate;
 	private Double yzgross;
 	private Date yzstopdate;
@@ -35,17 +35,17 @@ public class Adviceinfo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Adviceinfo(Advice advice, String yzproject, Double dosage, Double daysNum, String usages, String frequency,
-			Double unitprice, Double totalprice, String paystate, Double yzgross, Date yzstopdate, String yzdrip,
+	public Adviceinfo(Advice advice, String yzproject, Double dosage, Double daysNum, String usages, String frequency2,
+			Double unitprice, Double totalprice3, String paystate, Double yzgross, Date yzstopdate, String yzdrip,
 			String yzdripunit, String yzpishi, String yzpsresult, String explains) {
 		this.advice = advice;
 		this.yzproject = yzproject;
 		this.dosage = dosage;
 		this.daysNum = daysNum;
 		this.usages = usages;
-		this.frequency = frequency;
+		this.frequency2 = frequency2;
 		this.unitprice = unitprice;
-		this.totalprice = totalprice;
+		this.totalprice3 = totalprice3;
 		this.paystate = paystate;
 		this.yzgross = yzgross;
 		this.yzstopdate = yzstopdate;
@@ -106,12 +106,12 @@ public class Adviceinfo implements java.io.Serializable {
 		this.usages = usages;
 	}
 
-	public String getFrequency() {
-		return this.frequency;
+	public String getFrequency2() {
+		return this.frequency2;
 	}
 
-	public void setFrequency(String frequency) {
-		this.frequency = frequency;
+	public void setFrequency2(String frequency2) {
+		this.frequency2 = frequency2;
 	}
 
 	public Double getUnitprice() {
@@ -122,12 +122,12 @@ public class Adviceinfo implements java.io.Serializable {
 		this.unitprice = unitprice;
 	}
 
-	public Double getTotalprice() {
-		return this.totalprice;
+	public Double getTotalprice3() {
+		return this.totalprice3;
 	}
 
-	public void setTotalprice(Double totalprice) {
-		this.totalprice = totalprice;
+	public void setTotalprice3(Double totalprice3) {
+		this.totalprice3 = totalprice3;
 	}
 
 	public String getPaystate() {

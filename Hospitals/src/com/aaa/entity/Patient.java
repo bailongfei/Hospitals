@@ -13,23 +13,23 @@ public class Patient implements java.io.Serializable {
 	// Fields
 
 	private Integer pid;
-	private Integer outhospitalid;
-	private Integer bqid;
-	private Integer departmentId;
-	private Integer stuffid;
+	private Outhospital outhospital;
+	private Stuff stuff;
+	private Office office;
+	private Inpatientarea inpatientarea;
 	private String pname;
-	private String pcard;
-	private Date pbirthday;
-	private String sex;
-	private Integer page;
+	private Long pcard;
+	private Date pbirthday3;
+	private String sex3;
+	private Short page;
 	private String pstatus;
 	private String profession;
 	private String birthplace;
-	private String nation;
+	private String nation3;
 	private String nationality;
 	private String work;
-	private String address;
-	private String phone;
+	private String address3;
+	private String phone3;
 	private String zip;
 	private String pemanentAddress;
 	private String contactName;
@@ -39,8 +39,8 @@ public class Patient implements java.io.Serializable {
 	private String presult;
 	private Integer pstate;
 	private Set outhospitals = new HashSet(0);
-	private Set advices = new HashSet(0);
 	private Set accountses = new HashSet(0);
+	private Set advices = new HashSet(0);
 	private Set relationship42s = new HashSet(0);
 
 	// Constructors
@@ -50,28 +50,28 @@ public class Patient implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Patient(Integer outhospitalid, Integer bqid, Integer departmentId, Integer stuffid, String pname,
-			String pcard, Date pbirthday, String sex, Integer page, String pstatus, String profession,
-			String birthplace, String nation, String nationality, String work, String address, String phone, String zip,
+	public Patient(Outhospital outhospital, Stuff stuff, Office office, Inpatientarea inpatientarea, String pname,
+			Long pcard, Date pbirthday3, String sex3, Short page, String pstatus, String profession, String birthplace,
+			String nation3, String nationality, String work, String address3, String phone3, String zip,
 			String pemanentAddress, String contactName, String contactAddress, String contactPhone, Date pdate,
-			String presult, Integer pstate, Set outhospitals, Set advices, Set accountses, Set relationship42s) {
-		this.outhospitalid = outhospitalid;
-		this.bqid = bqid;
-		this.departmentId = departmentId;
-		this.stuffid = stuffid;
+			String presult, Integer pstate, Set outhospitals, Set accountses, Set advices, Set relationship42s) {
+		this.outhospital = outhospital;
+		this.stuff = stuff;
+		this.office = office;
+		this.inpatientarea = inpatientarea;
 		this.pname = pname;
 		this.pcard = pcard;
-		this.pbirthday = pbirthday;
-		this.sex = sex;
+		this.pbirthday3 = pbirthday3;
+		this.sex3 = sex3;
 		this.page = page;
 		this.pstatus = pstatus;
 		this.profession = profession;
 		this.birthplace = birthplace;
-		this.nation = nation;
+		this.nation3 = nation3;
 		this.nationality = nationality;
 		this.work = work;
-		this.address = address;
-		this.phone = phone;
+		this.address3 = address3;
+		this.phone3 = phone3;
 		this.zip = zip;
 		this.pemanentAddress = pemanentAddress;
 		this.contactName = contactName;
@@ -81,8 +81,8 @@ public class Patient implements java.io.Serializable {
 		this.presult = presult;
 		this.pstate = pstate;
 		this.outhospitals = outhospitals;
-		this.advices = advices;
 		this.accountses = accountses;
+		this.advices = advices;
 		this.relationship42s = relationship42s;
 	}
 
@@ -96,36 +96,36 @@ public class Patient implements java.io.Serializable {
 		this.pid = pid;
 	}
 
-	public Integer getOuthospitalid() {
-		return this.outhospitalid;
+	public Outhospital getOuthospital() {
+		return this.outhospital;
 	}
 
-	public void setOuthospitalid(Integer outhospitalid) {
-		this.outhospitalid = outhospitalid;
+	public void setOuthospital(Outhospital outhospital) {
+		this.outhospital = outhospital;
 	}
 
-	public Integer getBqid() {
-		return this.bqid;
+	public Stuff getStuff() {
+		return this.stuff;
 	}
 
-	public void setBqid(Integer bqid) {
-		this.bqid = bqid;
+	public void setStuff(Stuff stuff) {
+		this.stuff = stuff;
 	}
 
-	public Integer getDepartmentId() {
-		return this.departmentId;
+	public Office getOffice() {
+		return this.office;
 	}
 
-	public void setDepartmentId(Integer departmentId) {
-		this.departmentId = departmentId;
+	public void setOffice(Office office) {
+		this.office = office;
 	}
 
-	public Integer getStuffid() {
-		return this.stuffid;
+	public Inpatientarea getInpatientarea() {
+		return this.inpatientarea;
 	}
 
-	public void setStuffid(Integer stuffid) {
-		this.stuffid = stuffid;
+	public void setInpatientarea(Inpatientarea inpatientarea) {
+		this.inpatientarea = inpatientarea;
 	}
 
 	public String getPname() {
@@ -136,35 +136,35 @@ public class Patient implements java.io.Serializable {
 		this.pname = pname;
 	}
 
-	public String getPcard() {
+	public Long getPcard() {
 		return this.pcard;
 	}
 
-	public void setPcard(String pcard) {
+	public void setPcard(Long pcard) {
 		this.pcard = pcard;
 	}
 
-	public Date getPbirthday() {
-		return this.pbirthday;
+	public Date getPbirthday3() {
+		return this.pbirthday3;
 	}
 
-	public void setPbirthday(Date pbirthday) {
-		this.pbirthday = pbirthday;
+	public void setPbirthday3(Date pbirthday3) {
+		this.pbirthday3 = pbirthday3;
 	}
 
-	public String getSex() {
-		return this.sex;
+	public String getSex3() {
+		return this.sex3;
 	}
 
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setSex3(String sex3) {
+		this.sex3 = sex3;
 	}
 
-	public Integer getPage() {
+	public Short getPage() {
 		return this.page;
 	}
 
-	public void setPage(Integer page) {
+	public void setPage(Short page) {
 		this.page = page;
 	}
 
@@ -192,12 +192,12 @@ public class Patient implements java.io.Serializable {
 		this.birthplace = birthplace;
 	}
 
-	public String getNation() {
-		return this.nation;
+	public String getNation3() {
+		return this.nation3;
 	}
 
-	public void setNation(String nation) {
-		this.nation = nation;
+	public void setNation3(String nation3) {
+		this.nation3 = nation3;
 	}
 
 	public String getNationality() {
@@ -216,20 +216,20 @@ public class Patient implements java.io.Serializable {
 		this.work = work;
 	}
 
-	public String getAddress() {
-		return this.address;
+	public String getAddress3() {
+		return this.address3;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddress3(String address3) {
+		this.address3 = address3;
 	}
 
-	public String getPhone() {
-		return this.phone;
+	public String getPhone3() {
+		return this.phone3;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setPhone3(String phone3) {
+		this.phone3 = phone3;
 	}
 
 	public String getZip() {
@@ -304,20 +304,20 @@ public class Patient implements java.io.Serializable {
 		this.outhospitals = outhospitals;
 	}
 
-	public Set getAdvices() {
-		return this.advices;
-	}
-
-	public void setAdvices(Set advices) {
-		this.advices = advices;
-	}
-
 	public Set getAccountses() {
 		return this.accountses;
 	}
 
 	public void setAccountses(Set accountses) {
 		this.accountses = accountses;
+	}
+
+	public Set getAdvices() {
+		return this.advices;
+	}
+
+	public void setAdvices(Set advices) {
+		this.advices = advices;
 	}
 
 	public Set getRelationship42s() {

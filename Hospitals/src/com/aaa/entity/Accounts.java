@@ -1,6 +1,8 @@
 package com.aaa.entity;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Accounts entity. @author MyEclipse Persistence Tools
@@ -12,11 +14,12 @@ public class Accounts implements java.io.Serializable {
 
 	private Integer accountid;
 	private Patient patient;
-	private Double balance;
+	private Integer balance;
 	private Date zhdate;
 	private String zhState;
 	private String zhperson;
 	private String zhway;
+	private Set watebills = new HashSet(0);
 
 	// Constructors
 
@@ -25,13 +28,15 @@ public class Accounts implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Accounts(Patient patient, Double balance, Date zhdate, String zhState, String zhperson, String zhway) {
+	public Accounts(Patient patient, Integer balance, Date zhdate, String zhState, String zhperson, String zhway,
+			Set watebills) {
 		this.patient = patient;
 		this.balance = balance;
 		this.zhdate = zhdate;
 		this.zhState = zhState;
 		this.zhperson = zhperson;
 		this.zhway = zhway;
+		this.watebills = watebills;
 	}
 
 	// Property accessors
@@ -52,11 +57,11 @@ public class Accounts implements java.io.Serializable {
 		this.patient = patient;
 	}
 
-	public Double getBalance() {
+	public Integer getBalance() {
 		return this.balance;
 	}
 
-	public void setBalance(Double balance) {
+	public void setBalance(Integer balance) {
 		this.balance = balance;
 	}
 
@@ -90,6 +95,14 @@ public class Accounts implements java.io.Serializable {
 
 	public void setZhway(String zhway) {
 		this.zhway = zhway;
+	}
+
+	public Set getWatebills() {
+		return this.watebills;
+	}
+
+	public void setWatebills(Set watebills) {
+		this.watebills = watebills;
 	}
 
 }

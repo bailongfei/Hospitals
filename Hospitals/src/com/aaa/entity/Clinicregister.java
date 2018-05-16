@@ -13,18 +13,13 @@ public class Clinicregister implements java.io.Serializable {
 	// Fields
 
 	private Integer registerId;
-	private Integer medicalRecordId;
-	private Integer triageId;
-	private Integer icid;
-	private Integer subscribeId;
-	private String stuffId11;
-	private String departmentId4;
-	private Integer number;
+	private Patients patients;
+	private Integer serialNumber;
+	private Integer iphone;
 	private Date presentTime;
-	private Integer empId;
-	private String floorId4;
-	private Set triages = new HashSet(0);
-	private Set departments = new HashSet(0);
+	private Set registeredtypes = new HashSet(0);
+	private Set offices = new HashSet(0);
+	private Set stuffs = new HashSet(0);
 
 	// Constructors
 
@@ -33,21 +28,15 @@ public class Clinicregister implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Clinicregister(Integer medicalRecordId, Integer triageId, Integer icid, Integer subscribeId,
-			String stuffId11, String departmentId4, Integer number, Date presentTime, Integer empId, String floorId4,
-			Set triages, Set departments) {
-		this.medicalRecordId = medicalRecordId;
-		this.triageId = triageId;
-		this.icid = icid;
-		this.subscribeId = subscribeId;
-		this.stuffId11 = stuffId11;
-		this.departmentId4 = departmentId4;
-		this.number = number;
+	public Clinicregister(Patients patients, Integer serialNumber, Integer iphone, Date presentTime,
+			Set registeredtypes, Set offices, Set stuffs) {
+		this.patients = patients;
+		this.serialNumber = serialNumber;
+		this.iphone = iphone;
 		this.presentTime = presentTime;
-		this.empId = empId;
-		this.floorId4 = floorId4;
-		this.triages = triages;
-		this.departments = departments;
+		this.registeredtypes = registeredtypes;
+		this.offices = offices;
+		this.stuffs = stuffs;
 	}
 
 	// Property accessors
@@ -60,60 +49,28 @@ public class Clinicregister implements java.io.Serializable {
 		this.registerId = registerId;
 	}
 
-	public Integer getMedicalRecordId() {
-		return this.medicalRecordId;
+	public Patients getPatients() {
+		return this.patients;
 	}
 
-	public void setMedicalRecordId(Integer medicalRecordId) {
-		this.medicalRecordId = medicalRecordId;
+	public void setPatients(Patients patients) {
+		this.patients = patients;
 	}
 
-	public Integer getTriageId() {
-		return this.triageId;
+	public Integer getSerialNumber() {
+		return this.serialNumber;
 	}
 
-	public void setTriageId(Integer triageId) {
-		this.triageId = triageId;
+	public void setSerialNumber(Integer serialNumber) {
+		this.serialNumber = serialNumber;
 	}
 
-	public Integer getIcid() {
-		return this.icid;
+	public Integer getIphone() {
+		return this.iphone;
 	}
 
-	public void setIcid(Integer icid) {
-		this.icid = icid;
-	}
-
-	public Integer getSubscribeId() {
-		return this.subscribeId;
-	}
-
-	public void setSubscribeId(Integer subscribeId) {
-		this.subscribeId = subscribeId;
-	}
-
-	public String getStuffId11() {
-		return this.stuffId11;
-	}
-
-	public void setStuffId11(String stuffId11) {
-		this.stuffId11 = stuffId11;
-	}
-
-	public String getDepartmentId4() {
-		return this.departmentId4;
-	}
-
-	public void setDepartmentId4(String departmentId4) {
-		this.departmentId4 = departmentId4;
-	}
-
-	public Integer getNumber() {
-		return this.number;
-	}
-
-	public void setNumber(Integer number) {
-		this.number = number;
+	public void setIphone(Integer iphone) {
+		this.iphone = iphone;
 	}
 
 	public Date getPresentTime() {
@@ -124,36 +81,28 @@ public class Clinicregister implements java.io.Serializable {
 		this.presentTime = presentTime;
 	}
 
-	public Integer getEmpId() {
-		return this.empId;
+	public Set getRegisteredtypes() {
+		return this.registeredtypes;
 	}
 
-	public void setEmpId(Integer empId) {
-		this.empId = empId;
+	public void setRegisteredtypes(Set registeredtypes) {
+		this.registeredtypes = registeredtypes;
 	}
 
-	public String getFloorId4() {
-		return this.floorId4;
+	public Set getOffices() {
+		return this.offices;
 	}
 
-	public void setFloorId4(String floorId4) {
-		this.floorId4 = floorId4;
+	public void setOffices(Set offices) {
+		this.offices = offices;
 	}
 
-	public Set getTriages() {
-		return this.triages;
+	public Set getStuffs() {
+		return this.stuffs;
 	}
 
-	public void setTriages(Set triages) {
-		this.triages = triages;
-	}
-
-	public Set getDepartments() {
-		return this.departments;
-	}
-
-	public void setDepartments(Set departments) {
-		this.departments = departments;
+	public void setStuffs(Set stuffs) {
+		this.stuffs = stuffs;
 	}
 
 }

@@ -1,5 +1,8 @@
 package com.aaa.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Bqtype entity. @author MyEclipse Persistence Tools
  */
@@ -10,6 +13,7 @@ public class Bqtype implements java.io.Serializable {
 
 	private Integer bqtypeid;
 	private String bqtypename;
+	private Set inpatientareas = new HashSet(0);
 
 	// Constructors
 
@@ -18,8 +22,9 @@ public class Bqtype implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Bqtype(String bqtypename) {
+	public Bqtype(String bqtypename, Set inpatientareas) {
 		this.bqtypename = bqtypename;
+		this.inpatientareas = inpatientareas;
 	}
 
 	// Property accessors
@@ -38,6 +43,14 @@ public class Bqtype implements java.io.Serializable {
 
 	public void setBqtypename(String bqtypename) {
 		this.bqtypename = bqtypename;
+	}
+
+	public Set getInpatientareas() {
+		return this.inpatientareas;
+	}
+
+	public void setInpatientareas(Set inpatientareas) {
+		this.inpatientareas = inpatientareas;
 	}
 
 }

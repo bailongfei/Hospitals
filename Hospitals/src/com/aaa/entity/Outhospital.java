@@ -13,12 +13,13 @@ public class Outhospital implements java.io.Serializable {
 	// Fields
 
 	private Integer outhospitalid;
-	private Stuff stuff;
 	private Outhosstate outhosstate;
 	private Patient patient;
+	private Stuff stuff;
 	private Date outhospitaldate;
 	private Integer budgetstate;
 	private String outhospnode;
+	private Set patients = new HashSet(0);
 	private Set outhosstates = new HashSet(0);
 
 	// Constructors
@@ -28,14 +29,15 @@ public class Outhospital implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Outhospital(Stuff stuff, Outhosstate outhosstate, Patient patient, Date outhospitaldate, Integer budgetstate,
-			String outhospnode, Set outhosstates) {
-		this.stuff = stuff;
+	public Outhospital(Outhosstate outhosstate, Patient patient, Stuff stuff, Date outhospitaldate, Integer budgetstate,
+			String outhospnode, Set patients, Set outhosstates) {
 		this.outhosstate = outhosstate;
 		this.patient = patient;
+		this.stuff = stuff;
 		this.outhospitaldate = outhospitaldate;
 		this.budgetstate = budgetstate;
 		this.outhospnode = outhospnode;
+		this.patients = patients;
 		this.outhosstates = outhosstates;
 	}
 
@@ -47,14 +49,6 @@ public class Outhospital implements java.io.Serializable {
 
 	public void setOuthospitalid(Integer outhospitalid) {
 		this.outhospitalid = outhospitalid;
-	}
-
-	public Stuff getStuff() {
-		return this.stuff;
-	}
-
-	public void setStuff(Stuff stuff) {
-		this.stuff = stuff;
 	}
 
 	public Outhosstate getOuthosstate() {
@@ -71,6 +65,14 @@ public class Outhospital implements java.io.Serializable {
 
 	public void setPatient(Patient patient) {
 		this.patient = patient;
+	}
+
+	public Stuff getStuff() {
+		return this.stuff;
+	}
+
+	public void setStuff(Stuff stuff) {
+		this.stuff = stuff;
 	}
 
 	public Date getOuthospitaldate() {
@@ -95,6 +97,14 @@ public class Outhospital implements java.io.Serializable {
 
 	public void setOuthospnode(String outhospnode) {
 		this.outhospnode = outhospnode;
+	}
+
+	public Set getPatients() {
+		return this.patients;
+	}
+
+	public void setPatients(Set patients) {
+		this.patients = patients;
 	}
 
 	public Set getOuthosstates() {

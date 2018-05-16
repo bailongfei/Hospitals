@@ -11,7 +11,7 @@ public class Particulars implements java.io.Serializable {
 	// Fields
 
 	private Integer fessId;
-	private Integer tollId;
+	private Charge charge;
 	private String fessName;
 	private Integer deposithandlersid;
 	private String payer;
@@ -30,9 +30,9 @@ public class Particulars implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Particulars(Integer tollId, String fessName, Integer deposithandlersid, String payer, Date billingdate,
+	public Particulars(Charge charge, String fessName, Integer deposithandlersid, String payer, Date billingdate,
 			String type, Integer fessNum, String fessExplain, Integer tollSum, String addr, String accounts) {
-		this.tollId = tollId;
+		this.charge = charge;
 		this.fessName = fessName;
 		this.deposithandlersid = deposithandlersid;
 		this.payer = payer;
@@ -55,12 +55,12 @@ public class Particulars implements java.io.Serializable {
 		this.fessId = fessId;
 	}
 
-	public Integer getTollId() {
-		return this.tollId;
+	public Charge getCharge() {
+		return this.charge;
 	}
 
-	public void setTollId(Integer tollId) {
-		this.tollId = tollId;
+	public void setCharge(Charge charge) {
+		this.charge = charge;
 	}
 
 	public String getFessName() {

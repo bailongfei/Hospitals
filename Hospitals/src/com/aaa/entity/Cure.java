@@ -12,17 +12,12 @@ public class Cure implements java.io.Serializable {
 	// Fields
 
 	private Integer cureId;
-	private Integer orderId;
-	private Integer medicalRecordId;
-	private String cureName;
+	private Patients patients;
+	private String cureType;
 	private Integer cureNumber;
-	private String moneyType;
 	private Integer feesState;
-	private Integer state8;
-	private Set checktypes = new HashSet(0);
-	private Set westernprescribes = new HashSet(0);
-	private Set charges = new HashSet(0);
-	private Set chineseprescribes = new HashSet(0);
+	private Integer state;
+	private Set treatments = new HashSet(0);
 
 	// Constructors
 
@@ -31,20 +26,14 @@ public class Cure implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Cure(Integer orderId, Integer medicalRecordId, String cureName, Integer cureNumber, String moneyType,
-			Integer feesState, Integer state8, Set checktypes, Set westernprescribes, Set charges,
-			Set chineseprescribes) {
-		this.orderId = orderId;
-		this.medicalRecordId = medicalRecordId;
-		this.cureName = cureName;
+	public Cure(Patients patients, String cureType, Integer cureNumber, Integer feesState, Integer state,
+			Set treatments) {
+		this.patients = patients;
+		this.cureType = cureType;
 		this.cureNumber = cureNumber;
-		this.moneyType = moneyType;
 		this.feesState = feesState;
-		this.state8 = state8;
-		this.checktypes = checktypes;
-		this.westernprescribes = westernprescribes;
-		this.charges = charges;
-		this.chineseprescribes = chineseprescribes;
+		this.state = state;
+		this.treatments = treatments;
 	}
 
 	// Property accessors
@@ -57,28 +46,20 @@ public class Cure implements java.io.Serializable {
 		this.cureId = cureId;
 	}
 
-	public Integer getOrderId() {
-		return this.orderId;
+	public Patients getPatients() {
+		return this.patients;
 	}
 
-	public void setOrderId(Integer orderId) {
-		this.orderId = orderId;
+	public void setPatients(Patients patients) {
+		this.patients = patients;
 	}
 
-	public Integer getMedicalRecordId() {
-		return this.medicalRecordId;
+	public String getCureType() {
+		return this.cureType;
 	}
 
-	public void setMedicalRecordId(Integer medicalRecordId) {
-		this.medicalRecordId = medicalRecordId;
-	}
-
-	public String getCureName() {
-		return this.cureName;
-	}
-
-	public void setCureName(String cureName) {
-		this.cureName = cureName;
+	public void setCureType(String cureType) {
+		this.cureType = cureType;
 	}
 
 	public Integer getCureNumber() {
@@ -89,14 +70,6 @@ public class Cure implements java.io.Serializable {
 		this.cureNumber = cureNumber;
 	}
 
-	public String getMoneyType() {
-		return this.moneyType;
-	}
-
-	public void setMoneyType(String moneyType) {
-		this.moneyType = moneyType;
-	}
-
 	public Integer getFeesState() {
 		return this.feesState;
 	}
@@ -105,44 +78,20 @@ public class Cure implements java.io.Serializable {
 		this.feesState = feesState;
 	}
 
-	public Integer getState8() {
-		return this.state8;
+	public Integer getState() {
+		return this.state;
 	}
 
-	public void setState8(Integer state8) {
-		this.state8 = state8;
+	public void setState(Integer state) {
+		this.state = state;
 	}
 
-	public Set getChecktypes() {
-		return this.checktypes;
+	public Set getTreatments() {
+		return this.treatments;
 	}
 
-	public void setChecktypes(Set checktypes) {
-		this.checktypes = checktypes;
-	}
-
-	public Set getWesternprescribes() {
-		return this.westernprescribes;
-	}
-
-	public void setWesternprescribes(Set westernprescribes) {
-		this.westernprescribes = westernprescribes;
-	}
-
-	public Set getCharges() {
-		return this.charges;
-	}
-
-	public void setCharges(Set charges) {
-		this.charges = charges;
-	}
-
-	public Set getChineseprescribes() {
-		return this.chineseprescribes;
-	}
-
-	public void setChineseprescribes(Set chineseprescribes) {
-		this.chineseprescribes = chineseprescribes;
+	public void setTreatments(Set treatments) {
+		this.treatments = treatments;
 	}
 
 }

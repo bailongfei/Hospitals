@@ -1,8 +1,5 @@
 package com.aaa.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * Departmenttype entity. @author MyEclipse Persistence Tools
  */
@@ -11,12 +8,12 @@ public class Departmenttype implements java.io.Serializable {
 
 	// Fields
 
-	private Integer departmentTypeid;
+	private String departmentTypeid;
+	private Office office;
 	private String genre;
-	private String mainperson;
+	private String mainperson3;
 	private String location;
-	private String departmentName;
-	private Set departments = new HashSet(0);
+	private String departmentName3;
 
 	// Constructors
 
@@ -25,22 +22,30 @@ public class Departmenttype implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Departmenttype(String genre, String mainperson, String location, String departmentName, Set departments) {
+	public Departmenttype(Office office, String genre, String mainperson3, String location, String departmentName3) {
+		this.office = office;
 		this.genre = genre;
-		this.mainperson = mainperson;
+		this.mainperson3 = mainperson3;
 		this.location = location;
-		this.departmentName = departmentName;
-		this.departments = departments;
+		this.departmentName3 = departmentName3;
 	}
 
 	// Property accessors
 
-	public Integer getDepartmentTypeid() {
+	public String getDepartmentTypeid() {
 		return this.departmentTypeid;
 	}
 
-	public void setDepartmentTypeid(Integer departmentTypeid) {
+	public void setDepartmentTypeid(String departmentTypeid) {
 		this.departmentTypeid = departmentTypeid;
+	}
+
+	public Office getOffice() {
+		return this.office;
+	}
+
+	public void setOffice(Office office) {
+		this.office = office;
 	}
 
 	public String getGenre() {
@@ -51,12 +56,12 @@ public class Departmenttype implements java.io.Serializable {
 		this.genre = genre;
 	}
 
-	public String getMainperson() {
-		return this.mainperson;
+	public String getMainperson3() {
+		return this.mainperson3;
 	}
 
-	public void setMainperson(String mainperson) {
-		this.mainperson = mainperson;
+	public void setMainperson3(String mainperson3) {
+		this.mainperson3 = mainperson3;
 	}
 
 	public String getLocation() {
@@ -67,20 +72,12 @@ public class Departmenttype implements java.io.Serializable {
 		this.location = location;
 	}
 
-	public String getDepartmentName() {
-		return this.departmentName;
+	public String getDepartmentName3() {
+		return this.departmentName3;
 	}
 
-	public void setDepartmentName(String departmentName) {
-		this.departmentName = departmentName;
-	}
-
-	public Set getDepartments() {
-		return this.departments;
-	}
-
-	public void setDepartments(Set departments) {
-		this.departments = departments;
+	public void setDepartmentName3(String departmentName3) {
+		this.departmentName3 = departmentName3;
 	}
 
 }

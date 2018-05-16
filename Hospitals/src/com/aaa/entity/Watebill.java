@@ -10,9 +10,9 @@ public class Watebill implements java.io.Serializable {
 
 	// Fields
 
-	private Integer billid;
-	private Integer adviceid;
-	private Integer accountid;
+	private String billid;
+	private Advice advice;
+	private Accounts accounts;
 	private Date billdate;
 	private String billexecutor;
 	private String billcondition;
@@ -24,9 +24,9 @@ public class Watebill implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Watebill(Integer adviceid, Integer accountid, Date billdate, String billexecutor, String billcondition) {
-		this.adviceid = adviceid;
-		this.accountid = accountid;
+	public Watebill(Advice advice, Accounts accounts, Date billdate, String billexecutor, String billcondition) {
+		this.advice = advice;
+		this.accounts = accounts;
 		this.billdate = billdate;
 		this.billexecutor = billexecutor;
 		this.billcondition = billcondition;
@@ -34,28 +34,28 @@ public class Watebill implements java.io.Serializable {
 
 	// Property accessors
 
-	public Integer getBillid() {
+	public String getBillid() {
 		return this.billid;
 	}
 
-	public void setBillid(Integer billid) {
+	public void setBillid(String billid) {
 		this.billid = billid;
 	}
 
-	public Integer getAdviceid() {
-		return this.adviceid;
+	public Advice getAdvice() {
+		return this.advice;
 	}
 
-	public void setAdviceid(Integer adviceid) {
-		this.adviceid = adviceid;
+	public void setAdvice(Advice advice) {
+		this.advice = advice;
 	}
 
-	public Integer getAccountid() {
-		return this.accountid;
+	public Accounts getAccounts() {
+		return this.accounts;
 	}
 
-	public void setAccountid(Integer accountid) {
-		this.accountid = accountid;
+	public void setAccounts(Accounts accounts) {
+		this.accounts = accounts;
 	}
 
 	public Date getBilldate() {

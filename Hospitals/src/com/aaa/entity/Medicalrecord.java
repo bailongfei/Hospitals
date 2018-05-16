@@ -11,12 +11,14 @@ public class Medicalrecord implements java.io.Serializable {
 	// Fields
 
 	private Integer medicalRecordId;
-	private Integer registerId;
-	private Integer patientId;
-	private Integer age3;
-	private String stuffId11;
-	private String acceptsType;
-	private String enquire;
+	private Patients patients;
+	private String zhushu;
+	private String bingshi;
+	private String guomins;
+	private String jiazhus;
+	private String tizheng;
+	private String xianbins;
+	private String chuli;
 	private String curesuggest;
 	private Date visitTime3;
 
@@ -27,14 +29,16 @@ public class Medicalrecord implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Medicalrecord(Integer registerId, Integer patientId, Integer age3, String stuffId11, String acceptsType,
-			String enquire, String curesuggest, Date visitTime3) {
-		this.registerId = registerId;
-		this.patientId = patientId;
-		this.age3 = age3;
-		this.stuffId11 = stuffId11;
-		this.acceptsType = acceptsType;
-		this.enquire = enquire;
+	public Medicalrecord(Patients patients, String zhushu, String bingshi, String guomins, String jiazhus,
+			String tizheng, String xianbins, String chuli, String curesuggest, Date visitTime3) {
+		this.patients = patients;
+		this.zhushu = zhushu;
+		this.bingshi = bingshi;
+		this.guomins = guomins;
+		this.jiazhus = jiazhus;
+		this.tizheng = tizheng;
+		this.xianbins = xianbins;
+		this.chuli = chuli;
 		this.curesuggest = curesuggest;
 		this.visitTime3 = visitTime3;
 	}
@@ -49,52 +53,68 @@ public class Medicalrecord implements java.io.Serializable {
 		this.medicalRecordId = medicalRecordId;
 	}
 
-	public Integer getRegisterId() {
-		return this.registerId;
+	public Patients getPatients() {
+		return this.patients;
 	}
 
-	public void setRegisterId(Integer registerId) {
-		this.registerId = registerId;
+	public void setPatients(Patients patients) {
+		this.patients = patients;
 	}
 
-	public Integer getPatientId() {
-		return this.patientId;
+	public String getZhushu() {
+		return this.zhushu;
 	}
 
-	public void setPatientId(Integer patientId) {
-		this.patientId = patientId;
+	public void setZhushu(String zhushu) {
+		this.zhushu = zhushu;
 	}
 
-	public Integer getAge3() {
-		return this.age3;
+	public String getBingshi() {
+		return this.bingshi;
 	}
 
-	public void setAge3(Integer age3) {
-		this.age3 = age3;
+	public void setBingshi(String bingshi) {
+		this.bingshi = bingshi;
 	}
 
-	public String getStuffId11() {
-		return this.stuffId11;
+	public String getGuomins() {
+		return this.guomins;
 	}
 
-	public void setStuffId11(String stuffId11) {
-		this.stuffId11 = stuffId11;
+	public void setGuomins(String guomins) {
+		this.guomins = guomins;
 	}
 
-	public String getAcceptsType() {
-		return this.acceptsType;
+	public String getJiazhus() {
+		return this.jiazhus;
 	}
 
-	public void setAcceptsType(String acceptsType) {
-		this.acceptsType = acceptsType;
+	public void setJiazhus(String jiazhus) {
+		this.jiazhus = jiazhus;
 	}
 
-	public String getEnquire() {
-		return this.enquire;
+	public String getTizheng() {
+		return this.tizheng;
 	}
 
-	public void setEnquire(String enquire) {
-		this.enquire = enquire;
+	public void setTizheng(String tizheng) {
+		this.tizheng = tizheng;
+	}
+
+	public String getXianbins() {
+		return this.xianbins;
+	}
+
+	public void setXianbins(String xianbins) {
+		this.xianbins = xianbins;
+	}
+
+	public String getChuli() {
+		return this.chuli;
+	}
+
+	public void setChuli(String chuli) {
+		this.chuli = chuli;
 	}
 
 	public String getCuresuggest() {
