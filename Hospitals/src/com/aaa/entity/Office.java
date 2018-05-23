@@ -23,6 +23,7 @@ public class Office implements java.io.Serializable {
 	private Date foundTime;
 	private String mainperson;
 	private String comment;
+	private Set clinicregisters = new HashSet(0);
 	private Set stuffs = new HashSet(0);
 	private Set departmenttypes = new HashSet(0);
 	private Set patients = new HashSet(0);
@@ -36,7 +37,7 @@ public class Office implements java.io.Serializable {
 	/** full constructor */
 	public Office(Inspection inspection, Bookinginfo bookinginfo, Applicationform applicationform,
 			Clinicregister clinicregister, String officeName, Integer officePhone, String intro, Date foundTime,
-			String mainperson, String comment, Set stuffs, Set departmenttypes, Set patients) {
+			String mainperson, String comment, Set clinicregisters, Set stuffs, Set departmenttypes, Set patients) {
 		this.inspection = inspection;
 		this.bookinginfo = bookinginfo;
 		this.applicationform = applicationform;
@@ -47,6 +48,7 @@ public class Office implements java.io.Serializable {
 		this.foundTime = foundTime;
 		this.mainperson = mainperson;
 		this.comment = comment;
+		this.clinicregisters = clinicregisters;
 		this.stuffs = stuffs;
 		this.departmenttypes = departmenttypes;
 		this.patients = patients;
@@ -140,6 +142,14 @@ public class Office implements java.io.Serializable {
 
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+
+	public Set getClinicregisters() {
+		return this.clinicregisters;
+	}
+
+	public void setClinicregisters(Set clinicregisters) {
+		this.clinicregisters = clinicregisters;
 	}
 
 	public Set getStuffs() {

@@ -10,10 +10,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <title>提交代申报</title>
 <link href="../../css/style.css" rel="stylesheet" type="text/css">
+ <!-- <script type="text/javascript">
+   $(document).ready(function(){
+      alert("111");
+   });
+ </script> -->
 </head>
-
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <center>
+
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td height="25" align="center" valign="bottom" class="td06"><table width="98%" border="0" cellspacing="3" cellpadding="0">
@@ -24,82 +29,167 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </table></td>
     </tr>
   </table>
-  <form name="form1" method="post" action="">
+  
+  
+   <form action=""  id="stockForm">
     <table width="95%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td width="90" height="24" class="td_form01">姓名</td>
-        <td class="td_form02"><input type="text" name="username" class="input" /></td>
-        <td width="90" class="td_form01">性别</td>
+        <td width="90" height="24" class="td_form01">挂号日期:</td>
+        <td class="td_form02"><input type="data" name="clinicregister.presentTime" class="input" /></td>
+        <td width="90" class="td_form01">流水号:</td>
         <td class="td_form02">
-		<input type="radio" name="sex"/>男
-		<input type="radio" name="sex"/>女
-	</td> 
+		<input type="text" name="clinicregister.serialNumber"/>
+		
+	    </td> 
       </tr>
       <tr>
-        <td height="24" class="td_form01">证件类型</td>
-        <td class="td_form02"><input type="text"  class="input" /></td>
-        <td class="td_form01">出生日期</td>
-        <td class="td_form02"><input type="text" class="input"  name="birthday"/></td>
+        <td width="90" height="24" class="td_form01">姓名:</td>
+        <td class="td_form02"><input type="text" name="clinicregister.patients.patientname" class="input" /></td>
+        <td width="90" class="td_form01">性别</td>
+        <td class="td_form02">
+		<input type="radio" value="男" checked="checked" name="clinicregister.patients.sex"/>男
+		<input type="radio" value="女" name="clinicregister.patients.sex"/>女
+	    </td>
       </tr>
+      
+      <tr>
+        <td width="90" height="24" class="td_form01">年龄:</td>
+        <td class="td_form02"><input type="text" name="clinicregister.patients.age" class="input" /></td>
+        <td width="90" class="td_form01">手机号:</td>
+        <td class="td_form02">
+		<input type="text" name="clinicregister.iphone"/>
+		
+	    </td> 
+      </tr>
+      
     </table>    
    
     <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
+
+       <tr>
         <td width="90" class="td_form01">证件号</td>
-        <td class="td_form02"><input name="textfield262" type="text" class="input"></td>
-      </tr>
+        <td class="td_form02"><input name="clinicregister.patients.idnumber" type="text" class="input" ></td>
+      </tr> 
       <tr>
-        <td class="td_form01">职业</td>
-        <td class="td_form02"><input name="textfield222" type="text" class="input" size="30"></td>
-      </tr>
-      <tr>
-        <td rowspan="2" class="td_form01">初复诊</td>
-        <td class="td_form02"><input type="radio" name="radiobutton" value="radiobutton">
-          初诊</td>
-      </tr>
-      <tr>
-        <td class="td_form02"><input type="radio" name="radiobutton" value="radiobutton">
-          复诊           病历号：
-          <input name="textfield242" type="text" class="input"></td>
-      </tr>
-      <tr>
-        <td class="td_form01">分科挂号</td>
-        <td class="td_form02"><select name="select3">
-            <option>理论文章</option>
-            <option>新闻消息</option>
-            <option>通讯</option>
-            <option>新闻专访</option>
-            <option>其它</option>
-        </select></td>
+        <td class="td_form01">挂号科室</td>
+        <td class="td_form02">
+           <select id="selea" class="sel" name="clinicregister.office.officeId">  
+           </select>
+         </td>
       </tr>
       <tr>
         <td class="td_form01">选医生挂号</td>
-        <td class="td_form02"><select name="select">
-            <option>嘉宾主持</option>
-            <option>专家采访</option>
-            <option>撰写稿件</option>
-            <option>其他 </option>
-        </select></td>
-      </tr>
-      <tr>
-        <td class="td_form01">发表时间</td>
         <td class="td_form02">
-          <input name="PARA_YM_NOW" type="text" class="input"   id="PARA_YM_NOW" next="A001014" alt="查询年月|0|d|||" value="" onFocus="{obtainFocus(this),this.select()}" onKeyPress="gotoNextInput(this)" onBlur="matchInput(this)" readonly>
-          <input name="button" type="button"  class="button_select" onClick="fPopUpCalendarDlg('PARA_YM_NOW')">        </td>
+        <select id="seleb" class="sel" name="clinicregister.stuff.stuffid2">
+            
+        </select>
+        
+        </td>
       </tr>
       <tr>
-        <td class="td_form01">联系地址</td>
-        <td class="td_form02"><input name="textfield26" type="text" class="input"></td>
+        <td class="td_form01">挂号类型</td>
+        <td class="td_form02">
+        <select id="selec" class="sel" name="clinicregister.registeredtype.ghId">
+        </select>
+        </td>
       </tr>
     </table>
-    <br>
-    <table width=95% border=0 align=center cellpadding=0 cellspacing=0 whdth='100%'>
+    <table width="95%" border="0" cellspacing="0" cellpadding="0">
+       <tr>
+        <td width="90" height="24" class="td_form01">门诊费:</td>
+        <td class="td_form02"><input type="text" id="fy" name="clinicregister.charge.charge" class="input" /></td>
+        <td width="90" class="td_form01">应收费:</td>
+        <td class="td_form02">
+		<input type="text" id="ys" readonly="readonly" name="clinicregister.charge.chargeable"/>
+	    </td> 
+      </tr>
       <tr>
-        <td align="center"><input name=save  type=button class=buttonface value= '  提交  '  >
-            <input name=cancel  type=button class=buttonface value= '  返回  '  onClick="history.back(-1)"></td>
+        <td width="90" height="24" class="td_form01">实收费:</td>
+        <td class="td_form02"><input type="text" id="ss" name="clinicregister.charge.realCharge" class="input" /></td>
+        <td width="90" class="td_form01">(+找零)/(-欠):</td>
+        <td class="td_form02">
+		<input type="text" id="zl" readonly="readonly" name="clinicregister.charge.changes"/>
+		
+	    </td> 
       </tr>
     </table>
+   
+       <input align="center" type="button" id="add" value="提交">
   </form>
+  
 </center>
 </body>
 </html>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+<script type="text/javascript">
+  $("#fy").blur(function(){
+      var f=$("#fy").val();
+      $("#ys").val(f);
+  });
+  $("#ss").blur(function(){
+       var f=$("#fy").val();
+       $("#ys").val(f);
+       var sou=$("#ss").val();
+       var zling=parseFloat(sou-f);
+       $("#zl").val(zling);
+  });
+   $(document).ready(function(){
+         
+         findoff();
+  }); 
+  
+  function findoff(){
+  
+       $.ajax({
+          url:"${pageContext.request.contextPath}/ps_findOk.action",
+          dataType:"json",
+          type:"post",
+          success:function(data){
+             $("#selea").append("<option value=''>--------请选择--------</option>");
+            for(var i=0;i<data.length;i++){
+               var off=data[i];
+               $("#selea").append("<option value='"+off.officeId+"'>"+off.officeName+"</option>");
+            }  
+          }
+       }); 
+       $.ajax({
+          url:"${pageContext.request.contextPath}/ps_findStuff.action",
+          dataType:"json",
+          type:"post",
+          success:function(data){
+            for(var i=0;i<data.length;i++){
+               var off=data[i];
+               $("#seleb").append("<option value=''>--------请选择--------</option>");
+               $("#seleb").append("<option value='"+off.stuffid2+"'>"+off.stuffname+"</option>");
+            }  
+          }
+       }); 
+       $.ajax({
+          url:"${pageContext.request.contextPath}/ps_findRdy.action",
+          dataType:"json",
+          type:"post",
+          success:function(data){
+            $("#selec").append("<option value=''>--------请选择--------</option>");
+            for(var i=0;i<data.length;i++){
+               var off=data[i];
+               $("#selec").append("<option value='"+off.ghId+"'>"+off.typeName+"</option>");
+            }  
+          }
+       }); 
+   
+  }
+  
+  $("#add").click(function(){
+      $.ajax({
+        url:"${pageContext.request.contextPath}/ps_addOrupdate.action",
+        data:$("#stockForm").serialize(),
+          dataType:"json",
+          type:"post",
+          success:function(data){
+            if(data.state>0){
+                alert(data.message);
+            }
+          }
+      });
+  });
+</script>

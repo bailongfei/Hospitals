@@ -19,6 +19,7 @@ public class Charge implements java.io.Serializable {
 	private Integer chargeable;
 	private Integer realCharge;
 	private Integer changes;
+	private Set clinicregisters = new HashSet(0);
 	private Set particularses = new HashSet(0);
 
 	// Constructors
@@ -29,7 +30,7 @@ public class Charge implements java.io.Serializable {
 
 	/** full constructor */
 	public Charge(Patients patients, Chargetype chargetype, String fessName, Integer charge, Integer chargeable,
-			Integer realCharge, Integer changes, Set particularses) {
+			Integer realCharge, Integer changes, Set clinicregisters, Set particularses) {
 		this.patients = patients;
 		this.chargetype = chargetype;
 		this.fessName = fessName;
@@ -37,6 +38,7 @@ public class Charge implements java.io.Serializable {
 		this.chargeable = chargeable;
 		this.realCharge = realCharge;
 		this.changes = changes;
+		this.clinicregisters = clinicregisters;
 		this.particularses = particularses;
 	}
 
@@ -104,6 +106,14 @@ public class Charge implements java.io.Serializable {
 
 	public void setChanges(Integer changes) {
 		this.changes = changes;
+	}
+
+	public Set getClinicregisters() {
+		return this.clinicregisters;
+	}
+
+	public void setClinicregisters(Set clinicregisters) {
+		this.clinicregisters = clinicregisters;
 	}
 
 	public Set getParticularses() {

@@ -1,5 +1,6 @@
 package com.aaa.entity;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,6 +19,8 @@ public class Patients implements java.io.Serializable {
 	private String sex;
 	private Integer age;
 	private String idnumber;
+	private Date date;
+	private String status;
 	private Set bookinginfos = new HashSet(0);
 	private Set charges = new HashSet(0);
 	private Set applicationresults = new HashSet(0);
@@ -38,15 +41,17 @@ public class Patients implements java.io.Serializable {
 
 	/** full constructor */
 	public Patients(Patientdetail patientdetail, Bookinginfo bookinginfo, String patientname, String sex, Integer age,
-			String idnumber, Set bookinginfos, Set charges, Set applicationresults, Set clinicregisters,
-			Set inspections, Set prescribes, Set cures, Set applicationforms, Set medicalrecords, Set iccards,
-			Set patientdetails) {
+			String idnumber, Date date, String status, Set bookinginfos, Set charges, Set applicationresults,
+			Set clinicregisters, Set inspections, Set prescribes, Set cures, Set applicationforms, Set medicalrecords,
+			Set iccards, Set patientdetails) {
 		this.patientdetail = patientdetail;
 		this.bookinginfo = bookinginfo;
 		this.patientname = patientname;
 		this.sex = sex;
 		this.age = age;
 		this.idnumber = idnumber;
+		this.date = date;
+		this.status = status;
 		this.bookinginfos = bookinginfos;
 		this.charges = charges;
 		this.applicationresults = applicationresults;
@@ -116,6 +121,22 @@ public class Patients implements java.io.Serializable {
 
 	public void setIdnumber(String idnumber) {
 		this.idnumber = idnumber;
+	}
+
+	public Date getDate() {
+		return this.date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public Set getBookinginfos() {

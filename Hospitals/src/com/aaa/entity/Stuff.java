@@ -36,6 +36,7 @@ public class Stuff implements java.io.Serializable {
 	private String politics;
 	private String photo;
 	private Integer roomstate;
+	private Set clinicregisters = new HashSet(0);
 	private Set outhospitals = new HashSet(0);
 	private Set scheduleitems = new HashSet(0);
 	private Set advices = new HashSet(0);
@@ -54,8 +55,8 @@ public class Stuff implements java.io.Serializable {
 			Stufftype stufftype, Clinicregister clinicregister, Drugstorage drugstorage, Pharmacy pharmacy,
 			Usertable usertable, String stuffname, String sex3, String idcard, String address3, String phone3,
 			Date hiredate, Date pbirthday3, String nation3, String cardNo, String nativePlace, String politics,
-			String photo, Integer roomstate, Set outhospitals, Set scheduleitems, Set advices, Set usertables, Set beds,
-			Set patients) {
+			String photo, Integer roomstate, Set clinicregisters, Set outhospitals, Set scheduleitems, Set advices,
+			Set usertables, Set beds, Set patients) {
 		this.jobtitle = jobtitle;
 		this.position = position;
 		this.scheduleitem = scheduleitem;
@@ -79,6 +80,7 @@ public class Stuff implements java.io.Serializable {
 		this.politics = politics;
 		this.photo = photo;
 		this.roomstate = roomstate;
+		this.clinicregisters = clinicregisters;
 		this.outhospitals = outhospitals;
 		this.scheduleitems = scheduleitems;
 		this.advices = advices;
@@ -279,6 +281,14 @@ public class Stuff implements java.io.Serializable {
 
 	public void setRoomstate(Integer roomstate) {
 		this.roomstate = roomstate;
+	}
+
+	public Set getClinicregisters() {
+		return this.clinicregisters;
+	}
+
+	public void setClinicregisters(Set clinicregisters) {
+		this.clinicregisters = clinicregisters;
 	}
 
 	public Set getOuthospitals() {

@@ -40,6 +40,12 @@
         <property name="comment" type="java.lang.String">
             <column name="comment" length="300" />
         </property>
+        <set name="clinicregisters" inverse="true">
+            <key>
+                <column name="officeIds" />
+            </key>
+            <one-to-many class="com.aaa.entity.Clinicregister" />
+        </set>
         <set name="stuffs" inverse="true">
             <key>
                 <column name="officeId" />

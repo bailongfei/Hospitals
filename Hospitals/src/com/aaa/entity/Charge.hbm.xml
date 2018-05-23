@@ -31,6 +31,12 @@
         <property name="changes" type="java.lang.Integer">
             <column name="changes" />
         </property>
+        <set name="clinicregisters" inverse="true">
+            <key>
+                <column name="sfId" />
+            </key>
+            <one-to-many class="com.aaa.entity.Clinicregister" />
+        </set>
         <set name="particularses" inverse="true">
             <key>
                 <column name="sfId" />

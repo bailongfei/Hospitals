@@ -1,5 +1,8 @@
 package com.aaa.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Registeredtype entity. @author MyEclipse Persistence Tools
  */
@@ -8,9 +11,9 @@ public class Registeredtype implements java.io.Serializable {
 
 	// Fields
 
-	private Integer id;
-	private Clinicregister clinicregister;
-	private String name;
+	private Integer ghId;
+	private String typeName;
+	private Set clinicregisters = new HashSet(0);
 
 	// Constructors
 
@@ -19,35 +22,35 @@ public class Registeredtype implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Registeredtype(Clinicregister clinicregister, String name) {
-		this.clinicregister = clinicregister;
-		this.name = name;
+	public Registeredtype(String typeName, Set clinicregisters) {
+		this.typeName = typeName;
+		this.clinicregisters = clinicregisters;
 	}
 
 	// Property accessors
 
-	public Integer getId() {
-		return this.id;
+	public Integer getGhId() {
+		return this.ghId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setGhId(Integer ghId) {
+		this.ghId = ghId;
 	}
 
-	public Clinicregister getClinicregister() {
-		return this.clinicregister;
+	public String getTypeName() {
+		return this.typeName;
 	}
 
-	public void setClinicregister(Clinicregister clinicregister) {
-		this.clinicregister = clinicregister;
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
 	}
 
-	public String getName() {
-		return this.name;
+	public Set getClinicregisters() {
+		return this.clinicregisters;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setClinicregisters(Set clinicregisters) {
+		this.clinicregisters = clinicregisters;
 	}
 
 }

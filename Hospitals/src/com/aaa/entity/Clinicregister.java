@@ -13,11 +13,14 @@ public class Clinicregister implements java.io.Serializable {
 	// Fields
 
 	private Integer registerId;
+	private Office office;
+	private Charge charge;
 	private Patients patients;
-	private Integer serialNumber;
-	private Integer iphone;
+	private Stuff stuff;
+	private Registeredtype registeredtype;
+	private String serialNumber;
+	private String iphone;
 	private Date presentTime;
-	private Set registeredtypes = new HashSet(0);
 	private Set offices = new HashSet(0);
 	private Set stuffs = new HashSet(0);
 
@@ -28,13 +31,16 @@ public class Clinicregister implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Clinicregister(Patients patients, Integer serialNumber, Integer iphone, Date presentTime,
-			Set registeredtypes, Set offices, Set stuffs) {
+	public Clinicregister(Office office, Charge charge, Patients patients, Stuff stuff, Registeredtype registeredtype,
+			String serialNumber, String iphone, Date presentTime, Set offices, Set stuffs) {
+		this.office = office;
+		this.charge = charge;
 		this.patients = patients;
+		this.stuff = stuff;
+		this.registeredtype = registeredtype;
 		this.serialNumber = serialNumber;
 		this.iphone = iphone;
 		this.presentTime = presentTime;
-		this.registeredtypes = registeredtypes;
 		this.offices = offices;
 		this.stuffs = stuffs;
 	}
@@ -49,6 +55,22 @@ public class Clinicregister implements java.io.Serializable {
 		this.registerId = registerId;
 	}
 
+	public Office getOffice() {
+		return this.office;
+	}
+
+	public void setOffice(Office office) {
+		this.office = office;
+	}
+
+	public Charge getCharge() {
+		return this.charge;
+	}
+
+	public void setCharge(Charge charge) {
+		this.charge = charge;
+	}
+
 	public Patients getPatients() {
 		return this.patients;
 	}
@@ -57,19 +79,35 @@ public class Clinicregister implements java.io.Serializable {
 		this.patients = patients;
 	}
 
-	public Integer getSerialNumber() {
+	public Stuff getStuff() {
+		return this.stuff;
+	}
+
+	public void setStuff(Stuff stuff) {
+		this.stuff = stuff;
+	}
+
+	public Registeredtype getRegisteredtype() {
+		return this.registeredtype;
+	}
+
+	public void setRegisteredtype(Registeredtype registeredtype) {
+		this.registeredtype = registeredtype;
+	}
+
+	public String getSerialNumber() {
 		return this.serialNumber;
 	}
 
-	public void setSerialNumber(Integer serialNumber) {
+	public void setSerialNumber(String serialNumber) {
 		this.serialNumber = serialNumber;
 	}
 
-	public Integer getIphone() {
+	public String getIphone() {
 		return this.iphone;
 	}
 
-	public void setIphone(Integer iphone) {
+	public void setIphone(String iphone) {
 		this.iphone = iphone;
 	}
 
@@ -79,14 +117,6 @@ public class Clinicregister implements java.io.Serializable {
 
 	public void setPresentTime(Date presentTime) {
 		this.presentTime = presentTime;
-	}
-
-	public Set getRegisteredtypes() {
-		return this.registeredtypes;
-	}
-
-	public void setRegisteredtypes(Set registeredtypes) {
-		this.registeredtypes = registeredtypes;
 	}
 
 	public Set getOffices() {

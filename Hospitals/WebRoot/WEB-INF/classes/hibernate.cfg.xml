@@ -19,6 +19,8 @@
 			com.mysql.jdbc.Driver
 		</property>
 		<property name="connection.autocommit">true</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
 		<mapping resource="com/aaa/entity/Bookinginfo.hbm.xml" />
 		<mapping resource="com/aaa/entity/Kubreakage.hbm.xml" />
 		<mapping resource="com/aaa/entity/Watebill.hbm.xml" />

@@ -79,6 +79,12 @@
         <property name="roomstate" type="java.lang.Integer">
             <column name="roomstate" />
         </property>
+        <set name="clinicregisters" inverse="true">
+            <key>
+                <column name="stuffIds" />
+            </key>
+            <one-to-many class="com.aaa.entity.Clinicregister" />
+        </set>
         <set name="outhospitals" inverse="true">
             <key>
                 <column name="stuffid2" />

@@ -28,6 +28,12 @@
         <property name="idnumber" type="java.lang.String">
             <column name="IDnumber" length="1024" />
         </property>
+        <property name="date" type="java.util.Date">
+            <column name="date" length="10" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="status" />
+        </property>
         <set name="bookinginfos" inverse="true">
             <key>
                 <column name="id" />
