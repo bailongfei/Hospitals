@@ -132,4 +132,10 @@ public void setDao(PatientsDao dao) {
 		
 	}
 
+	@Override
+	public String getNewId() {
+		
+		return dao.getNewId();
+	}
+
 }

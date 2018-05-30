@@ -73,14 +73,14 @@ public class PatientsAction extends BaseAction{
 	  String keyList=ps.findByKey(patients.getPatientname());
 	  this.getPrintWriter().print(keyList);
   }
-  //添加修改病人挂号
+  //添加病人挂号
   public void addOrupdate(){
 	  System.out.println("clinicregister");
 	  
 	  ps.savePatients(clinicregister.getPatients());
 	  ps.saveCharge(clinicregister.getCharge());
 	  ps.saveClinicregister(clinicregister);
-	  Message message=new Message(clinicregister.getRegisteredtype().getGhId(),"操作成功!");
+	  Message message=new Message(clinicregister.getCharge().getCharge(),"操作成功!");
 	  this.getPrintWriter().print(JSON.toJSONString(message));
   }
   //修改挂号
@@ -91,6 +91,12 @@ public class PatientsAction extends BaseAction{
 	  ps.updateClinicregister(clinicregister);
 	  Message message=new Message(clinicregister.getRegisteredtype().getGhId(),"操作成功!");
 	  this.getPrintWriter().print(JSON.toJSONString(message));
+  }
+  //自增序列
+  public void getNewId(){
+	  System.out.println("getNewId");
+	  String id=ps.getNewId();
+	  this.getPrintWriter().print(JSON.toJSONString(id));
   }
   //查询员工，科室，科室类，
   public void findOk(){

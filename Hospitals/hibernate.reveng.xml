@@ -547,7 +547,12 @@
 			<generator class="native"></generator>
 		</primary-key>
 	</table>
-<table name="yzmoid" catalog="hospital">
+	<table name="yzmoid" catalog="hospital">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+<table name="roles" catalog="hospital">
 	<primary-key>
 		<generator class="native"></generator>
 	</primary-key>

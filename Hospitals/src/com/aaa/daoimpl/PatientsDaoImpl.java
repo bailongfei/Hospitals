@@ -1,9 +1,14 @@
 package com.aaa.daoimpl;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -130,6 +135,8 @@ public Pager findByPages(final int curPage,final int pageSize) {
 
 	@Override
 	public void saveClinicregister(Clinicregister clinicregister) {
+		/*String p=getNewId();
+		clinicregister.setSerialNumber(p);*/
 		this.ht.save(clinicregister);
 		
 	}
@@ -162,6 +169,21 @@ public Pager findByPages(final int curPage,final int pageSize) {
 	public void updateCharge(Charge charge) {
 		this.ht.update(charge);
 		
+	}
+
+	@Override
+	public String getNewId() {
+		final String sql="select lpad(max(cast(c.serialNumber as signed))+1,3,'0') from clinicRegister c";
+		String result=this.ht.execute(new HibernateCallback<String>() {
+
+			@Override
+			public String doInHibernate(Session session) throws HibernateException, SQLException {
+				Query query=session.createSQLQuery(sql);
+				String results=query.uniqueResult().toString();
+				return results;
+			}
+		});
+		return result;
 	}
 
 }

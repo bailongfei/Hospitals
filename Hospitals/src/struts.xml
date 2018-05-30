@@ -3,9 +3,21 @@
 <struts>
   <constant name="struts.i18n.encoding" value="utf-8"></constant>
 	<constant name="struts.devMode" value="true" />
-  <package name="default" extends="json-default" namespace="/">
+  <package name="default" extends="struts-default,json-default">
     <action name="ps_*" class="com.aaa.action.controller.PatientsAction" method="{1}">
       <result name="success">${target}</result>
     </action>
+    <action name="admin_*" class="com.aaa.action.controller.AdminAction" method="{1}">
+      <result name="adminUrlss">${adminUrl}</result>
+      <result name="Rightt">${adminUrl}</result>
+     </action> 
+     <action name="roles_*" class="com.aaa.action.controller.RolesAction" method="{1}">
+      <result name="success">${rolesUrl}</result>
+    </action>
   </package>
+  <!-- <package name="roles" extends="json-default" namespace="/">
+    <action name="roles_*" class="com.aaa.action.controller.RolesAction" method="{1}">
+      <result name="success">${rolesUrl}</result>
+    </action>
+  </package> -->
 </struts>    

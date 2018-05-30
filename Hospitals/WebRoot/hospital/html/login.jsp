@@ -4,75 +4,124 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>医院管理系统</title>
-<link href="../css/style.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>欢迎登录后台管理系统</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="js/jquery.js"></script>
+<script src="js/cloud.js" type="text/javascript"></script>
+<script language="javascript">
+	$(function(){
+    $('.loginbox').css({'position':'absolute','left':($(window).width()-692)/2});
+	$(window).resize(function(){  
+    $('.loginbox').css({'position':'absolute','left':($(window).width()-692)/2});
+    });  
+}); 
+</script> 
+<style >
+     .required{
+	color:red;
+	font-size:150%;
+}
+</style>
 </head>
 
-<body>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="109" height="8" background="../images/login_01.gif"><img src="../images/spacer.gif" width="1" height="1"></td>
-    <td width="794"><img src="../images/spacer.gif" width="1" height="1"></td>
-    <td background="../images/login_01.gif"><img src="../images/spacer.gif" width="1" height="1"></td>
-  </tr>
-</table>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" background="../images/login_03.gif">
-  <tr>
-    <td width="109" height="97">&nbsp;</td>
-    <td width="300" valign="top">&nbsp;</td>
-    <td width="494" align="right" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td height="11"><img src="../images/spacer.gif" width="1" height="1"></td>
-        </tr>
-      <tr>
-        <td align="right"><a href="#"><img src="../images/login_08.gif" width="71" height="17" border="0"></a></td>
-        </tr>
-    </table></td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="8" height="10"><img src="../images/spacer.gif" width="1" height="1"></td>
-    <td><img src="../images/spacer.gif" width="1" height="1"></td>
-    <td width="381"><img src="../images/spacer.gif" width="1" height="1"></td>
-    <td><img src="../images/spacer.gif" width="1" height="1"></td>
-    <td><img src="../images/spacer.gif" width="1" height="1"></td>
-    <td bgcolor="#92BBD7"><img src="../images/spacer.gif" width="1" height="1"></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td width="8"><img src="../images/spacer.gif" width="1" height="1"></td>
-    <td><img src="../images/login_15.jpg" width="381" height="181"></td>
-    <td width="662" align="center" background="../images/login_16.jpg">&nbsp;</td>
-    <td width="10"><img src="../images/spacer.gif" width="1" height="1"></td>
-  </tr>
-  <tr>
-    <td height="10"><img src="../images/spacer.gif" width="1" height="1"></td>
-    <td><img src="../images/spacer.gif" width="1" height="1"></td>
-    <td><img src="../images/spacer.gif" width="1" height="1"></td>
-    <td><img src="../images/spacer.gif" width="1" height="1"></td>
-    <td><img src="../images/spacer.gif" width="1" height="1"></td>
-    <td><img src="../images/login_21.gif" width="100" height="10"></td>
-  </tr>
-</table>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-  <form name="form1" method="post" action="">
-  <tr>
-    <td width="109" height="93" background="../images/login_22.gif">&nbsp;</td>
-    <td width="291" valign="bottom" background="../images/login_22.gif">&nbsp;</td>
-    <td align="right" valign="top" background="../images/login_22.gif"></td>
-    </tr>
-  <tr>
-    <td height="100" class="td02">&nbsp;</td>
-    <td class="td02">&nbsp;</td>
-    <td class="td02">&nbsp;</td>
-    </tr>
-</form>
-</table>
+<body style="background-color:#1c77ac; background-image:url(images/light.png); background-repeat:no-repeat; background-position:center top; overflow:hidden;">
+
+
+
+    <div id="mainBody">
+      <div id="cloud1" class="cloud"></div>
+      <div id="cloud2" class="cloud"></div>
+    </div>  
+
+
+<div class="logintop">    
+    <span>欢迎登录后台管理界面平台</span>    
+    <ul>
+    <li><a href="#">回首页</a></li>
+    <li><a href="#">帮助</a></li>
+    <li><a href="#">关于</a></li>
+    </ul>    
+    </div>
+    
+    <div class="loginbody">
+    
+    <span class="systemlogo"></span> 
+       
+    <div class="loginbox">
+      <form  id="myForm" action="admin_adminLogin.action" method="post">
+    <ul>
+    <li><input required="required" name="user.userName" type="text" id="ocName" class="loginuser" value="admin"  onclick="JavaScript:this.value=''"/><span class="required" id="spname">*</span></li>
+    <li><input required="required"  name="user.password" type="text" id="ocPass" class="loginpwd" value="密码" onclick="JavaScript:this.value=''"/><span class="required" id="spPass"></span></li>
+    <li><input  type="submit" class="loginbtn" value="登录" id="login"   /><label><input name="" type="checkbox" value="" checked="checked" />记住密码</label><label><a href="#">忘记密码？</a></label></li>
+    <!-- onclick="javascript:window.location='index.jsp'" -->
+    </ul>
+       </form>
+    
+    </div>
+    
+    </div>
+    <div class="loginbm"></div>
 </body>
 </html>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+<script type="text/javascript">
+  /*  $("#ocName").blur(function(){
+    
+	  $.ajax({
+		  url:"${pageContext.request.contextPath}/admin_adminLogin.action",
+	      data:{"user.userName":$("#ocName").val()},
+	      type:"post",
+	      dataType:"json",
+	      success:function(data){
+	          
+	    	    if(data==true){
+	               $("#spname").html("可以登录").css("color","#ff0000");
+	             }else{
+	               $("#spname").html("用户不存在!").css("color","#0000ff");
+	             }
+	      }
+	  });
+  });
+  $("#ocPass").blur(function(){
+  
+	  $.ajax({
+		  url:"${pageContext.request.contextPath}/admin_adminLogin.action",
+	      data:{"user.password":$("#ocPass").val()},
+	      type:"post",
+	      dataType:"json",
+	      success:function(data){
+	    	    if(data==true){
+	               $("#spPass").html("可以登录").css("color","#ff0000");
+	             }else{
+	               $("#spPass").html("用户不存在!").css("color","#0000ff");
+	             }
+	      }
+	  });
+  });   */
+  /* $("#login").click(function(){
+     $.ajax({
+        url:"${pageContext.request.contextPath}/admin_adminLogin.action",
+	      data:{
+	          "user.userName":$("#ocName").val(),
+	          "user.password":$("#ocPass").val()
+	      },
+	      type:"post",
+	      dataType:"text",
+	      success:function(data){
+	           
+	    	    if(data){
+	    	       $("#spname").html("可以登录").css("color","#ff0000");
+	               $("#spPass").html("可以登录").css("color","#ff0000");
+	                 window.location.href ="${pageContext.request.contextPath}/hospital/html/index.jsp";
+	             }else{
+	               $("#spname").html("用户不存在!").css("color","#0000ff");
+	               $("#spPass").html("用户不存在!").css("color","#0000ff");
+	             }
+	      }
+     });
+  }); */
+</script> 

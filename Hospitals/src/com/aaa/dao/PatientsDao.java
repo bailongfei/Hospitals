@@ -27,4 +27,5 @@ public interface PatientsDao {
    public void updateClinicregister(Clinicregister clinicregister);//ÐÞ¸Ä¹ÒºÅ
    public void updatePatients(Patients patients);
    public void updateCharge(Charge charge);
+   public String getNewId();
 }

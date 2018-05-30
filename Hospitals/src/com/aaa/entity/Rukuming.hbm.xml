@@ -13,9 +13,9 @@
         <many-to-one name="ruku" class="com.aaa.entity.Ruku" fetch="select">
             <column name="yId" />
         </many-to-one>
-        <many-to-one name="drug" class="com.aaa.entity.Drug" fetch="select">
+        <property name="did" type="java.lang.Integer">
             <column name="dId" />
-        </many-to-one>
+        </property>
         <property name="num3" type="java.lang.Integer">
             <column name="num3" />
         </property>

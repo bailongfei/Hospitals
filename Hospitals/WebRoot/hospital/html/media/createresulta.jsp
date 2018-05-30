@@ -111,7 +111,7 @@ function windowOpen(theURL,winName,features,width,hight,scrollbars,top,left)
     <input type="submit" class="td07" value="姓名查询:" >
         
      <input type="text" id="uname" onkeyup="findKey()" /><span><i id="font" class="fa fa-spinner fa-pulse fa-2x"></i></span><br/>
-       <div id="result"></div>
+       <div id="result" style="position: fixed;top:80px; left:100; right: auto;  bottom: auto; width:50px; opacity:0.8;"></div>
       </form>       
      </td>
   </tr>
@@ -338,9 +338,9 @@ function findAll(curPage){
           tr+="<td class='td07'>"+obj.charge+"</td>";
           tr+="<td class='td07'>"+obj.realCharge+"</td>";
           tr+="<td class='td07'>"+obj.changes+"</td>";
-          tr+="<td class='td07'>"+obj.presentTime+"</td>";
+          tr+="<td class='td07'>"+transferTime(obj.presentTime)+"</td>";
           tr+="<td class='td07'><input target='_blank' data-toggle='modal' data-target='#myModals'  type='button' value='修改' id="+obj.patientname+" class='update btn btn-default' />"
-          tr+="</tr>"; 
+          tr+="</tr>";
           $("#tbody").append(tr);//追加行
         }
         //重新初始化分页链接
@@ -404,7 +404,8 @@ $("#tbody").on("click",".update",function(){
           dataType:"json",
           type:"post",
           success:function(data){
-            /* $("#selea").append("<option class='form-control' value=''>--------请选择--------</option>"); */
+            $("#selea").empty();//清空子项
+            /* $("#selea").append("<option class='form-control' value='-1'>--------请选择--------</option>"); */
             for(var i=0;i<data.length;i++){
                var off=data[i];
                $("#selea").append("<option  class='form-control' value='"+off.officeId+"'>"+off.officeName+"</option>");
@@ -416,6 +417,7 @@ $("#tbody").on("click",".update",function(){
           dataType:"json",
           type:"post",
           success:function(data){
+            $("#seleb").empty();//清空子项
             for(var i=0;i<data.length;i++){
                var off=data[i];
                
@@ -428,7 +430,8 @@ $("#tbody").on("click",".update",function(){
           dataType:"json",
           type:"post",
           success:function(data){
-            /* $("#selec").append("<option class='form-control' value=''>--------请选择--------</option>"); */
+            /* $("#selec").append("<option class='form-control' value='-1'>--------请选择--------</option>"); */
+            $("#selec").empty();//清空子项
             for(var i=0;i<data.length;i++){
                var off=data[i];
                if(this.sy==off.ghId){
@@ -437,7 +440,13 @@ $("#tbody").on("click",".update",function(){
                   
                   $("#selec").append("<option class='form-control'  value='"+off.ghId+"'>"+off.typeName+"</option>");
                }
+               /* 
                
+               $.each(data,function(i,n){
+				        		$("#selec").append("<option value='"+n.ghId+"'>"+n.typeName+"</option>");
+				        	});
+                 
+                */
             }  
           }
        }); 
@@ -472,4 +481,44 @@ $("#tbody").on("click",".update",function(){
       var sf=parseFloat(ssf-ghf);
       $("#changes").val(sf);
   });
+   //改变时间
+       function transferTime(presentTime) {
+       //将json串的一串数字进行解析
+       var jsonDate = new Date(parseInt(presentTime));
+       
+       //为Date对象添加一个新属性，主要是将解析到的时间数据转换为我们熟悉的“yyyy-MM-dd hh:mm:ss”样式
+       Date.prototype.format = function(format) {
+       var o = {
+
+       //获得解析出来数据的相应信息，可参考js官方文档里面Date对象所具备的方法
+
+       "y+" : this.getFullYear(),//得到对应的年信息
+       "M+" : this.getMonth() + 1, //得到对应的月信息，得到的数字范围是0~11，所以要加一
+       "d+" : this.getDate(), //得到对应的日信息
+       "h+" : this.getHours(), //得到对应的小时信息 
+       "m+" : this.getMinutes(), //得到对应的分钟信息
+       "s+" : this.getSeconds(), //得到对应的秒信息
+ 
+   }
+
+     //将年转换为完整的年形式
+    if (/(y+)/.test(format)) {
+   format = format.replace(RegExp.$1,
+   (this.getFullYear() + "")
+  .substr(4 - RegExp.$1.length));
+   }
+
+   //连接得到的年月日 时分秒信息
+   for ( var k in o) {
+  if (new RegExp("(" + k + ")").test(format)) {
+  format = format.replace(RegExp.$1,
+  RegExp.$1.length == 1 ? o[k] : ("00" + o[k])
+ .substr(("" + o[k]).length));
+  }
+ }
+ return format;
+ }
+var newDate = jsonDate.format("yyyy-MM-dd hh:mm:ss");
+return newDate;
+}   
 </script>	

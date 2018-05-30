@@ -204,7 +204,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <td background="../images/main_70.gif"><img src="../images/spacer.gif" width="1" height="1"></td>
               <td class="td06"><table width="100%" border="0" cellspacing="4" cellpadding="0">
                   <tr>
-                    <td>王小小 先生，您好！<br>
+                    <td>${adminUsers} 先生，您好！<br>
                       欢迎登录电子所务系统<br>
                       <br>
                       上次登录时间为：<br>

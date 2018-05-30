@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -41,13 +42,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <tr>
                 <td>
                 	               
-                	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                       <td width="19"><img id="top_1" onClick="menu('menu_1','top_1');" src="../images/tree_03.gif" width="19" height="20"></td>
                       <td width="19"><img src="../images/tree_27.gif" width="19" height="20"></td>
                       <td nowrap>门诊管理</td>
                     </tr>
-                  </table>
+                 </table>
                      <div id="menu_1" style="DISPLAY: none">
 				  <table width="100%" border="0" cellspacing="0" cellpadding="0">
 						  <tr>

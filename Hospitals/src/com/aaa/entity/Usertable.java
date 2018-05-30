@@ -13,7 +13,7 @@ public class Usertable implements java.io.Serializable {
 
 	private Integer userId;
 	private Stuff stuff;
-	private Rolestable rolestable;
+	private Roles roles;
 	private String userName;
 	private String password;
 	private String question;
@@ -27,10 +27,10 @@ public class Usertable implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Usertable(Stuff stuff, Rolestable rolestable, String userName, String password, String question,
-			String answer, Set stuffs) {
+	public Usertable(Stuff stuff, Roles roles, String userName, String password, String question, String answer,
+			Set stuffs) {
 		this.stuff = stuff;
-		this.rolestable = rolestable;
+		this.roles = roles;
 		this.userName = userName;
 		this.password = password;
 		this.question = question;
@@ -56,12 +56,12 @@ public class Usertable implements java.io.Serializable {
 		this.stuff = stuff;
 	}
 
-	public Rolestable getRolestable() {
-		return this.rolestable;
+	public Roles getRoles() {
+		return this.roles;
 	}
 
-	public void setRolestable(Rolestable rolestable) {
-		this.rolestable = rolestable;
+	public void setRoles(Roles roles) {
+		this.roles = roles;
 	}
 
 	public String getUserName() {

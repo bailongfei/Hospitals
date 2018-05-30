@@ -62,7 +62,6 @@
 		<mapping resource="com/aaa/entity/Chinesedetails.hbm.xml" />
 		<mapping resource="com/aaa/entity/Supplier.hbm.xml" />
 		<mapping resource="com/aaa/entity/Address.hbm.xml" />
-		<mapping resource="com/aaa/entity/Rolestable.hbm.xml" />
 		<mapping resource="com/aaa/entity/Dosageform.hbm.xml" />
 		<mapping resource="com/aaa/entity/Office.hbm.xml" />
 		<mapping resource="com/aaa/entity/Adviceinfo.hbm.xml" />
@@ -86,6 +85,7 @@
 		<mapping resource="com/aaa/entity/Doseunit.hbm.xml" />
 		<mapping resource="com/aaa/entity/Stufftype.hbm.xml" />
 		<mapping resource="com/aaa/entity/Inpatientarea.hbm.xml" />
+		<mapping resource="com/aaa/entity/Roles.hbm.xml" />
 
 
 	</session-factory>

@@ -10,7 +10,7 @@ public class Rolesmodule implements java.io.Serializable {
 
 	private Integer rmId;
 	private Modules modules;
-	private Rolestable rolestable;
+	private Roles roles;
 
 	// Constructors
 
@@ -19,9 +19,9 @@ public class Rolesmodule implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Rolesmodule(Modules modules, Rolestable rolestable) {
+	public Rolesmodule(Modules modules, Roles roles) {
 		this.modules = modules;
-		this.rolestable = rolestable;
+		this.roles = roles;
 	}
 
 	// Property accessors
@@ -42,12 +42,12 @@ public class Rolesmodule implements java.io.Serializable {
 		this.modules = modules;
 	}
 
-	public Rolestable getRolestable() {
-		return this.rolestable;
+	public Roles getRoles() {
+		return this.roles;
 	}
 
-	public void setRolestable(Rolestable rolestable) {
-		this.rolestable = rolestable;
+	public void setRoles(Roles roles) {
+		this.roles = roles;
 	}
 
 }

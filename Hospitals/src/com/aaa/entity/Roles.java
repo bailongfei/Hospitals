@@ -4,27 +4,29 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Rolestable entity. @author MyEclipse Persistence Tools
+ * Roles entity. @author MyEclipse Persistence Tools
  */
 
-public class Rolestable implements java.io.Serializable {
+public class Roles implements java.io.Serializable {
 
 	// Fields
 
 	private Integer rolesId;
 	private String rolesName;
+	private String rolesdescribe;
 	private Set usertables = new HashSet(0);
 	private Set rolesmodules = new HashSet(0);
 
 	// Constructors
 
 	/** default constructor */
-	public Rolestable() {
+	public Roles() {
 	}
 
 	/** full constructor */
-	public Rolestable(String rolesName, Set usertables, Set rolesmodules) {
+	public Roles(String rolesName, String rolesdescribe, Set usertables, Set rolesmodules) {
 		this.rolesName = rolesName;
+		this.rolesdescribe = rolesdescribe;
 		this.usertables = usertables;
 		this.rolesmodules = rolesmodules;
 	}
@@ -45,6 +47,14 @@ public class Rolestable implements java.io.Serializable {
 
 	public void setRolesName(String rolesName) {
 		this.rolesName = rolesName;
+	}
+
+	public String getRolesdescribe() {
+		return this.rolesdescribe;
+	}
+
+	public void setRolesdescribe(String rolesdescribe) {
+		this.rolesdescribe = rolesdescribe;
 	}
 
 	public Set getUsertables() {

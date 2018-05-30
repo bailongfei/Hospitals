@@ -26,4 +26,5 @@ public interface PatientsService {
  public void updateClinicregister(Clinicregister clinicregister);
  public void updatePatients(Patients patients);
  public void updateCharge(Charge charge);
+ public String getNewId();
 }

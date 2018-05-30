@@ -213,7 +213,7 @@ function findAll(curPage){
           tr+="<td class='td07'>"+obj.typeName+"</td>";
           tr+="<td class='td07'>"+obj.officeName+"</td>";
           tr+="<td class='td07'>"+obj.charge+"</td>";
-          tr+="<td class='td07'>"+obj.presentTime+"</td>";
+          tr+="<td class='td07'>"+transferTime(obj.presentTime)+"</td>";
           tr+="</tr>"; 
           $("#tbody").append(tr);//追加行
         }
@@ -238,4 +238,44 @@ function changePage(obj){
 		var page=$("#txtCurPage").val();
 		findAll(page);
 	}
+	 //改变时间
+       function transferTime(presentTime) {
+       //将json串的一串数字进行解析
+       var jsonDate = new Date(parseInt(presentTime));
+       
+       //为Date对象添加一个新属性，主要是将解析到的时间数据转换为我们熟悉的“yyyy-MM-dd hh:mm:ss”样式
+       Date.prototype.format = function(format) {
+       var o = {
+
+       //获得解析出来数据的相应信息，可参考js官方文档里面Date对象所具备的方法
+
+       "y+" : this.getFullYear(),//得到对应的年信息
+       "M+" : this.getMonth() + 1, //得到对应的月信息，得到的数字范围是0~11，所以要加一
+       "d+" : this.getDate(), //得到对应的日信息
+       "h+" : this.getHours(), //得到对应的小时信息 
+       "m+" : this.getMinutes(), //得到对应的分钟信息
+       "s+" : this.getSeconds(), //得到对应的秒信息
+ 
+   }
+
+     //将年转换为完整的年形式
+    if (/(y+)/.test(format)) {
+   format = format.replace(RegExp.$1,
+   (this.getFullYear() + "")
+  .substr(4 - RegExp.$1.length));
+   }
+
+   //连接得到的年月日 时分秒信息
+   for ( var k in o) {
+  if (new RegExp("(" + k + ")").test(format)) {
+  format = format.replace(RegExp.$1,
+  RegExp.$1.length == 1 ? o[k] : ("00" + o[k])
+ .substr(("" + o[k]).length));
+  }
+ }
+ return format;
+ }
+var newDate = jsonDate.format("yyyy-MM-dd hh:mm:ss");
+return newDate;
+}   
 </script>	

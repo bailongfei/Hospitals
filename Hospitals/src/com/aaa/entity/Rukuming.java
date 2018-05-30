@@ -10,7 +10,7 @@ public class Rukuming implements java.io.Serializable {
 
 	private Integer rid;
 	private Ruku ruku;
-	private Drug drug;
+	private Integer did;
 	private Integer num3;
 	private Integer stockPrice3;
 	private Integer totalPrice5;
@@ -23,9 +23,9 @@ public class Rukuming implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Rukuming(Ruku ruku, Drug drug, Integer num3, Integer stockPrice3, Integer totalPrice5, String batchNum) {
+	public Rukuming(Ruku ruku, Integer did, Integer num3, Integer stockPrice3, Integer totalPrice5, String batchNum) {
 		this.ruku = ruku;
-		this.drug = drug;
+		this.did = did;
 		this.num3 = num3;
 		this.stockPrice3 = stockPrice3;
 		this.totalPrice5 = totalPrice5;
@@ -50,12 +50,12 @@ public class Rukuming implements java.io.Serializable {
 		this.ruku = ruku;
 	}
 
-	public Drug getDrug() {
-		return this.drug;
+	public Integer getDid() {
+		return this.did;
 	}
 
-	public void setDrug(Drug drug) {
-		this.drug = drug;
+	public void setDid(Integer did) {
+		this.did = did;
 	}
 
 	public Integer getNum3() {
