@@ -48,9 +48,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="loginbody">
-    
-    <span class="systemlogo"></span> 
-       
+       <!--登陆图片  -->
+       <div style="  margin-left:580px; font-family:STCaiyun;margin-top:60px; ">
+    <!-- <span class="systemlogo"></span>  -->
+         <h1>医院管理信息系统</h1>
+       </div>
     <div class="loginbox">
       <form  id="myForm" action="admin_adminLogin.action" method="post">
     <ul>

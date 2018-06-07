@@ -1,15 +1,21 @@
 package com.aaa.servicesimpl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.aaa.dao.PatientsDao;
 import com.aaa.entity.Charge;
 import com.aaa.entity.Clinicregister;
 import com.aaa.entity.Patients;
+import com.aaa.entity.Stuff;
+import com.aaa.entity.Stufftype;
+import com.aaa.entity.Usertable;
 import com.aaa.services.PatientsService;
 import com.aaa.util.Pager;
 @Service
@@ -54,7 +60,11 @@ public void setDao(PatientsDao dao) {
 
 	@Override
 	public String findByKey(String key) {
-		List<String> list=dao.findByKey(key);
+		List<String> list=new ArrayList();
+		if(key.length()>0&&!key.equals(null)){
+		    List list2=dao.findByKey(key);
+		    list.addAll(list2);
+		}
 		String str="";
 		for (String string:list) {
 			str+=string+",";
@@ -64,8 +74,13 @@ public void setDao(PatientsDao dao) {
 
 	@Override
 	public Map findByName(Patients patients) {
+		Map map=new HashMap();
+		if(patients.getPatientname()!=null){
+			Map ma=dao.findByName(patients);
+			map.putAll(ma);
+		}
 		
-		return dao.findByName(patients);
+		return map;
 	}
 
 	@Override
@@ -137,5 +152,55 @@ public void setDao(PatientsDao dao) {
 		
 		return dao.getNewId();
 	}
+
+	@Override
+	public List<Map> findRoles() {
+		
+		return dao.findRoles();
+	}
+
+	@Override
+	public List<Map> findPosition() {
+		
+		return dao.findPosition();
+	}
+
+	@Override
+	public List<Map> findJobtitle() {
+		
+		return dao.findJobtitle();
+	}
+
+	@Override
+	public List<Map> findStufftype() {
+		
+		return dao.findStufftype();
+	}
+
+	@Override
+	public String getStuId() {
+		
+		return dao.getStuId();
+	}
+  @Transactional
+	@Override
+	public void addStuffAndUsers(List<Stuff> list,List<Usertable> list2) {
+		if(list.get(0)!=null&&list2.get(0)!=null){
+			//boolean addStu=false;
+			
+			for (int i = 0; i < list.size(); i++) {
+				  dao.addStuff(list.get(i));
+				  
+			}
+			
+			for (int i = 0; i < list2.size(); i++) {
+				System.out.println("list2Services:"+list2.get(i));
+				dao.addUsers(list2.get(i));
+			}
+		}
+		
+	}
+
+	
 
 }

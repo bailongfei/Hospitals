@@ -1,6 +1,7 @@
 package com.aaa.daoimpl;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -140,6 +141,59 @@ public void setHt(HibernateTemplate ht) {
 	public void saveRolesModule(Rolesmodule rolModue) {
 		this.getHt().save(rolModue);
 		
+	}
+
+	@Override
+	public List findByDate(final Date day1,final Date day2,Object params) {
+		
+		final String sql="select COUNT(*) as sumId,ry.typeName as typeName,SUM(cg.charge) as charges from clinicregister c left join charge cg on c.sfId=cg.sfId left join registeredtype ry on c.ghIds=ry.ghId where c.ghIds="+params+" and c.presentTime between ? and ?";
+		
+		List list=this.getHt().execute(new HibernateCallback<List>() {
+			final Object[] params=new Object[]{day1,day2};
+			@Override
+			public List<Map> doInHibernate(Session session) throws HibernateException, SQLException {
+				Query query=session.createSQLQuery(sql);
+				query.setParameter(0,params[0]);
+				query.setParameter(1,params[1]);
+				//设定结果集中每个对象为Map类型
+				query.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+				List result=query.list();
+				return result;
+			}
+		});
+		  
+		return list;
+		
+		
+	}
+
+	@Override
+	public List findRegisteredtype() {
+		String hql="select r.ghId from Registeredtype r";
+		List list=this.getHt().find(hql);
+		System.out.println("findRegisteredtype"+list);
+		return list;
+	}
+
+	@Override
+	public List findByDateKeShi(final Date day1, final Date day2, final Object params) {
+		final String sql="select ry.typeName as typeName,s.stuffname as stuffname,SUM(cg.charge) as charges from clinicregister c left join charge cg on c.sfId=cg.sfId left join registeredtype ry on c.ghIds=ry.ghId left join stuff s on c.stuffIds=s.stuffid2 where  c.presentTime between ? and ? and c.ghIds=?";
+		List list=this.getHt().execute(new HibernateCallback<List>() {
+
+			@Override
+			public List<Map> doInHibernate(Session session) throws HibernateException, SQLException {
+				Query query=session.createSQLQuery(sql);
+				query.setParameter(0, day1);
+				query.setParameter(1,day2);
+				query.setParameter(2,params);
+				query.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+				List result=query.list();
+				
+				return result;
+			}
+		});
+		
+		return list;
 	}
 
 }

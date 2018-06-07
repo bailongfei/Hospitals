@@ -16,6 +16,8 @@ import com.aaa.dao.PatientsDao;
 import com.aaa.entity.Charge;
 import com.aaa.entity.Clinicregister;
 import com.aaa.entity.Patients;
+import com.aaa.entity.Stuff;
+import com.aaa.entity.Usertable;
 import com.aaa.util.Pager;
 import com.aaa.util.PagerCallBack;
 @Repository
@@ -25,6 +27,7 @@ public class PatientsDaoImpl implements PatientsDao {
 
 	public HibernateTemplate getHt() {
 	return ht;
+	
 }
 
 public void setHt(HibernateTemplate ht) {
@@ -115,7 +118,7 @@ public Pager findByPages(final int curPage,final int pageSize) {
 	public List<Map> findOffice() {
 		String hql="select new Map(o.officeId as officeId,o.officeName as officeName) from Office o";
 		List<Map> list=this.ht.find(hql);
-		System.out.println("findOffice:"+list);
+		
 		return list;
 	}
 
@@ -186,4 +189,62 @@ public Pager findByPages(final int curPage,final int pageSize) {
 		return result;
 	}
 
+	@Override
+	public List<Map> findRoles() {
+		String hql="select new Map(r.rolesId as rolesId,r.rolesName as rolesName) from Roles r";
+		List<Map> list=this.getHt().find(hql);
+		return list;
+	}
+
+	@Override
+	public List<Map> findPosition() {
+		String hql="select new Map(p.positionid as positionid,p.positionname as positionname) from Position p";
+		List<Map> list=this.getHt().find(hql);
+		System.out.println("Ö°Îñ"+list);
+		return list;
+	}
+
+	@Override
+	public List<Map> findJobtitle() {
+		String hql="select new Map(j.jobTitleId as jobTitleId,j.jobTitleName as jobTitleName) from Jobtitle j";
+		List<Map> list=this.getHt().find(hql);
+		return list;
+	}
+
+	@Override
+	public List<Map> findStufftype() {
+		String hql="select new Map(s.stuffTypeId as stuffTypeId,s.stuffTypeName as stuffTypeName) from Stufftype s";
+		List<Map> list=this.getHt().find(hql);
+		return list;
+	}
+
+	@Override
+	public String getStuId() {
+		final String sql="select max(cast(s.stuffid2 as signed))+1 from stuff s";
+		String list=this.ht.execute(new HibernateCallback<String>() {
+
+			@Override
+			public String doInHibernate(Session session) throws HibernateException, SQLException {
+				Query query=session.createSQLQuery(sql);
+				String results=query.uniqueResult().toString();
+				return results;
+			}
+		});
+		return list;
+		
+	}
+
+	@Override
+	public void addStuff(Stuff list) {
+		this.getHt().save(list);
+		
+	}
+
+	@Override
+	public void addUsers(Usertable list2) {
+		this.getHt().save(list2);
+		
+	}
+
+	
 }

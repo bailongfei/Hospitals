@@ -6,6 +6,9 @@ import java.util.Map;
 import com.aaa.entity.Charge;
 import com.aaa.entity.Clinicregister;
 import com.aaa.entity.Patients;
+import com.aaa.entity.Stuff;
+import com.aaa.entity.Stufftype;
+import com.aaa.entity.Usertable;
 import com.aaa.util.Pager;
 
 public interface PatientsService {
@@ -27,4 +30,13 @@ public interface PatientsService {
  public void updatePatients(Patients patients);
  public void updateCharge(Charge charge);
  public String getNewId();
-}
+ public List<Map> findRoles();
+ public List<Map> findPosition();
+ public List<Map> findJobtitle();
+ public List<Map> findStufftype();
+ public String getStuId();
+ /*public void addStuff(Stuff list);//添加员工
+ public void addUsers(Usertable list2);//添加用户
+*/
+ public void addStuffAndUsers(List<Stuff> list,List<Usertable> list2);
+ }

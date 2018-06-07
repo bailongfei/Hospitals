@@ -109,7 +109,7 @@ function windowOpen(theURL,winName,features,width,hight,scrollbars,top,left)
     <form action="">
     <input type="submit" class="td07" value="姓名查询:" >
         
-     <input type="text" id="uname" onkeyup="findKey()" /><span><i id="font" class="fa fa-spinner fa-pulse fa-2x"></i></span><br/>
+     <input type="text" autocomplete="off" id="uname" onkeyup="findKey()" /><span><i id="font" class="fa fa-spinner fa-pulse fa-2x"></i></span><br/>
        <div id="result"></div>
       </form>       
      </td>
@@ -220,7 +220,8 @@ function findAll(curPage){
           tr+="<td class='td07'>"+obj.stuffname+"</td>";
           tr+="<td class='td07'>"+obj.typeName+"</td>";
           tr+="<td class='td07'>"+obj.officeName+"</td>";
-          tr+="<td class='td07'>"+transferTime(obj.presentTime)+"</td>";
+          tr+="<td class='td07'>"+obj.presentTime+"</td>";
+          /* tr+="<td class='td07'>"+transferTime(obj.presentTime)+"</td>"; */
           tr+="<td class='td07'>"+obj.charge+"</td>";
           tr+="<td class='td07'>"+obj.charge+"</td>";
           tr+="<td class='td07'><input target='_blank'  type='button' value='退号' size='' title="+obj.sfId+"  name="+obj.registerId+" id="+obj.id+" class='delete btn btn-default' />"
@@ -285,7 +286,7 @@ $("#tbody").on("click",".delete",function(){
      });
   });
   
-  //改变时间
+  /* //改变时间
        function transferTime(presentTime) {
        //将json串的一串数字进行解析
        var jsonDate = new Date(parseInt(presentTime));
@@ -324,5 +325,5 @@ $("#tbody").on("click",".delete",function(){
  }
 var newDate = jsonDate.format("yyyy-MM-dd hh:mm:ss");
 return newDate;
-}   
+}    */
 </script>	

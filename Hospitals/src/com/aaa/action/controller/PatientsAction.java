@@ -9,6 +9,9 @@ import org.springframework.stereotype.Controller;
 import com.aaa.entity.Charge;
 import com.aaa.entity.Clinicregister;
 import com.aaa.entity.Patients;
+import com.aaa.entity.Stuff;
+import com.aaa.entity.Stufftype;
+import com.aaa.entity.Usertable;
 import com.aaa.services.PatientsService;
 import com.aaa.util.BaseAction;
 import com.aaa.util.Message;
@@ -30,13 +33,16 @@ public class PatientsAction extends BaseAction{
   private int pageSize=2;
   private String target;
   private String menuIds;
+  private List<Stuff> list;
+  private List<Usertable> list2;
   //查询患者
   public void findAll(){
 	  /*pager.setPageSize(1);*/
 	  Pager p=ps.findByPagers(curPage, pageSize);
 	  /*String str=JSONObject.fromObject(p).toString();//获取json*/
-	  String str=JSON.toJSONString(p);
-	  this.getPrintWriter().print(str);
+	  //String str=JSON.toJSONString(p);
+	  String st=JSON.toJSONStringWithDateFormat(p,"yyyy-MM-dd");
+	  this.getPrintWriter().print(st);
 	/*return this.SUCCESS;*/
 	  
   }
@@ -56,8 +62,7 @@ public class PatientsAction extends BaseAction{
   //通过name查找
   public void findByName(){
 	  Map mapName=ps.findByName(patients);
-	  String name=JSON.toJSONString(mapName);
-	  System.out.println(name);
+	  String name=JSON.toJSONStringWithDateFormat(mapName,"yyyy-MM-dd");
 	  this.getPrintWriter().print(name);
   }
   //删除
@@ -102,7 +107,7 @@ public class PatientsAction extends BaseAction{
   public void findOk(){
 	  List<Map> list=ps.findOffice();
 	  String json=JSON.toJSONString(list);
-	  System.out.println(json);
+	 
 	  this.getPrintWriter().print(json);
   }
   public void findStuff(){
@@ -115,6 +120,45 @@ public class PatientsAction extends BaseAction{
 	  String rg=JSON.toJSONString(rgs);
 	  this.getPrintWriter().print(rg);
   }
+  //添加员工-查询角色
+  public void selectRolesAll(){
+	  List<Map> rol=ps.findRoles();
+	  String map=JSON.toJSONString(rol);
+	  this.getPrintWriter().print(map);
+  }
+  //查询职务
+  public void findPosition(){
+	  List<Map> list=ps.findPosition();
+	  String ma=JSON.toJSONString(list);
+	  System.out.println("查询职务"+ma);
+	  this.getPrintWriter().print(ma);
+  }
+  //查询职位
+  public void findJobtitle(){
+	  List<Map> list=ps.findJobtitle();
+	  String mp=JSON.toJSONString(list);
+	  this.getPrintWriter().print(mp);
+  }
+  ////查询员工类型
+  public void findStufftype(){
+	  List<Map> list=ps.findStufftype();
+	  String stu=JSON.toJSONString(list);
+	  this.getPrintWriter().print(stu);
+  }
+//员工自增序列
+  public void getStuId(){
+	  System.out.println("getStuId");
+	  String id=ps.getStuId();
+	  this.getPrintWriter().print(JSON.toJSONString(id));
+  }
+  //添加员工和账户
+  public void addStuff(){
+	  
+	  ps.addStuffAndUsers(list, list2);
+	  Message message=new Message(list2.size(),"操作成功!");
+	  this.getPrintWriter().print(JSON.toJSONString(message));
+  }
+  
 public Patients getPatients() {
 	return patients;
 }
@@ -162,6 +206,19 @@ public Charge getCharge() {
 }
 public void setCharge(Charge charge) {
 	this.charge = charge;
+}
+
+public List<Stuff> getList() {
+	return list;
+}
+public void setList(List<Stuff> list) {
+	this.list = list;
+}
+public List<Usertable> getList2() {
+	return list2;
+}
+public void setList2(List<Usertable> list2) {
+	this.list2 = list2;
 }
   
 }

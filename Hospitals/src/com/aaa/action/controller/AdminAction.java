@@ -1,5 +1,6 @@
 package com.aaa.action.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +15,7 @@ import com.aaa.util.BaseAction;
 import com.aaa.util.Message;
 import com.aaa.util.Pager;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.opensymphony.xwork2.ActionContext;
 @Controller
 public class AdminAction extends BaseAction{
@@ -24,6 +26,8 @@ public class AdminAction extends BaseAction{
 	private String adminUrl;
 	private int curPage;
 	private int pageSize=2;
+	private Date day1;
+	private Date day2;
   public String adminLogin(){
 	  System.out.println("login");
 	  boolean result=admin.adminLogin(user.getUserName(),user.getPassword());
@@ -73,15 +77,20 @@ public class AdminAction extends BaseAction{
 	  this.getPrintWriter().print(JSON.toJSONString(message)); 
 	  
   }
- /*//查询权限
-  public void findAllModules(){
-	  System.out.println("findAllModules");
-	  List list=admin.findAllMenusByRoleId(roles.getRolesId());
-	  String mo=JSON.toJSONString(list);
-	  System.out.println(mo);
-	  this.getPrintWriter().print(mo);
-  }*/
-  
+   //报表查询
+  public void selectChange(){
+	  List params=admin.findRegisteredtype();
+	  List list=admin.findByDate(day1, day2, params);
+	  String change=JSONArray.toJSONString(list);
+	  this.getPrintWriter().print(change);
+  }
+  //科室报表
+  public void selectKeshi(){
+	  List params=admin.findRegisteredtype();
+	  List list=admin.findByDateKeShi(day1, day2, params);
+	  String map=JSONArray.toJSONString(list);
+	  this.getPrintWriter().print(map);
+  }
 public Usertable getUser() {
 	return user;
 }
@@ -117,6 +126,22 @@ public Roles getRoles() {
 
 public void setRoles(Roles roles) {
 	this.roles = roles;
+}
+
+public Date getDay1() {
+	return day1;
+}
+
+public void setDay1(Date day1) {
+	this.day1 = day1;
+}
+
+public Date getDay2() {
+	return day2;
+}
+
+public void setDay2(Date day2) {
+	this.day2 = day2;
 }
   
 }

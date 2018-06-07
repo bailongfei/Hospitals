@@ -15,7 +15,7 @@ public class Outhospital implements java.io.Serializable {
 	private Integer outhospitalid;
 	private Outhosstate outhosstate;
 	private Patient patient;
-	private Stuff stuff;
+	private Integer stuffid2;
 	private Date outhospitaldate;
 	private Integer budgetstate;
 	private String outhospnode;
@@ -29,11 +29,11 @@ public class Outhospital implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Outhospital(Outhosstate outhosstate, Patient patient, Stuff stuff, Date outhospitaldate, Integer budgetstate,
-			String outhospnode, Set patients, Set outhosstates) {
+	public Outhospital(Outhosstate outhosstate, Patient patient, Integer stuffid2, Date outhospitaldate,
+			Integer budgetstate, String outhospnode, Set patients, Set outhosstates) {
 		this.outhosstate = outhosstate;
 		this.patient = patient;
-		this.stuff = stuff;
+		this.stuffid2 = stuffid2;
 		this.outhospitaldate = outhospitaldate;
 		this.budgetstate = budgetstate;
 		this.outhospnode = outhospnode;
@@ -67,12 +67,12 @@ public class Outhospital implements java.io.Serializable {
 		this.patient = patient;
 	}
 
-	public Stuff getStuff() {
-		return this.stuff;
+	public Integer getStuffid2() {
+		return this.stuffid2;
 	}
 
-	public void setStuff(Stuff stuff) {
-		this.stuff = stuff;
+	public void setStuffid2(Integer stuffid2) {
+		this.stuffid2 = stuffid2;
 	}
 
 	public Date getOuthospitaldate() {

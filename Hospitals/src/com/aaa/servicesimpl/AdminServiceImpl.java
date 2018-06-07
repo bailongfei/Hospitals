@@ -1,5 +1,7 @@
 package com.aaa.servicesimpl;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -97,6 +99,39 @@ public class AdminServiceImpl implements AdminService {
 			}
 		}
 		return result;
+	}
+
+	@Override
+	public List findByDate(Date day1, Date day2,List params) {
+		List list=new ArrayList();
+	    if(params!=null&&params.size()>0){
+	    	for (int i = 0; i < params.size(); i++) {
+			 List map=dao.findByDate(day1, day2, params.get(i));
+			
+			 list.add(map);
+			}
+	    	
+	    }
+		return list;
+		
+	}
+
+	@Override
+	public List findRegisteredtype() {
+		
+		return dao.findRegisteredtype();
+	}
+
+	@Override
+	public List findByDateKeShi(Date day1, Date day2, List params) {
+		List list=new ArrayList();
+		if(params!=null&&params.size()>0){
+			for (int i = 0; i <params.size(); i++) {
+				List map=dao.findByDateKeShi(day1, day2, params.get(i));
+				list.add(map);
+			}
+		}
+		return list;
 	}
 
 	

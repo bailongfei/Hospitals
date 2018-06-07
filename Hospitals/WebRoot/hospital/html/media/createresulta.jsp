@@ -108,9 +108,9 @@ function windowOpen(theURL,winName,features,width,hight,scrollbars,top,left)
   <tr>
     <td class="td_page">
     <form action="">
-    <input type="submit" class="td07" value="姓名查询:" >
+    <input type="submit" autocomplete="off" class="td07" value="姓名查询:" >
         
-     <input type="text" id="uname" onkeyup="findKey()" /><span><i id="font" class="fa fa-spinner fa-pulse fa-2x"></i></span><br/>
+     <input type="text" autocomplete="off" id="uname" onkeyup="findKey()" /><span><i id="font" class="fa fa-spinner fa-pulse fa-2x"></i></span><br/>
        <div id="result" style="position: fixed;top:80px; left:100; right: auto;  bottom: auto; width:50px; opacity:0.8;"></div>
       </form>       
      </td>
@@ -338,7 +338,8 @@ function findAll(curPage){
           tr+="<td class='td07'>"+obj.charge+"</td>";
           tr+="<td class='td07'>"+obj.realCharge+"</td>";
           tr+="<td class='td07'>"+obj.changes+"</td>";
-          tr+="<td class='td07'>"+transferTime(obj.presentTime)+"</td>";
+          tr+="<td class='td07'>"+obj.presentTime+"</td>";
+          /* tr+="<td class='td07'>"+transferTime(obj.presentTime)+"</td>"; */
           tr+="<td class='td07'><input target='_blank' data-toggle='modal' data-target='#myModals'  type='button' value='修改' id="+obj.patientname+" class='update btn btn-default' />"
           tr+="</tr>";
           $("#tbody").append(tr);//追加行
@@ -481,7 +482,7 @@ $("#tbody").on("click",".update",function(){
       var sf=parseFloat(ssf-ghf);
       $("#changes").val(sf);
   });
-   //改变时间
+   /* //改变时间
        function transferTime(presentTime) {
        //将json串的一串数字进行解析
        var jsonDate = new Date(parseInt(presentTime));
@@ -520,5 +521,6 @@ $("#tbody").on("click",".update",function(){
  }
 var newDate = jsonDate.format("yyyy-MM-dd hh:mm:ss");
 return newDate;
-}   
+}    */
+
 </script>	

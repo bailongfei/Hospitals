@@ -52,9 +52,9 @@
 					tr += "<td>" + obj.rolesId + "</td>";
 					tr += "<td>" + obj.rolesName + "</td>";
 					tr += "<td>" + obj.rolesdescribe + "</td>";
-					tr += "<td><input data-toggle='modal' data-target='#myModal' type='button' value='修改' id=" + obj.rolesId + " class='update btn btn-default' />"
-					tr += "<input type='button' value='删除' id=" + obj.rolesId + " class='delete btn btn-default'/>";
-					tr += "<input data-toggle='modal' data-target='#perModal'  type='button' value='分配权限' id=" + obj.rolesId + " class='grant btn btn-default'/></td>";
+					tr += "<td><input data-toggle='modal' data-target='#myModal' type='button' value='修改' id=" + obj.rolesId + " class='update btn btn-default' /></td>"
+					tr += "<td><input type='button' value='删除' id=" + obj.rolesId + " class='delete btn btn-default'/></td>";
+					tr += "<td><input data-toggle='modal' data-target='#perModal'  type='button' value='分配权限' id=" + obj.rolesId + " class='grant btn btn-default'/></td>";
 					tr += "</tr>";
 					$("#tbody").append(tr); //追加行
 				}
@@ -153,8 +153,7 @@
 	<div class="container">
 
 
-		<button class="btn btn-success" data-toggle="modal"
-			data-target="#myModal">角色录入操作</button>
+		
 		<!-- 模态框弹出录入内容 -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 			aria-labelledby="modalTitle1" aria-hidden="true">
@@ -209,7 +208,10 @@
 					<th>编号</th>
 					<th>名称</th>
 					<th>描述</th>
-					<th>操作</th>
+					<th >操作</th>
+					<th colspan="2">
+					   <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">角色录入操作</button>
+					</th>
 				</tr>
 			</thead>
 			<tbody id="tbody">

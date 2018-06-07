@@ -1,5 +1,6 @@
 package com.aaa.dao;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -28,4 +29,10 @@ public interface AdminDao {
     public void deleteRolesModule(int rolesId);
   //往角色菜单中间表中插入数据
     public void saveRolesModule(Rolesmodule rolModue);
+    //挂号类型
+    public List findRegisteredtype();
+    //时间查询挂号报表
+    public List findByDate(Date day1,Date day2,Object params);
+    //科室挂号报表
+    public List findByDateKeShi(Date day1,Date day2,Object params);
 }

@@ -36,12 +36,11 @@ public class Stuff implements java.io.Serializable {
 	private String politics;
 	private String photo;
 	private Integer roomstate;
-	private Set clinicregisters = new HashSet(0);
-	private Set outhospitals = new HashSet(0);
 	private Set scheduleitems = new HashSet(0);
-	private Set advices = new HashSet(0);
-	private Set usertables = new HashSet(0);
 	private Set beds = new HashSet(0);
+	private Set advices = new HashSet(0);
+	private Set clinicregisters = new HashSet(0);
+	private Set usertables = new HashSet(0);
 	private Set patients = new HashSet(0);
 
 	// Constructors
@@ -50,13 +49,19 @@ public class Stuff implements java.io.Serializable {
 	public Stuff() {
 	}
 
+	/** minimal constructor */
+	public Stuff(Integer stuffid2) {
+		this.stuffid2 = stuffid2;
+	}
+
 	/** full constructor */
-	public Stuff(Jobtitle jobtitle, Position position, Scheduleitem scheduleitem, Chuku chuku, Office office,
-			Stufftype stufftype, Clinicregister clinicregister, Drugstorage drugstorage, Pharmacy pharmacy,
-			Usertable usertable, String stuffname, String sex3, String idcard, String address3, String phone3,
-			Date hiredate, Date pbirthday3, String nation3, String cardNo, String nativePlace, String politics,
-			String photo, Integer roomstate, Set clinicregisters, Set outhospitals, Set scheduleitems, Set advices,
-			Set usertables, Set beds, Set patients) {
+	public Stuff(Integer stuffid2, Jobtitle jobtitle, Position position, Scheduleitem scheduleitem, Chuku chuku,
+			Office office, Stufftype stufftype, Clinicregister clinicregister, Drugstorage drugstorage,
+			Pharmacy pharmacy, Usertable usertable, String stuffname, String sex3, String idcard, String address3,
+			String phone3, Date hiredate, Date pbirthday3, String nation3, String cardNo, String nativePlace,
+			String politics, String photo, Integer roomstate, Set scheduleitems, Set beds, Set advices,
+			Set clinicregisters, Set usertables, Set patients) {
+		this.stuffid2 = stuffid2;
 		this.jobtitle = jobtitle;
 		this.position = position;
 		this.scheduleitem = scheduleitem;
@@ -80,12 +85,11 @@ public class Stuff implements java.io.Serializable {
 		this.politics = politics;
 		this.photo = photo;
 		this.roomstate = roomstate;
-		this.clinicregisters = clinicregisters;
-		this.outhospitals = outhospitals;
 		this.scheduleitems = scheduleitems;
-		this.advices = advices;
-		this.usertables = usertables;
 		this.beds = beds;
+		this.advices = advices;
+		this.clinicregisters = clinicregisters;
+		this.usertables = usertables;
 		this.patients = patients;
 	}
 
@@ -283,28 +287,20 @@ public class Stuff implements java.io.Serializable {
 		this.roomstate = roomstate;
 	}
 
-	public Set getClinicregisters() {
-		return this.clinicregisters;
-	}
-
-	public void setClinicregisters(Set clinicregisters) {
-		this.clinicregisters = clinicregisters;
-	}
-
-	public Set getOuthospitals() {
-		return this.outhospitals;
-	}
-
-	public void setOuthospitals(Set outhospitals) {
-		this.outhospitals = outhospitals;
-	}
-
 	public Set getScheduleitems() {
 		return this.scheduleitems;
 	}
 
 	public void setScheduleitems(Set scheduleitems) {
 		this.scheduleitems = scheduleitems;
+	}
+
+	public Set getBeds() {
+		return this.beds;
+	}
+
+	public void setBeds(Set beds) {
+		this.beds = beds;
 	}
 
 	public Set getAdvices() {
@@ -315,20 +311,20 @@ public class Stuff implements java.io.Serializable {
 		this.advices = advices;
 	}
 
+	public Set getClinicregisters() {
+		return this.clinicregisters;
+	}
+
+	public void setClinicregisters(Set clinicregisters) {
+		this.clinicregisters = clinicregisters;
+	}
+
 	public Set getUsertables() {
 		return this.usertables;
 	}
 
 	public void setUsertables(Set usertables) {
 		this.usertables = usertables;
-	}
-
-	public Set getBeds() {
-		return this.beds;
-	}
-
-	public void setBeds(Set beds) {
-		this.beds = beds;
 	}
 
 	public Set getPatients() {

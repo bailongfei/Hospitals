@@ -6,6 +6,8 @@ import java.util.Map;
 import com.aaa.entity.Charge;
 import com.aaa.entity.Clinicregister;
 import com.aaa.entity.Patients;
+import com.aaa.entity.Stuff;
+import com.aaa.entity.Usertable;
 import com.aaa.util.Pager;
 
 public interface PatientsDao {
@@ -27,5 +29,12 @@ public interface PatientsDao {
    public void updateClinicregister(Clinicregister clinicregister);//修改挂号
    public void updatePatients(Patients patients);
    public void updateCharge(Charge charge);
-   public String getNewId();
+   public String getNewId();//制动生成ID
+   public List<Map> findRoles();//查询角色
+   public List<Map> findPosition();//查询职务
+   public List<Map> findJobtitle();//查询职位
+   public List<Map> findStufftype();//查询员工类型
+   public String getStuId();//添加员工生成ID
+   public void addStuff(Stuff list);//添加员工
+   public void addUsers(Usertable list2);//添加用户
 }

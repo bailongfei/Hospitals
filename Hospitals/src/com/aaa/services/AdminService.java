@@ -1,5 +1,6 @@
 package com.aaa.services;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -16,4 +17,7 @@ public interface AdminService {
     public void deleteRoles(Roles roles);
     public List findAllMenusByRoleId(int rolesId);
     public int addOrdeleteRolesModule(String menuIds,int rolesId);
+    public List findByDate(Date day1,Date day2,List params);
+    public List findRegisteredtype();
+    public List findByDateKeShi(Date day1,Date day2,List params);
 }
