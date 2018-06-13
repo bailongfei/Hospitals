@@ -13,6 +13,12 @@
         <many-to-one name="patients" class="com.aaa.entity.Patients" fetch="select">
             <column name="id" />
         </many-to-one>
+        <many-to-one name="insiteminfo" class="com.aaa.entity.Insiteminfo" fetch="select">
+            <column name="xId" />
+        </many-to-one>
+        <many-to-one name="inspectionitem" class="com.aaa.entity.Inspectionitem" fetch="select">
+            <column name="jyxid" />
+        </many-to-one>
         <property name="checkPoint" type="java.lang.String">
             <column name="checkPoint" length="1024" />
         </property>

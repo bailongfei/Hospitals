@@ -13,6 +13,8 @@ public class Inspection implements java.io.Serializable {
 
 	private Integer jyId;
 	private Patients patients;
+	private Insiteminfo insiteminfo;
+	private Inspectionitem inspectionitem;
 	private String checkPoint;
 	private String maininfo;
 	private String goal;
@@ -27,9 +29,11 @@ public class Inspection implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Inspection(Patients patients, String checkPoint, String maininfo, String goal, String state,
-			Set inspectionitems, Set offices) {
+	public Inspection(Patients patients, Insiteminfo insiteminfo, Inspectionitem inspectionitem, String checkPoint,
+			String maininfo, String goal, String state, Set inspectionitems, Set offices) {
 		this.patients = patients;
+		this.insiteminfo = insiteminfo;
+		this.inspectionitem = inspectionitem;
 		this.checkPoint = checkPoint;
 		this.maininfo = maininfo;
 		this.goal = goal;
@@ -54,6 +58,22 @@ public class Inspection implements java.io.Serializable {
 
 	public void setPatients(Patients patients) {
 		this.patients = patients;
+	}
+
+	public Insiteminfo getInsiteminfo() {
+		return this.insiteminfo;
+	}
+
+	public void setInsiteminfo(Insiteminfo insiteminfo) {
+		this.insiteminfo = insiteminfo;
+	}
+
+	public Inspectionitem getInspectionitem() {
+		return this.inspectionitem;
+	}
+
+	public void setInspectionitem(Inspectionitem inspectionitem) {
+		this.inspectionitem = inspectionitem;
 	}
 
 	public String getCheckPoint() {

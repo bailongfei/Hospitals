@@ -552,7 +552,27 @@
 			<generator class="native"></generator>
 		</primary-key>
 	</table>
-<table name="roles" catalog="hospital">
+	<table name="roles" catalog="hospital">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="category" catalog="hospital">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="lop" catalog="hospital">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="appiteminfo" catalog="hospital">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+<table name="insiteminfo" catalog="hospital">
 	<primary-key>
 		<generator class="native"></generator>
 	</primary-key>

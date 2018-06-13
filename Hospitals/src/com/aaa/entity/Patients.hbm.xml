@@ -46,7 +46,7 @@
             </key>
             <one-to-many class="com.aaa.entity.Charge" />
         </set>
-        <set name="applicationresults" inverse="true">
+        <set name="applicationresults" inverse="true" lazy="false">
             <key>
                 <column name="pat_id" />
             </key>
@@ -76,7 +76,7 @@
             </key>
             <one-to-many class="com.aaa.entity.Cure" />
         </set>
-        <set name="applicationforms" inverse="true">
+        <set name="applicationforms" inverse="true" lazy="false">
             <key>
                 <column name="id" />
             </key>
@@ -90,7 +90,7 @@
         </set>
         <set name="iccards" inverse="true">
             <key>
-                <column name="ICId" not-null="true" unique="true" />
+                <column name="pid" />
             </key>
             <one-to-many class="com.aaa.entity.Iccard" />
         </set>

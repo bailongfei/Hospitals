@@ -10,11 +10,11 @@ public class Applicationresult implements java.io.Serializable {
 
 	private Integer jcjId;
 	private Inspectionitem inspectionitem;
-	private Applicationitem applicationitem;
+	private Applicationform applicationform;
 	private Patients patients;
-	private String inspectionitem_1;
-	private String result;
-	private String reference;
+	private String sample;
+	private String trouble;
+	private String diagnose;
 	private String unit;
 
 	// Constructors
@@ -24,14 +24,14 @@ public class Applicationresult implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Applicationresult(Inspectionitem inspectionitem, Applicationitem applicationitem, Patients patients,
-			String inspectionitem_1, String result, String reference, String unit) {
+	public Applicationresult(Inspectionitem inspectionitem, Applicationform applicationform, Patients patients,
+			String sample, String trouble, String diagnose, String unit) {
 		this.inspectionitem = inspectionitem;
-		this.applicationitem = applicationitem;
+		this.applicationform = applicationform;
 		this.patients = patients;
-		this.inspectionitem_1 = inspectionitem_1;
-		this.result = result;
-		this.reference = reference;
+		this.sample = sample;
+		this.trouble = trouble;
+		this.diagnose = diagnose;
 		this.unit = unit;
 	}
 
@@ -53,12 +53,12 @@ public class Applicationresult implements java.io.Serializable {
 		this.inspectionitem = inspectionitem;
 	}
 
-	public Applicationitem getApplicationitem() {
-		return this.applicationitem;
+	public Applicationform getApplicationform() {
+		return this.applicationform;
 	}
 
-	public void setApplicationitem(Applicationitem applicationitem) {
-		this.applicationitem = applicationitem;
+	public void setApplicationform(Applicationform applicationform) {
+		this.applicationform = applicationform;
 	}
 
 	public Patients getPatients() {
@@ -69,28 +69,28 @@ public class Applicationresult implements java.io.Serializable {
 		this.patients = patients;
 	}
 
-	public String getInspectionitem_1() {
-		return this.inspectionitem_1;
+	public String getSample() {
+		return this.sample;
 	}
 
-	public void setInspectionitem_1(String inspectionitem_1) {
-		this.inspectionitem_1 = inspectionitem_1;
+	public void setSample(String sample) {
+		this.sample = sample;
 	}
 
-	public String getResult() {
-		return this.result;
+	public String getTrouble() {
+		return this.trouble;
 	}
 
-	public void setResult(String result) {
-		this.result = result;
+	public void setTrouble(String trouble) {
+		this.trouble = trouble;
 	}
 
-	public String getReference() {
-		return this.reference;
+	public String getDiagnose() {
+		return this.diagnose;
 	}
 
-	public void setReference(String reference) {
-		this.reference = reference;
+	public void setDiagnose(String diagnose) {
+		this.diagnose = diagnose;
 	}
 
 	public String getUnit() {

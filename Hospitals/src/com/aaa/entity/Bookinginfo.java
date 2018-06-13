@@ -20,7 +20,6 @@ public class Bookinginfo implements java.io.Serializable {
 	private String upload;
 	private Set offices = new HashSet(0);
 	private Set patientses = new HashSet(0);
-	private Set iccards = new HashSet(0);
 
 	// Constructors
 
@@ -30,7 +29,7 @@ public class Bookinginfo implements java.io.Serializable {
 
 	/** full constructor */
 	public Bookinginfo(Patients patients, Iccard iccard, String diagnosisType, String time, String description,
-			String upload, Set offices, Set patientses, Set iccards) {
+			String upload, Set offices, Set patientses) {
 		this.patients = patients;
 		this.iccard = iccard;
 		this.diagnosisType = diagnosisType;
@@ -39,7 +38,6 @@ public class Bookinginfo implements java.io.Serializable {
 		this.upload = upload;
 		this.offices = offices;
 		this.patientses = patientses;
-		this.iccards = iccards;
 	}
 
 	// Property accessors
@@ -114,14 +112,6 @@ public class Bookinginfo implements java.io.Serializable {
 
 	public void setPatientses(Set patientses) {
 		this.patientses = patientses;
-	}
-
-	public Set getIccards() {
-		return this.iccards;
-	}
-
-	public void setIccards(Set iccards) {
-		this.iccards = iccards;
 	}
 
 }

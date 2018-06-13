@@ -13,8 +13,8 @@ public class Scheduleitem implements java.io.Serializable {
 
 	private Integer id;
 	private Scheduletype scheduletype;
-	private Schedule schedule;
 	private Stuff stuff;
+	private String week;
 	private Set stuffs = new HashSet(0);
 
 	// Constructors
@@ -24,10 +24,10 @@ public class Scheduleitem implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Scheduleitem(Scheduletype scheduletype, Schedule schedule, Stuff stuff, Set stuffs) {
+	public Scheduleitem(Scheduletype scheduletype, Stuff stuff, String week, Set stuffs) {
 		this.scheduletype = scheduletype;
-		this.schedule = schedule;
 		this.stuff = stuff;
+		this.week = week;
 		this.stuffs = stuffs;
 	}
 
@@ -49,20 +49,20 @@ public class Scheduleitem implements java.io.Serializable {
 		this.scheduletype = scheduletype;
 	}
 
-	public Schedule getSchedule() {
-		return this.schedule;
-	}
-
-	public void setSchedule(Schedule schedule) {
-		this.schedule = schedule;
-	}
-
 	public Stuff getStuff() {
 		return this.stuff;
 	}
 
 	public void setStuff(Stuff stuff) {
 		this.stuff = stuff;
+	}
+
+	public String getWeek() {
+		return this.week;
+	}
+
+	public void setWeek(String week) {
+		this.week = week;
 	}
 
 	public Set getStuffs() {

@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.aaa.dao.PatientsDao;
 import com.aaa.entity.Charge;
 import com.aaa.entity.Clinicregister;
+import com.aaa.entity.Iccard;
 import com.aaa.entity.Patients;
 import com.aaa.entity.Stuff;
 import com.aaa.entity.Stufftype;
@@ -200,6 +201,12 @@ public void setDao(PatientsDao dao) {
 		}
 		
 	}
+
+@Override
+public void updateIccard(Iccard ic) {
+	dao.updateIccard(ic);
+	
+}
 
 	
 

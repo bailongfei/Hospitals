@@ -12,9 +12,10 @@ public class Iccard implements java.io.Serializable {
 	// Fields
 
 	private Integer icid;
-	private Bookinginfo bookinginfo;
 	private Patients patients;
 	private String name;
+	private String sex;
+	private String card;
 	private Integer money;
 	private String iphone;
 	private Set bookinginfos = new HashSet(0);
@@ -25,17 +26,13 @@ public class Iccard implements java.io.Serializable {
 	public Iccard() {
 	}
 
-	/** minimal constructor */
-	public Iccard(Patients patients) {
-		this.patients = patients;
-	}
-
 	/** full constructor */
-	public Iccard(Bookinginfo bookinginfo, Patients patients, String name, Integer money, String iphone,
+	public Iccard(Patients patients, String name, String sex, String card, Integer money, String iphone,
 			Set bookinginfos) {
-		this.bookinginfo = bookinginfo;
 		this.patients = patients;
 		this.name = name;
+		this.sex = sex;
+		this.card = card;
 		this.money = money;
 		this.iphone = iphone;
 		this.bookinginfos = bookinginfos;
@@ -49,14 +46,6 @@ public class Iccard implements java.io.Serializable {
 
 	public void setIcid(Integer icid) {
 		this.icid = icid;
-	}
-
-	public Bookinginfo getBookinginfo() {
-		return this.bookinginfo;
-	}
-
-	public void setBookinginfo(Bookinginfo bookinginfo) {
-		this.bookinginfo = bookinginfo;
 	}
 
 	public Patients getPatients() {
@@ -73,6 +62,22 @@ public class Iccard implements java.io.Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getSex() {
+		return this.sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public String getCard() {
+		return this.card;
+	}
+
+	public void setCard(String card) {
+		this.card = card;
 	}
 
 	public Integer getMoney() {

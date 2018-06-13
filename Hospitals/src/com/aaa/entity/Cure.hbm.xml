@@ -13,17 +13,23 @@
         <many-to-one name="patients" class="com.aaa.entity.Patients" fetch="select">
             <column name="id" />
         </many-to-one>
-        <property name="cureType" type="java.lang.String">
-            <column name="cureType" length="100" />
+        <property name="cureName" type="java.lang.String">
+            <column name="cureName" length="11" />
         </property>
-        <property name="cureNumber" type="java.lang.Integer">
-            <column name="cureNumber" precision="8" scale="0" />
+        <property name="monad" type="java.lang.String">
+            <column name="monad" length="100" />
         </property>
-        <property name="feesState" type="java.lang.Integer">
-            <column name="feesState" precision="8" scale="0" />
+        <property name="price" type="java.lang.Integer">
+            <column name="price" />
+        </property>
+        <property name="count" type="java.lang.Integer">
+            <column name="count" />
+        </property>
+        <property name="countMoney" type="java.lang.Integer">
+            <column name="countMoney" />
         </property>
         <property name="state" type="java.lang.Integer">
-            <column name="state" precision="8" scale="0" />
+            <column name="state" />
         </property>
         <set name="treatments" inverse="true">
             <key>

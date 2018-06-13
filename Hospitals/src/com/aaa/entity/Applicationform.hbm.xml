@@ -10,8 +10,11 @@
             <column name="jcId" />
             <generator class="native"></generator>
         </id>
-        <many-to-one name="patients" class="com.aaa.entity.Patients" fetch="select">
+        <many-to-one name="patients" class="com.aaa.entity.Patients" fetch="select" lazy="false">
             <column name="id" />
+        </many-to-one>
+        <many-to-one name="applicationitem" class="com.aaa.entity.Applicationitem" fetch="select" lazy="false">
+            <column name="jcxId" />
         </many-to-one>
         <property name="checkPoint" type="java.lang.String">
             <column name="checkPoint" length="1024" />
@@ -25,11 +28,11 @@
         <property name="state" type="java.lang.String">
             <column name="state" length="20" />
         </property>
-        <set name="applicationitems" inverse="true">
+        <set name="applicationresults" inverse="true">
             <key>
-                <column name="jcId" />
+                <column name="jcxId" />
             </key>
-            <one-to-many class="com.aaa.entity.Applicationitem" />
+            <one-to-many class="com.aaa.entity.Applicationresult" />
         </set>
         <set name="offices" inverse="true">
             <key>

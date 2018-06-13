@@ -16,4 +16,22 @@
     <filter-name>struts2</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <filter>  
+        <filter-name>loginFilter</filter-name>  
+   <!-- 这里的filterclass是你创建的fitler类   -->
+        <filter-class>com.aaa.util.Filter</filter-class>  
+    </filter>  
+    <filter-mapping>  
+        <filter-name>loginFilter</filter-name>  
+  <!-- 定义规则   -->
+        <url-pattern>*.jsp</url-pattern>  
+    </filter-mapping>  
+    <!-- 不拦截静态文件 -->
+    <!-- <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/js/*</url-pattern>
+        <url-pattern>/hospital/css/*</url-pattern>
+        <url-pattern>/hospital/images/*</url-pattern>
+        <url-pattern>/hospital/js/*</url-pattern>
+    </servlet-mapping> -->
 </web-app>

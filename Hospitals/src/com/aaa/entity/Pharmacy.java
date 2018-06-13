@@ -18,6 +18,7 @@ public class Pharmacy implements java.io.Serializable {
 	private Set stuffs = new HashSet(0);
 	private Set prescribes = new HashSet(0);
 	private Set chukus = new HashSet(0);
+	private Set lops = new HashSet(0);
 
 	// Constructors
 
@@ -26,14 +27,15 @@ public class Pharmacy implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Pharmacy(Fanginventory fanginventory, String phName, String address5, Set stuffs, Set prescribes,
-			Set chukus) {
+	public Pharmacy(Fanginventory fanginventory, String phName, String address5, Set stuffs, Set prescribes, Set chukus,
+			Set lops) {
 		this.fanginventory = fanginventory;
 		this.phName = phName;
 		this.address5 = address5;
 		this.stuffs = stuffs;
 		this.prescribes = prescribes;
 		this.chukus = chukus;
+		this.lops = lops;
 	}
 
 	// Property accessors
@@ -92,6 +94,14 @@ public class Pharmacy implements java.io.Serializable {
 
 	public void setChukus(Set chukus) {
 		this.chukus = chukus;
+	}
+
+	public Set getLops() {
+		return this.lops;
+	}
+
+	public void setLops(Set lops) {
+		this.lops = lops;
 	}
 
 }

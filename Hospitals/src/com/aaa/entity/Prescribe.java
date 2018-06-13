@@ -24,6 +24,7 @@ public class Prescribe implements java.io.Serializable {
 	private Date prescribeTime5;
 	private Set chinesedetailses = new HashSet(0);
 	private Set drugtypes = new HashSet(0);
+	private Set lops = new HashSet(0);
 
 	// Constructors
 
@@ -33,7 +34,8 @@ public class Prescribe implements java.io.Serializable {
 
 	/** full constructor */
 	public Prescribe(Patients patients, Pharmacy pharmacy, String tcmname, String guige, Integer shuliang,
-			Integer danjia, Integer money, String stuffId, Date prescribeTime5, Set chinesedetailses, Set drugtypes) {
+			Integer danjia, Integer money, String stuffId, Date prescribeTime5, Set chinesedetailses, Set drugtypes,
+			Set lops) {
 		this.patients = patients;
 		this.pharmacy = pharmacy;
 		this.tcmname = tcmname;
@@ -45,6 +47,7 @@ public class Prescribe implements java.io.Serializable {
 		this.prescribeTime5 = prescribeTime5;
 		this.chinesedetailses = chinesedetailses;
 		this.drugtypes = drugtypes;
+		this.lops = lops;
 	}
 
 	// Property accessors
@@ -143,6 +146,14 @@ public class Prescribe implements java.io.Serializable {
 
 	public void setDrugtypes(Set drugtypes) {
 		this.drugtypes = drugtypes;
+	}
+
+	public Set getLops() {
+		return this.lops;
+	}
+
+	public void setLops(Set lops) {
+		this.lops = lops;
 	}
 
 }

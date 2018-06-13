@@ -13,11 +13,13 @@ public class Applicationform implements java.io.Serializable {
 
 	private Integer jcId;
 	private Patients patients;
+	private Applicationitem applicationitem;
+	private Appiteminfo appiteminfo;
 	private String checkPoint;
 	private String mainInfo;
 	private String goal;
 	private String state;
-	private Set applicationitems = new HashSet(0);
+	private Set applicationresults = new HashSet(0);
 	private Set offices = new HashSet(0);
 
 	// Constructors
@@ -27,14 +29,16 @@ public class Applicationform implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Applicationform(Patients patients, String checkPoint, String mainInfo, String goal, String state,
-			Set applicationitems, Set offices) {
+	public Applicationform(Patients patients, Applicationitem applicationitem, Appiteminfo appiteminfo,
+			String checkPoint, String mainInfo, String goal, String state, Set applicationresults, Set offices) {
 		this.patients = patients;
+		this.applicationitem = applicationitem;
+		this.appiteminfo = appiteminfo;
 		this.checkPoint = checkPoint;
 		this.mainInfo = mainInfo;
 		this.goal = goal;
 		this.state = state;
-		this.applicationitems = applicationitems;
+		this.applicationresults = applicationresults;
 		this.offices = offices;
 	}
 
@@ -54,6 +58,22 @@ public class Applicationform implements java.io.Serializable {
 
 	public void setPatients(Patients patients) {
 		this.patients = patients;
+	}
+
+	public Applicationitem getApplicationitem() {
+		return this.applicationitem;
+	}
+
+	public void setApplicationitem(Applicationitem applicationitem) {
+		this.applicationitem = applicationitem;
+	}
+
+	public Appiteminfo getAppiteminfo() {
+		return this.appiteminfo;
+	}
+
+	public void setAppiteminfo(Appiteminfo appiteminfo) {
+		this.appiteminfo = appiteminfo;
 	}
 
 	public String getCheckPoint() {
@@ -88,12 +108,12 @@ public class Applicationform implements java.io.Serializable {
 		this.state = state;
 	}
 
-	public Set getApplicationitems() {
-		return this.applicationitems;
+	public Set getApplicationresults() {
+		return this.applicationresults;
 	}
 
-	public void setApplicationitems(Set applicationitems) {
-		this.applicationitems = applicationitems;
+	public void setApplicationresults(Set applicationresults) {
+		this.applicationresults = applicationresults;
 	}
 
 	public Set getOffices() {

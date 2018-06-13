@@ -22,11 +22,23 @@
         <property name="info" type="java.lang.String">
             <column name="info" length="1024" />
         </property>
+        <set name="insiteminfos" inverse="true">
+            <key>
+                <column name="jyxId" />
+            </key>
+            <one-to-many class="com.aaa.entity.Insiteminfo" />
+        </set>
         <set name="applicationresults" inverse="true">
             <key>
                 <column name="ins_id" />
             </key>
             <one-to-many class="com.aaa.entity.Applicationresult" />
+        </set>
+        <set name="inspections" inverse="true">
+            <key>
+                <column name="jyxid" />
+            </key>
+            <one-to-many class="com.aaa.entity.Inspection" />
         </set>
     </class>
 </hibernate-mapping>

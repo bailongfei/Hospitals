@@ -40,11 +40,20 @@
         <property name="huansuan" type="java.lang.Integer">
             <column name="huansuan" />
         </property>
-        <property name="maxNum" type="java.lang.Integer">
-            <column name="maxNum" precision="8" scale="0" />
+        <property name="maxNum" type="java.lang.Long">
+            <column name="maxNum" precision="10" scale="0" />
         </property>
-        <property name="minNum" type="java.lang.Integer">
-            <column name="minNum" precision="8" scale="0" />
+        <property name="minNum" type="java.lang.Long">
+            <column name="minNum" precision="10" scale="0" />
+        </property>
+        <property name="stockPrice" type="java.lang.Long">
+            <column name="stockPrice" precision="10" scale="0" />
+        </property>
+        <property name="tradePrice" type="java.lang.Long">
+            <column name="tradePrice" precision="10" scale="0" />
+        </property>
+        <property name="reatiPrice" type="java.lang.Long">
+            <column name="reatiPrice" precision="10" scale="0" />
         </property>
         <set name="rukumings" inverse="true">
             <key>
@@ -57,6 +66,12 @@
                 <column name="dId" />
             </key>
             <one-to-many class="com.aaa.entity.Adjustprice" />
+        </set>
+        <set name="lops" inverse="true">
+            <key>
+                <column name="did" />
+            </key>
+            <one-to-many class="com.aaa.entity.Lop" />
         </set>
     </class>
 </hibernate-mapping>

@@ -22,10 +22,14 @@ public class Drug implements java.io.Serializable {
 	private String spec;
 	private Integer dosage2;
 	private Integer huansuan;
-	private Integer maxNum;
-	private Integer minNum;
+	private Long maxNum;
+	private Long minNum;
+	private Long stockPrice;
+	private Long tradePrice;
+	private Long reatiPrice;
 	private Set rukumings = new HashSet(0);
 	private Set adjustprices = new HashSet(0);
+	private Set lops = new HashSet(0);
 
 	// Constructors
 
@@ -36,7 +40,8 @@ public class Drug implements java.io.Serializable {
 	/** full constructor */
 	public Drug(Address address, Pharmacology pharmacology, Dosageform dosageform, Doseunit doseunit,
 			Drugtype2 drugtype2, String dname, String zhuji, String spec, Integer dosage2, Integer huansuan,
-			Integer maxNum, Integer minNum, Set rukumings, Set adjustprices) {
+			Long maxNum, Long minNum, Long stockPrice, Long tradePrice, Long reatiPrice, Set rukumings,
+			Set adjustprices, Set lops) {
 		this.address = address;
 		this.pharmacology = pharmacology;
 		this.dosageform = dosageform;
@@ -49,8 +54,12 @@ public class Drug implements java.io.Serializable {
 		this.huansuan = huansuan;
 		this.maxNum = maxNum;
 		this.minNum = minNum;
+		this.stockPrice = stockPrice;
+		this.tradePrice = tradePrice;
+		this.reatiPrice = reatiPrice;
 		this.rukumings = rukumings;
 		this.adjustprices = adjustprices;
+		this.lops = lops;
 	}
 
 	// Property accessors
@@ -143,20 +152,44 @@ public class Drug implements java.io.Serializable {
 		this.huansuan = huansuan;
 	}
 
-	public Integer getMaxNum() {
+	public Long getMaxNum() {
 		return this.maxNum;
 	}
 
-	public void setMaxNum(Integer maxNum) {
+	public void setMaxNum(Long maxNum) {
 		this.maxNum = maxNum;
 	}
 
-	public Integer getMinNum() {
+	public Long getMinNum() {
 		return this.minNum;
 	}
 
-	public void setMinNum(Integer minNum) {
+	public void setMinNum(Long minNum) {
 		this.minNum = minNum;
+	}
+
+	public Long getStockPrice() {
+		return this.stockPrice;
+	}
+
+	public void setStockPrice(Long stockPrice) {
+		this.stockPrice = stockPrice;
+	}
+
+	public Long getTradePrice() {
+		return this.tradePrice;
+	}
+
+	public void setTradePrice(Long tradePrice) {
+		this.tradePrice = tradePrice;
+	}
+
+	public Long getReatiPrice() {
+		return this.reatiPrice;
+	}
+
+	public void setReatiPrice(Long reatiPrice) {
+		this.reatiPrice = reatiPrice;
 	}
 
 	public Set getRukumings() {
@@ -173,6 +206,14 @@ public class Drug implements java.io.Serializable {
 
 	public void setAdjustprices(Set adjustprices) {
 		this.adjustprices = adjustprices;
+	}
+
+	public Set getLops() {
+		return this.lops;
+	}
+
+	public void setLops(Set lops) {
+		this.lops = lops;
 	}
 
 }

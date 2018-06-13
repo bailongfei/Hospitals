@@ -13,7 +13,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script language="JavaScript" type="text/javascript" src="../js/win_center.js"></script>
 </head>
 
-<body>
+<body onbeforeunload="window.location='login.jsp'">
+<!-- 关闭浏览器后即可清除session信息 -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0" background="../images/index_02.gif">
   <tr>
     <td width="40"><img src="../images/index_01.jpg" width="260" height="40"></td>
@@ -22,12 +23,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td width="50" valign="bottom"><img src="../images/index_05.gif" width="20" height="16" align="absbottom"><a href="#" onClick="history.back()" class="a02">后退</a></td>
         <td width="50" valign="bottom"><img src="../images/index_07.gif" width="20" height="16" align="absbottom"> <a href="#" onClick="history.forward()" class="a02">前进</a></td>
         <td width="50" valign="bottom"><img src="../images/index_09.gif" width="20" height="16" align="absbottom"><a href="main.jsp" target="mainFrame" class="a02">首页</a></td>
-        <td width="50" valign="bottom"><img src="../images/index_11.gif" width="20" height="16" align="absbottom"><a href="login.jsp" target="_parent" class="a02">退出</a></td>
+        <td width="50" valign="bottom"><img src="../images/index_11.gif" width="20" height="16" align="absbottom"><a href="admin_loginRemoveSession.action" target="_parent" class="a02">退出</a></td>
 
         </tr>
     </table></td>
   </tr>
 </table>
+<%
+    response.setHeader("Pragma", "no-cache");
+    response.setHeader("Cache-Control", "no-cache,must-revalidate");
+    response.setDateHeader("Expires", 0);
+     response.flushBuffer();
+%>
+ 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td height="8"><img src="../images/spacer.gif" width="1" height="1"></td>

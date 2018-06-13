@@ -10,16 +10,16 @@
             <column name="id" />
             <generator class="native"></generator>
         </id>
-        <many-to-one name="scheduletype" class="com.aaa.entity.Scheduletype" fetch="select">
+        <many-to-one name="scheduletype" class="com.aaa.entity.Scheduletype" fetch="join" lazy="false">
             <column name="ptid" />
         </many-to-one>
-        <many-to-one name="schedule" class="com.aaa.entity.Schedule" fetch="select">
-            <column name="pid" />
+        <many-to-one name="stuff" class="com.aaa.entity.Stuff" fetch="join" lazy="false">
+            <column name="stuffid2" />
         </many-to-one>
-        <many-to-one name="stuff" class="com.aaa.entity.Stuff" fetch="select">
-            <column name="stufId" />
-        </many-to-one>
-        <set name="stuffs" inverse="true">
+        <property name="week" type="java.lang.String">
+            <column name="week" />
+        </property>
+        <set name="stuffs" inverse="true" lazy="false">
             <key>
                 <column name="id" />
             </key>

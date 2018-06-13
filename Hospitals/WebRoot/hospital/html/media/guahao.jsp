@@ -10,7 +10,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <title>提交代申报</title>
 <link href="../../css/style.css" rel="stylesheet" type="text/css">
- 
+ <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/js/bootstrap/css/bootstrap-theme.min.css">
+   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/js/bootstrap/css/bootstrap.min.css">
+   <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/bootstrap/js/bootstrap.min.js"></script>
  <style >
      .required{
 	color:red;
@@ -49,13 +52,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <tr>
         <td width="90" height="24" class="td_form01">姓名:</td>
         <td class="td_form02">
-        <input type="text" id="name" name="clinicregister.patients.patientname" class="input" />
+        <input type="text" id="name" autocomplete="off" name="clinicregister.patients.patientname" onkeyup="key1()"  class="key input" />
+        <input type="hidden" class="name" name="ic.name">
+        <input type="hidden" class="name" name="patients.patientname">
+        <input type="hidden" class="id" name="ic.icid">
         <span class="required" id="sp1">*</span>
         </td>
         <td width="90" class="td_form01">性别</td>
         <td class="td_form02">
-		<input type="radio" value="男" checked="checked" name="clinicregister.patients.sex"/>男
-		<input type="radio" value="女" name="clinicregister.patients.sex"/>女&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="text" readonly="readonly"  id="sex" name="clinicregister.patients.sex"/>
+		<!-- <input type="radio" value="男" checked="checked" name="clinicregister.patients.sex"/>男
+		<input type="radio" value="女" name="clinicregister.patients.sex"/>女 -->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<input type="radio" value="未就诊" checked="checked" name="clinicregister.patients.status"/>状态未诊
 	    </td>
       </tr>
@@ -63,12 +70,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <tr>
         <td width="90" height="24" class="td_form01">身份证号:</td>
         <td class="td_form02">
-        <input name="clinicregister.patients.idnumber" type="text" id="card" class="input" onkeyup="getAge()"/>
+        <input name="clinicregister.patients.idnumber" type="text" id="card" class="input" onblur="getAge()"/>
         <span class="required" id="sp2">*</span>
         </td>
         <td width="90" class="td_form01">年龄:</td>
         <td class="td_form02">
-		<input type="text" name="clinicregister.patients.age" id="age" />
+		<input type="text" name="clinicregister.patients.age" id="age" readonly="readonly" />
 	    <span id="sp3"></span>
 	    </td> 
       </tr>
@@ -116,9 +123,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <span class="cl"></span>
         <!-- <input type="hidden"  name="clinicregister.charge.id" /> -->
         </td>
-        <td width="90" class="td_form01">应收费:</td>
+        <td width="90" class="td_form01">IC卡余额:</td>
         <td class="td_form02">
-		<input type="text" id="ys" readonly="readonly" name="clinicregister.charge.chargeable"/>
+		<input type="text" id="money" readonly="readonly" name="clinicregister.charge.chargeable"/>
 	    </td> 
       </tr>
       <tr>
@@ -127,10 +134,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <span class="cls"></span>
         </td>
         
-        <td width="90" class="td_form01">(+找零)/(-欠):</td>
+        <td width="90" class="td_form01">IC卡余额(+找零)/(-欠):</td>
         <td class="td_form02">
 		<input type="text" id="zl" readonly="readonly" name="clinicregister.charge.changes"/>
-		
+		<input type="hidden" class="zl" name="ic.money"/>
 	    </td> 
       </tr>
     </table>
@@ -141,21 +148,102 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </form>
   
 </center>
+
+
+<button class="btn btn-primary" id="dkmt" data-toggle="modal" data-target="#myModal" style=" display:none ; ">开始演示模态框</button>
+
+   <!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					读卡信息
+				</h4>
+			</div>
+			<div class="modal-body">
+			
+			<div id="sch_1" style="display: none">
+	  <table class="table table-hover">	 	
+ 		 <tr class="success">
+            <td >办理编号</td>
+            <td >姓名</td>
+            <td >性别</td>
+            <td >金额</td>
+            <td >手机号</td> 
+           <!--  <td >年龄</td> -->
+            <td >身份证号</td>
+            <td  >操作</td>
+
+         </tr>
+ 	  	<tbody id="drue">
+ 	  		
+ 	  	</tbody>
+ 	  </table>
+ 	</div>
+			
+				<!-- <table class="table">
+                  <thead>
+                     <tr>
+                         <th class="td_top">门诊编号</th>
+                         <th class="td_top">姓名</th>
+                         <th class="td_top">性别</th>
+                         <th class="td_top">年龄</th>
+                         <th class="td_top">主治医生</th>
+                         <th class="td_top">挂号类型</th>
+                         <th class="td_top">挂号科室</th>
+                         <th class="td_top">挂号/诊疗费</th>
+                         <th class="td_top">挂号时间</th>
+                     </tr>
+                   </thead>
+                 <tbody id="bodyName">
+                      
+                 </tbody>
+                 </table> -->
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+
 </body>
 </html>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 <script type="text/javascript">
-  $("#fy").blur(function(){
+ /*  $("#fy").blur(function(){
       var f=$("#fy").val();
       $("#ys").val(f);
-  });
-  $("#ss").blur(function(){
+  }); */
+   $("#fy").blur(function(){
        var f=$("#fy").val();
-       $("#ys").val(f);
+       $("#ss").val(f);
        var sou=$("#ss").val();
-       var zling=parseFloat(sou-f);
+       var icmoney=$("#money").val();
+       var zling=parseFloat(icmoney-sou);
+       if(zling>0){$("#zl").val(zling);
+       $(".zl").val(zling);
+       }else{
+          alert("余额不知,请缴费!");
+          $("#zl").val(zling);
+          $(".zl").val(zling);
+       }
+       
+  }); 
+   /* $("#ss").blur(function(){
+       var f=$("#fy").val();
+       //$("#ss").val(f);
+       var sou=$("#ss").val();
+       var cha=parseFloat(sou-f);
+       var icmoney=parseFloat($("#money").val());
+       var zling=parseFloat(icmoney+cha);
        $("#zl").val(zling);
-  });
+  });  */
    $(document).ready(function(){
          
          findoff();
@@ -376,8 +464,84 @@ function resetAll(){
     var check=$("input").blur();
     return check;
  }; */
-   
+ //读取IC卡
+ $(function(){
+  $(document).on("blur",".key",function(){
+    var key=$(".key").val();
+    if(key.length>0){
+      $("#dkmt").click();
+    }
+     
+    //$("#myModal").modal();
+ }); 
+ });
+ function key1(){
+		
+		//判断搜索框是否为空
+		var content = $("#name").val();
+		if(content==""){
+			
+			$("#sch_1").css("display","none");
+			
+			return ;
+		}
+		if(content!=""){
+		
+			
+			$("#sch_1").css("display","block");
+			
+			$.ajax({
+			url:"${pageContext.request.contextPath}/cwh_selname.action",
+			type:"post",
+			data:{"name":content},
+			dataType:"json",
+			success:function(data){
+				  $("#drue").html('');
+				  if(data.length>0){
+				      for(var i=0;i<data.length;i++){
+                   var tr="<tr>";
+                    tr+="<td>"+data[i].icid+"</td>";
+                   tr+="<td>"+data[i].name+"</td>";
+                   tr+="<td>"+data[i].sex+"</td>";
+                   tr+="<td>"+data[i].money+"</td>";
+                   tr+="<td>"+data[i].iphone+"</td>";
+                   /* tr+="<td>"+data[i].patientname+"</td>"; */
 
+                   
+                   /* tr+="<td>"+data[i].age+"</td>"; */
+                   tr+="<td>"+data[i].card+"</td>";
+                    tr+="<td><input type='button'  value='读卡' class='duka btn btn-primary'  id="+data[i].icid+" /></td>";
+                   tr+="</tr>"; 
+                   $("#drue").append(tr);
+                   
+                   }
+				  
+				  }else{
+				      var tr="<tr><td colspan='7'><center><h3>无IC卡，请先办理IC卡!</h3></center></td></tr>"
+				      $("#drue").append(tr);
+				  }
+                
+			}
+	})
+	
+	}}; 
+	var du;
+  $("#drue").on("click",".duka",function(){
+     du=this;
+     var id=$(du).parent().parent().children().eq(0).html();
+     $(".id").val(id);
+    var name=$(du).parent().parent().children().eq(1).html();
+     $("#name").val(name);
+     $(".name").val(name);
+     var sex=$(du).parent().parent().children().eq(2).html();
+     $("#sex").val(sex);
+     var card=$(du).parent().parent().children().eq(5).html();
+     $("#card").val(card);
+     var phone=$(du).parent().parent().children().eq(4).html();
+     $("#phone").val(phone);
+     var money=$(du).parent().parent().children().eq(3).html();
+     $("#money").val(money);
+  });
  
  
 </script>

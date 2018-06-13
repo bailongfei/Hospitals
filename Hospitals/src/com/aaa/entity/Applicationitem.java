@@ -12,11 +12,12 @@ public class Applicationitem implements java.io.Serializable {
 	// Fields
 
 	private Integer jcxId;
-	private Applicationform applicationform;
+	private Integer jcId;
 	private String name;
 	private Integer price;
 	private String info;
-	private Set applicationresults = new HashSet(0);
+	private Set applicationforms = new HashSet(0);
+	private Set appiteminfos = new HashSet(0);
 
 	// Constructors
 
@@ -25,13 +26,14 @@ public class Applicationitem implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Applicationitem(Applicationform applicationform, String name, Integer price, String info,
-			Set applicationresults) {
-		this.applicationform = applicationform;
+	public Applicationitem(Integer jcId, String name, Integer price, String info, Set applicationforms,
+			Set appiteminfos) {
+		this.jcId = jcId;
 		this.name = name;
 		this.price = price;
 		this.info = info;
-		this.applicationresults = applicationresults;
+		this.applicationforms = applicationforms;
+		this.appiteminfos = appiteminfos;
 	}
 
 	// Property accessors
@@ -44,12 +46,12 @@ public class Applicationitem implements java.io.Serializable {
 		this.jcxId = jcxId;
 	}
 
-	public Applicationform getApplicationform() {
-		return this.applicationform;
+	public Integer getJcId() {
+		return this.jcId;
 	}
 
-	public void setApplicationform(Applicationform applicationform) {
-		this.applicationform = applicationform;
+	public void setJcId(Integer jcId) {
+		this.jcId = jcId;
 	}
 
 	public String getName() {
@@ -76,12 +78,20 @@ public class Applicationitem implements java.io.Serializable {
 		this.info = info;
 	}
 
-	public Set getApplicationresults() {
-		return this.applicationresults;
+	public Set getApplicationforms() {
+		return this.applicationforms;
 	}
 
-	public void setApplicationresults(Set applicationresults) {
-		this.applicationresults = applicationresults;
+	public void setApplicationforms(Set applicationforms) {
+		this.applicationforms = applicationforms;
+	}
+
+	public Set getAppiteminfos() {
+		return this.appiteminfos;
+	}
+
+	public void setAppiteminfos(Set appiteminfos) {
+		this.appiteminfos = appiteminfos;
 	}
 
 }

@@ -16,7 +16,9 @@ public class Inspectionitem implements java.io.Serializable {
 	private String name;
 	private Integer price;
 	private String info;
+	private Set insiteminfos = new HashSet(0);
 	private Set applicationresults = new HashSet(0);
+	private Set inspections = new HashSet(0);
 
 	// Constructors
 
@@ -25,12 +27,15 @@ public class Inspectionitem implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Inspectionitem(Inspection inspection, String name, Integer price, String info, Set applicationresults) {
+	public Inspectionitem(Inspection inspection, String name, Integer price, String info, Set insiteminfos,
+			Set applicationresults, Set inspections) {
 		this.inspection = inspection;
 		this.name = name;
 		this.price = price;
 		this.info = info;
+		this.insiteminfos = insiteminfos;
 		this.applicationresults = applicationresults;
+		this.inspections = inspections;
 	}
 
 	// Property accessors
@@ -75,12 +80,28 @@ public class Inspectionitem implements java.io.Serializable {
 		this.info = info;
 	}
 
+	public Set getInsiteminfos() {
+		return this.insiteminfos;
+	}
+
+	public void setInsiteminfos(Set insiteminfos) {
+		this.insiteminfos = insiteminfos;
+	}
+
 	public Set getApplicationresults() {
 		return this.applicationresults;
 	}
 
 	public void setApplicationresults(Set applicationresults) {
 		this.applicationresults = applicationresults;
+	}
+
+	public Set getInspections() {
+		return this.inspections;
+	}
+
+	public void setInspections(Set inspections) {
+		this.inspections = inspections;
 	}
 
 }

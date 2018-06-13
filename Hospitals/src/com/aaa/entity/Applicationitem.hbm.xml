@@ -10,9 +10,9 @@
             <column name="jcxId" />
             <generator class="native"></generator>
         </id>
-        <many-to-one name="applicationform" class="com.aaa.entity.Applicationform" fetch="select">
+        <property name="jcId" type="java.lang.Integer">
             <column name="jcId" />
-        </many-to-one>
+        </property>
         <property name="name" type="java.lang.String">
             <column name="name" length="1024" />
         </property>
@@ -22,11 +22,17 @@
         <property name="info" type="java.lang.String">
             <column name="info" length="1024" />
         </property>
-        <set name="applicationresults" inverse="true">
+        <set name="applicationforms" inverse="true">
             <key>
                 <column name="jcxId" />
             </key>
-            <one-to-many class="com.aaa.entity.Applicationresult" />
+            <one-to-many class="com.aaa.entity.Applicationform" />
+        </set>
+        <set name="appiteminfos" inverse="true">
+            <key>
+                <column name="jcxId" />
+            </key>
+            <one-to-many class="com.aaa.entity.Appiteminfo" />
         </set>
     </class>
 </hibernate-mapping>

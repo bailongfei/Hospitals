@@ -13,7 +13,7 @@
         <property name="SName" type="java.lang.String">
             <column name="s_name" length="1024" />
         </property>
-        <set name="scheduleitems" inverse="true">
+        <set name="scheduleitems" inverse="false">
             <key>
                 <column name="ptid" />
             </key>

@@ -86,6 +86,10 @@
 		<mapping resource="com/aaa/entity/Stufftype.hbm.xml" />
 		<mapping resource="com/aaa/entity/Inpatientarea.hbm.xml" />
 		<mapping resource="com/aaa/entity/Roles.hbm.xml" />
+		<mapping resource="com/aaa/entity/Category.hbm.xml" />
+		<mapping resource="com/aaa/entity/Lop.hbm.xml" />
+		<mapping resource="com/aaa/entity/Insiteminfo.hbm.xml" />
+		<mapping resource="com/aaa/entity/Appiteminfo.hbm.xml" />
 
 
 	</session-factory>

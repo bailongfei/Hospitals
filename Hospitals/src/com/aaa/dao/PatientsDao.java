@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.aaa.entity.Charge;
 import com.aaa.entity.Clinicregister;
+import com.aaa.entity.Iccard;
 import com.aaa.entity.Patients;
 import com.aaa.entity.Stuff;
 import com.aaa.entity.Usertable;
@@ -26,6 +27,7 @@ public interface PatientsDao {
    public void saveClinicregister(Clinicregister clinicregister);//Ìí¼Ó¹ÒºÅ
    public void savePatients(Patients patients);
    public void saveCharge(Charge charge);
+   public void updateIccard(Iccard ic);//¹ÒºÅÐÞ¸Ä½ð¶î
    public void updateClinicregister(Clinicregister clinicregister);//ÐÞ¸Ä¹ÒºÅ
    public void updatePatients(Patients patients);
    public void updateCharge(Charge charge);

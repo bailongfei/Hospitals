@@ -1,13 +1,19 @@
 package com.aaa.action.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 
-import com.aaa.entity.Modules;
 import com.aaa.entity.Roles;
 import com.aaa.entity.Usertable;
 import com.aaa.services.AdminService;
@@ -16,7 +22,7 @@ import com.aaa.util.Message;
 import com.aaa.util.Pager;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.opensymphony.xwork2.ActionContext;
+import com.alibaba.fastjson.JSONObject;
 @Controller
 public class AdminAction extends BaseAction{
 	@Autowired
@@ -28,20 +34,21 @@ public class AdminAction extends BaseAction{
 	private int pageSize=2;
 	private Date day1;
 	private Date day2;
-  public String adminLogin(){
-	  System.out.println("login");
+  public String adminLogin() throws IOException{
+	  Message m;
 	  boolean result=admin.adminLogin(user.getUserName(),user.getPassword());
 	  System.out.println("login:"+result);
 	  if(result==true){
-		 System.out.println("log:"+result);
 		this.getSession().put("adminUsers",user.getUserName());
-		String res=JSON.toJSONString(result);
-		System.out.println(res);
-		this.getPrintWriter().print(res);
+		m=new Message(1,"登陆成功!");
+		//this.getPrintWriter().print(JSON.toJSONString(m));
 		adminUrl="/hospital/html/index.jsp";
 		return "adminUrlss";
 	  }
-	  this.getPrintWriter().print(JSON.toJSONString(result));
+	  /*PrintWriter out =this.getResponse().getWriter();  
+	  out.write("您的应户名或密码错误");*/  
+	  m=new Message(0,"您的应户名或密码错误!");
+	  //this.getPrintWriter().print(JSON.toJSONString(m));
 	  adminUrl="/hospital/html/login.jsp";
 	  return "adminUrlss";
 	
@@ -90,6 +97,19 @@ public class AdminAction extends BaseAction{
 	  List list=admin.findByDateKeShi(day1, day2, params);
 	  String map=JSONArray.toJSONString(list);
 	  this.getPrintWriter().print(map);
+  }
+ /* 退出登录注销 */
+  public String loginRemoveSession(){
+	  HttpServletRequest request=ServletActionContext.getRequest();
+	  HttpSession session = request.getSession(false);//防止创建Session  
+	  if(session == null){  
+		  adminUrl="/hospital/html/login.jsp";
+		  return "adminUrlss";
+      }
+	  session.removeAttribute("adminUsers"); //清空session信息  
+	  request.getSession().invalidate();//清除 session 中的所有信息  
+	  adminUrl="/hospital/html/login.jsp";
+	  return "adminUrlss";
   }
 public Usertable getUser() {
 	return user;

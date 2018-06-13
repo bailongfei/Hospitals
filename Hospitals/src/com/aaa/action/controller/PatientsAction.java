@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import com.aaa.entity.Charge;
 import com.aaa.entity.Clinicregister;
+import com.aaa.entity.Iccard;
 import com.aaa.entity.Patients;
 import com.aaa.entity.Stuff;
 import com.aaa.entity.Stufftype;
@@ -26,11 +27,12 @@ public class PatientsAction extends BaseAction{
   @Autowired
   private PatientsService ps;
   private Patients patients; 
+  private Iccard ic;
   private Clinicregister clinicregister;
   private Charge charge;
   private Pager pager;
   private int curPage;
-  private int pageSize=2;
+  private int pageSize=4;
   private String target;
   private String menuIds;
   private List<Stuff> list;
@@ -81,10 +83,13 @@ public class PatientsAction extends BaseAction{
   //添加病人挂号
   public void addOrupdate(){
 	  System.out.println("clinicregister");
-	  
 	  ps.savePatients(clinicregister.getPatients());
 	  ps.saveCharge(clinicregister.getCharge());
 	  ps.saveClinicregister(clinicregister);
+	  ic.setPatients(clinicregister.getPatients());
+	 
+	  /*ic.setPatients(patients);*/
+	  ps.updateIccard(ic);
 	  Message message=new Message(clinicregister.getCharge().getCharge(),"操作成功!");
 	  this.getPrintWriter().print(JSON.toJSONString(message));
   }
@@ -219,6 +224,12 @@ public List<Usertable> getList2() {
 }
 public void setList2(List<Usertable> list2) {
 	this.list2 = list2;
+}
+public Iccard getIc() {
+	return ic;
+}
+public void setIc(Iccard ic) {
+	this.ic = ic;
 }
   
 }

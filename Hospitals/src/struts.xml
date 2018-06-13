@@ -2,7 +2,7 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
   <constant name="struts.i18n.encoding" value="utf-8"></constant>
-	<constant name="struts.devMode" value="true" /><!-- 开发模式  -->
+	<constant name="struts.devMode" value="false"/><!-- 开发模式  -->
   <package name="default" extends="struts-default,json-default">
     <action name="ps_*" class="com.aaa.action.controller.PatientsAction" method="{1}">
       <result name="success">${target}</result>
@@ -14,10 +14,38 @@
      <action name="roles_*" class="com.aaa.action.controller.RolesAction" method="{1}">
       <result name="success">${rolesUrl}</result>
     </action>
+    <action name="patients_*" class="com.aaa.action.controller.PatientAction" method="{1}">
+	</action>
+    
+    <action name="findByPages" class="com.aaa.action.controller.PaiBanAction" method="findByPages" >
+      <result name="success1">/hospital/html/jym/paiban.jsp</result>
+     </action>
+     <action name="additem" class="com.aaa.action.controller.PaiBanAction" method="additem" >
+     </action>
+     <action name="cwh_*" class="com.aaa.action.controller.IccardAction" method="{1}">
+        <result name="addic" type="chain">cwh_selectic</result>
+     </action>
   </package>
-  <!-- <package name="roles" extends="json-default" namespace="/">
-    <action name="roles_*" class="com.aaa.action.controller.RolesAction" method="{1}">
-      <result name="success">${rolesUrl}</result>
+   
+   <package name="app" extends="struts-default" >
+    <action name="select" class="com.aaa.action.controller.checkAction" method="select">
+      <result name="success">/hospital/html/zbf/success.jsp</result>
     </action>
-  </package> -->
+    <action name="page" class="com.aaa.action.controller.checkAction" method="findAll">
+      <result name="success">/hospital/html/zbf/success.jsp</result>
+    </action>
+    <action name="check" class="com.aaa.action.controller.checkAction" method="selectbyid">
+      <result name="success">/hospital/html/zbf/check.jsp</result>
+    </action>
+    <action name="result" class="com.aaa.action.controller.checkAction" method="getResult">
+       <result name="success">/hospital/html/zbf/result.jsp</result> 
+    </action>
+    <action name="resultform" class="com.aaa.action.controller.ResultAction" method="selectbyid">
+      <result name="success">/hospital/html/zbf/resultform.jsp</result>
+    </action>
+    <action name="insert" class="com.aaa.action.controller.ResultAction" method="insert">
+    </action>
+    <action name="findMoney" class="com.aaa.action.controller.checkAction" method="findMoney">
+    </action>
+  </package>
 </struts>    

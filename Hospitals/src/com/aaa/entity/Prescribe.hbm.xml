@@ -49,5 +49,11 @@
             </key>
             <one-to-many class="com.aaa.entity.Drugtype" />
         </set>
+        <set name="lops" inverse="true">
+            <key>
+                <column name="pid" />
+            </key>
+            <one-to-many class="com.aaa.entity.Lop" />
+        </set>
     </class>
 </hibernate-mapping>

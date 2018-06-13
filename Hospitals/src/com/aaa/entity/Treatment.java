@@ -10,11 +10,11 @@ public class Treatment implements java.io.Serializable {
 
 	private Integer id;
 	private Cure cure;
-	private String TName;
+	private String zjm;
+	private String tname;
 	private String monad;
 	private Integer count;
 	private Integer price;
-	private Integer money;
 	private String date;
 
 	// Constructors
@@ -24,13 +24,13 @@ public class Treatment implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Treatment(Cure cure, String TName, String monad, Integer count, Integer price, Integer money, String date) {
+	public Treatment(Cure cure, String zjm, String tname, String monad, Integer count, Integer price, String date) {
 		this.cure = cure;
-		this.TName = TName;
+		this.zjm = zjm;
+		this.tname = tname;
 		this.monad = monad;
 		this.count = count;
 		this.price = price;
-		this.money = money;
 		this.date = date;
 	}
 
@@ -52,12 +52,20 @@ public class Treatment implements java.io.Serializable {
 		this.cure = cure;
 	}
 
-	public String getTName() {
-		return this.TName;
+	public String getZjm() {
+		return this.zjm;
 	}
 
-	public void setTName(String TName) {
-		this.TName = TName;
+	public void setZjm(String zjm) {
+		this.zjm = zjm;
+	}
+
+	public String getTname() {
+		return this.tname;
+	}
+
+	public void setTname(String tname) {
+		this.tname = tname;
 	}
 
 	public String getMonad() {
@@ -82,14 +90,6 @@ public class Treatment implements java.io.Serializable {
 
 	public void setPrice(Integer price) {
 		this.price = price;
-	}
-
-	public Integer getMoney() {
-		return this.money;
-	}
-
-	public void setMoney(Integer money) {
-		this.money = money;
 	}
 
 	public String getDate() {

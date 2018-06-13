@@ -40,11 +40,5 @@
             </key>
             <one-to-many class="com.aaa.entity.Patients" />
         </set>
-        <set name="iccards" inverse="true">
-            <key>
-                <column name="BookingInfoID" />
-            </key>
-            <one-to-many class="com.aaa.entity.Iccard" />
-        </set>
     </class>
 </hibernate-mapping>

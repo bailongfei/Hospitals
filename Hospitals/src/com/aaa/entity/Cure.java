@@ -13,9 +13,11 @@ public class Cure implements java.io.Serializable {
 
 	private Integer cureId;
 	private Patients patients;
-	private String cureType;
-	private Integer cureNumber;
-	private Integer feesState;
+	private String cureName;
+	private String monad;
+	private Integer price;
+	private Integer count;
+	private Integer countMoney;
 	private Integer state;
 	private Set treatments = new HashSet(0);
 
@@ -26,12 +28,14 @@ public class Cure implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Cure(Patients patients, String cureType, Integer cureNumber, Integer feesState, Integer state,
-			Set treatments) {
+	public Cure(Patients patients, String cureName, String monad, Integer price, Integer count, Integer countMoney,
+			Integer state, Set treatments) {
 		this.patients = patients;
-		this.cureType = cureType;
-		this.cureNumber = cureNumber;
-		this.feesState = feesState;
+		this.cureName = cureName;
+		this.monad = monad;
+		this.price = price;
+		this.count = count;
+		this.countMoney = countMoney;
 		this.state = state;
 		this.treatments = treatments;
 	}
@@ -54,28 +58,44 @@ public class Cure implements java.io.Serializable {
 		this.patients = patients;
 	}
 
-	public String getCureType() {
-		return this.cureType;
+	public String getCureName() {
+		return this.cureName;
 	}
 
-	public void setCureType(String cureType) {
-		this.cureType = cureType;
+	public void setCureName(String cureName) {
+		this.cureName = cureName;
 	}
 
-	public Integer getCureNumber() {
-		return this.cureNumber;
+	public String getMonad() {
+		return this.monad;
 	}
 
-	public void setCureNumber(Integer cureNumber) {
-		this.cureNumber = cureNumber;
+	public void setMonad(String monad) {
+		this.monad = monad;
 	}
 
-	public Integer getFeesState() {
-		return this.feesState;
+	public Integer getPrice() {
+		return this.price;
 	}
 
-	public void setFeesState(Integer feesState) {
-		this.feesState = feesState;
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+
+	public Integer getCount() {
+		return this.count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+
+	public Integer getCountMoney() {
+		return this.countMoney;
+	}
+
+	public void setCountMoney(Integer countMoney) {
+		this.countMoney = countMoney;
 	}
 
 	public Integer getState() {

@@ -13,20 +13,20 @@
         <many-to-one name="inspectionitem" class="com.aaa.entity.Inspectionitem" fetch="select">
             <column name="ins_id" />
         </many-to-one>
-        <many-to-one name="applicationitem" class="com.aaa.entity.Applicationitem" fetch="select">
+        <many-to-one name="applicationform" class="com.aaa.entity.Applicationform" fetch="select">
             <column name="jcxId" />
         </many-to-one>
         <many-to-one name="patients" class="com.aaa.entity.Patients" fetch="select">
             <column name="pat_id" />
         </many-to-one>
-        <property name="inspectionitem_1" type="java.lang.String">
-            <column name="inspectionitem" length="100" />
+        <property name="sample" type="java.lang.String">
+            <column name="sample" length="100" />
         </property>
-        <property name="result" type="java.lang.String">
-            <column name="result" length="100" />
+        <property name="trouble" type="java.lang.String">
+            <column name="trouble" length="100" />
         </property>
-        <property name="reference" type="java.lang.String">
-            <column name="reference" length="100" />
+        <property name="diagnose" type="java.lang.String">
+            <column name="diagnose" length="100" />
         </property>
         <property name="unit" type="java.lang.String">
             <column name="unit" length="20" />

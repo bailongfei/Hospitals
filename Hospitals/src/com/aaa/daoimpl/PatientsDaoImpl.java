@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import com.aaa.dao.PatientsDao;
 import com.aaa.entity.Charge;
 import com.aaa.entity.Clinicregister;
+import com.aaa.entity.Iccard;
 import com.aaa.entity.Patients;
 import com.aaa.entity.Stuff;
 import com.aaa.entity.Usertable;
@@ -244,6 +245,16 @@ public Pager findByPages(final int curPage,final int pageSize) {
 	public void addUsers(Usertable list2) {
 		this.getHt().save(list2);
 		
+	}
+
+	@Override
+	public void updateIccard(Iccard ic) {
+		Iccard i1=this.getHt().get(Iccard.class, ic.getIcid());
+		i1.setMoney(ic.getMoney());
+		i1.setPatients(ic.getPatients());
+		this.getHt().update(i1);
+		/*String hql="update Iccard as i set i.money=? where i.icid=?";
+	    this.getHt().bulkUpdate(hql,ic.getMoney(),ic.getIcid());*/
 	}
 
 	

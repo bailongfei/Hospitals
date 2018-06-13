@@ -56,8 +56,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="loginbox">
       <form  id="myForm" action="admin_adminLogin.action" method="post">
     <ul>
-    <li><input required="required" name="user.userName" type="text" id="ocName" class="loginuser" value="admin"  onclick="JavaScript:this.value=''"/><span class="required" id="spname">*</span></li>
-    <li><input required="required"  name="user.password" type="text" id="ocPass" class="loginpwd" value="密码" onclick="JavaScript:this.value=''"/><span class="required" id="spPass"></span></li>
+    <li><input required="required"  name="user.userName" type="text" id="ocName" class="loginuser" value="admin"  onclick="JavaScript:this.value=''"/><span class="required" id="spname">*</span></li>
+    <li><input required="required" autocomplete="off" name="user.password" type="password" id="ocPass" class="loginpwd" value="密码" onclick="JavaScript:this.value=''"/><span class="required" id="spPass"></span></li>
     <li><input  type="submit" class="loginbtn" value="登录" id="login"   /><label><input name="" type="checkbox" value="" checked="checked" />记住密码</label><label><a href="#">忘记密码？</a></label></li>
     <!-- onclick="javascript:window.location='index.jsp'" -->
     </ul>
@@ -67,10 +67,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     </div>
     <div class="loginbm"></div>
+    <!-- 关闭浏览器后即可清除session信息 -->
+    <%-- <% HttpSession session = request.getSession();
+          session.invalidate(); 
+     %> --%>
 </body>
 </html>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 <script type="text/javascript">
+  /*  $("#login").click(function(){
+      alert("login");
+      $.ajax({
+        url:"${pageContext.request.contextPath}/admin_adminLogin.action",
+        data:$("#myForm").serialize(),
+        type:"post",
+        dataType:"json",
+        success:function(data){
+        alert(data);
+          if(data.state==0){
+            $("#spname").html(data.message).css("color","#0000ff");
+          }else{
+            
+          }
+        },
+        error:function(){
+          alert("操作失败!");
+        }
+      });
+   }); */
   /*  $("#ocName").blur(function(){
     
 	  $.ajax({

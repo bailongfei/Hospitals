@@ -302,6 +302,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             dataType:"json",
             type:"post",
             success:function(data){
+             //$("#tbody .tr").empty();
+             document.location.reload();//当前页面 刷新
               if(data.state>0){
                 alert(data.message);
               

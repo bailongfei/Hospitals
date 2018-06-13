@@ -13,8 +13,11 @@
         <many-to-one name="cure" class="com.aaa.entity.Cure" fetch="select">
             <column name="cureID" />
         </many-to-one>
-        <property name="TName" type="java.lang.String">
-            <column name="t_name" length="1024" />
+        <property name="zjm" type="java.lang.String">
+            <column name="zjm" length="11" />
+        </property>
+        <property name="tname" type="java.lang.String">
+            <column name="tname" length="1024" />
         </property>
         <property name="monad" type="java.lang.String">
             <column name="monad" length="50" />
@@ -24,9 +27,6 @@
         </property>
         <property name="price" type="java.lang.Integer">
             <column name="price" />
-        </property>
-        <property name="money" type="java.lang.Integer">
-            <column name="money" />
         </property>
         <property name="date" type="java.lang.String">
             <column name="date" length="1024" />

@@ -37,5 +37,11 @@
             </key>
             <one-to-many class="com.aaa.entity.Chuku" />
         </set>
+        <set name="lops" inverse="true">
+            <key>
+                <column name="phid" />
+            </key>
+            <one-to-many class="com.aaa.entity.Lop" />
+        </set>
     </class>
 </hibernate-mapping>
